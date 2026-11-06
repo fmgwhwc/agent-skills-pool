@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermin.local/schema/skill-entry.schema.json",
+  "title": "Fermin skill pool entry meta",
+  "type": "object",
+  "required": ["id", "status", "source", "license_spdx", "decision", "rationale", "fermin_tags", "epistemic"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "status": { "type": "string", "enum": ["draft", "candidate", "released", "deprecated"] },
+    "source": {
+      "type": "object",
+      "required": ["repo", "ref", "path", "url"],
+      "properties": {
+        "repo": { "type": "string" },
+        "ref": { "type": "string" },
+        "path": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "license_spdx": { "type": "string" },
+    "decision": { "type": "string", "enum": ["accept", "adapt", "reject"] },
+    "rationale": { "type": "string" },
+    "fermin_tags": { "type": "array", "items": { "type": "string" } },
+    "epistemic": { "type": "string", "enum": ["verified", "evidenced", "provisional", "unknown"] }
+  },
+  "additionalProperties": true
+}
