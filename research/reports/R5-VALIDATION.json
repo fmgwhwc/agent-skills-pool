@@ -1,0 +1,137 @@
+{
+  "round": "R5",
+  "validated_at": "2026-11-07T00:42:14+08:00",
+  "timezone": "Asia/Shanghai (UTC+8)",
+  "executor_surface": "box / DC Bot research-content executor",
+  "skill_count": 8,
+  "output_root": "/workspace/fermin-main-subject/r5-adapt-batch",
+  "source_pins": {
+    "addyosmani/agent-skills": "301b02b12bff98e4688e6984af6556802322bbde",
+    "obra/superpowers": "22f0b463e7a5e579904dd6211a520321035526f7"
+  },
+  "skills": {
+    "fermin-brainstorm-or-spec": {
+      "lines": 131,
+      "status": "candidate",
+      "static": "pass",
+      "content_manual_author_review": "pass",
+      "package_links": "pass",
+      "catalog_merge": "pass",
+      "runtime_scenarios": "pending",
+      "release": "pending"
+    },
+    "fermin-executing-plans": {
+      "lines": 129,
+      "status": "candidate",
+      "static": "pass",
+      "content_manual_author_review": "pass",
+      "package_links": "pass",
+      "catalog_merge": "pass",
+      "runtime_scenarios": "pending",
+      "release": "pending"
+    },
+    "fermin-skill-anatomy": {
+      "lines": 195,
+      "status": "candidate",
+      "static": "pass",
+      "content_manual_author_review": "pass",
+      "package_links": "pass",
+      "catalog_merge": "pass",
+      "runtime_scenarios": "pending",
+      "release": "pending"
+    },
+    "fermin-subagent-driven-dev": {
+      "lines": 146,
+      "status": "candidate",
+      "static": "pass",
+      "content_manual_author_review": "pass",
+      "package_links": "pass",
+      "catalog_merge": "pass",
+      "runtime_scenarios": "pending",
+      "release": "pending"
+    },
+    "fermin-tdd": {
+      "lines": 153,
+      "status": "candidate",
+      "static": "pass",
+      "content_manual_author_review": "pass",
+      "package_links": "pass",
+      "catalog_merge": "pass",
+      "runtime_scenarios": "pending",
+      "release": "pending"
+    },
+    "fermin-using-skills": {
+      "lines": 106,
+      "status": "candidate",
+      "static": "pass",
+      "content_manual_author_review": "pass",
+      "package_links": "pass",
+      "catalog_merge": "pass",
+      "runtime_scenarios": "pending",
+      "release": "pending"
+    },
+    "fermin-verification-dod": {
+      "lines": 144,
+      "status": "candidate",
+      "static": "pass",
+      "content_manual_author_review": "pass",
+      "package_links": "pass",
+      "catalog_merge": "pass",
+      "runtime_scenarios": "pending",
+      "release": "pending"
+    },
+    "fermin-writing-plans": {
+      "lines": 157,
+      "status": "candidate",
+      "static": "pass",
+      "content_manual_author_review": "pass",
+      "package_links": "pass",
+      "catalog_merge": "pass",
+      "runtime_scenarios": "pending",
+      "release": "pending"
+    }
+  },
+  "commands": [
+    {
+      "command": "/workspace/r5-validation-venv/bin/python /workspace/fermin-main-subject/r5-adapt-batch/validate_r5.py --self-test",
+      "exit_code": 0,
+      "result": [
+        "PASS: 8 skills, catalog, frontmatter/meta, schema, R3 SHA pins, local links, candidate gates (400 assertions).",
+        "PASS: catalog merge yielded 8 unique skill entries; version 1, schema-valid overlay records.",
+        "PASS: negative control rejected the deliberately broken SHA (isolated temporary copy)."
+      ]
+    }
+  ],
+  "coverage": {
+    "assertions": "400 (includes per-skill schema, frontmatter, source pins, license, paths and candidate gates)",
+    "markdown": "16 files: balanced fences and all relative links resolve",
+    "catalog": "8 unique IDs, per-entry provenance/quality parity, schema-valid frozen empty-base overlay, version 1",
+    "negative_control": "Deliberately corrupted SHA in isolated temporary copy was rejected with expected wrong-R3-pin diagnostic",
+    "license": "Source MIT texts inspected at pins; full notices included",
+    "no_upstream_clone_or_github_write": true
+  },
+  "tools": {
+    "python": "3.13.5",
+    "pyyaml": "6.0.3",
+    "jsonschema": "4.26.0",
+    "validator_dependencies": "requirements-validation.txt",
+    "schema": "schema/skill-entry.schema.json",
+    "catalog_fixture": "schema/catalog.base.yaml"
+  },
+  "not_checked": [
+    "Fresh baseline-versus-skill agent behavior trials",
+    "Actual Cursor Cloud/Ubuntu skill-loader acceptance",
+    "End-to-end live subagent scheduler dispatch",
+    "Release-owner approval",
+    "Upstream material after the frozen R3 pins"
+  ],
+  "final_gates": {
+    "static": "pass",
+    "manual_content_review": "pass",
+    "package_links": "pass",
+    "catalog_overlay": "pass",
+    "runtime_scenarios": "pending",
+    "released": "pending"
+  },
+  "next_plan": "R5-NEXT-EVALUATION.md"
+}

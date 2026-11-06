@@ -1,0 +1,402 @@
+# Draft R5 overlay for catalog.yaml. Keep existing version/updated fields, merge by id, then run the validator and owner release gate.
+entries:
+- id: fermin-using-skills
+  path: pool/skills/fermin-using-skills
+  status: candidate
+  source:
+    repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: skills/using-agent-skills/SKILL.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/using-agent-skills/SKILL.md
+    license: MIT
+  license_spdx: MIT
+  decision: adapt
+  rationale: Provides a compact router from Fermin assets to the smallest applicable workflow, without importing a full upstream lifecycle stack.
+  fermin_tags:
+  - agent-skills
+  - dc-bot
+  - routing
+  - provenance
+  - closed-loop
+  epistemic: evidenced
+  surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+  quality_gate:
+    static: pass
+    content: pass
+    package_links: pass
+    catalog_merge: pass
+    runtime_scenarios: pending
+    release: pending
+    checks: validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review
+  fermin_tag: borrow-adapt
+  adapted_from:
+  - repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: skills/using-agent-skills/SKILL.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/using-agent-skills/SKILL.md
+    notes: Capability-based routing, minimal relevant workflow, verification instead of assumption.
+    license: MIT
+  license_evidence:
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/LICENSE
+    holder: Addy Osmani (2025)
+  evidence: pool/skills/fermin-using-skills/meta.yaml quality_gate and R5-VALIDATION.json
+- id: fermin-brainstorm-or-spec
+  path: pool/skills/fermin-brainstorm-or-spec
+  status: candidate
+  source:
+    repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: skills/spec-driven-development/SKILL.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/spec-driven-development/SKILL.md
+    license: MIT
+  license_spdx: MIT AND MIT
+  decision: adapt
+  rationale: Keep one requirements intake that combines clear acceptance evidence with high-impact questioning, rather than maintaining separate brainstorm and spec workflows.
+  fermin_tags:
+  - agent-skills
+  - decision
+  - specification
+  - acceptance
+  - capability-map
+  epistemic: evidenced
+  surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+  quality_gate:
+    static: pass
+    content: pass
+    package_links: pass
+    catalog_merge: pass
+    runtime_scenarios: pending
+    release: pending
+    checks: validate_r5.py; R5-ADAPT-REPORT.md selection rationale and validation
+  fermin_tag: borrow-adapt
+  adapted_from:
+  - repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: skills/spec-driven-development/SKILL.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/spec-driven-development/SKILL.md
+    notes: Primary observable acceptance and independently testable capability mapping.
+    license: MIT
+  - repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/brainstorming/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/brainstorming/SKILL.md
+    notes: Read-first inquiry, proposal/statement separation, approach selection before writing the design.
+    license: MIT
+  license_evidence:
+  - ref: 301b02b12bff98e4688e6984af6556802322bbde
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/LICENSE
+    holder: Addy Osmani (2025)
+  - ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
+    holder: Jesse Vincent (2025)
+  evidence: pool/skills/fermin-brainstorm-or-spec/meta.yaml quality_gate and R5-VALIDATION.json
+- id: fermin-writing-plans
+  path: pool/skills/fermin-writing-plans
+  status: candidate
+  source:
+    repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/writing-plans/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md
+    license: MIT
+  license_spdx: MIT
+  decision: adapt
+  rationale: Makes accepted intent executable and resumable with atomic task contracts and evidence ownership across Fermin surfaces.
+  fermin_tags:
+  - agent-skills
+  - planning
+  - task-packs
+  - evidence-map
+  - dc-bot
+  epistemic: evidenced
+  surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+  quality_gate:
+    static: pass
+    content: pass
+    package_links: pass
+    catalog_merge: pass
+    runtime_scenarios: pending
+    release: pending
+    checks: validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review
+  fermin_tag: borrow-adapt
+  adapted_from:
+  - repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/writing-plans/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md
+    notes: Independent deliverables, interfaces, checkable steps, spec-to-task-to-evidence self-review.
+    license: MIT
+  license_evidence:
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
+    holder: Jesse Vincent (2025)
+  evidence: pool/skills/fermin-writing-plans/meta.yaml quality_gate and R5-VALIDATION.json
+- id: fermin-executing-plans
+  path: pool/skills/fermin-executing-plans
+  status: candidate
+  source:
+    repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/executing-plans/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/executing-plans/SKILL.md
+    license: MIT
+  license_spdx: MIT
+  decision: adapt
+  rationale: Gives a single Fermin executor a resumable quality loop without importing upstream shell scripts or Git-worktree coupling.
+  fermin_tags:
+  - agent-skills
+  - execution
+  - ledger
+  - resume
+  - evidence
+  epistemic: evidenced
+  surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+  quality_gate:
+    static: pass
+    content: pass
+    package_links: pass
+    catalog_merge: pass
+    runtime_scenarios: pending
+    release: pending
+    checks: validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review
+  fermin_tag: borrow-adapt
+  adapted_from:
+  - repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/executing-plans/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/executing-plans/SKILL.md
+    notes: Durable progress ledger, exact task brief reading, evidence-based completion, visible rulings.
+    license: MIT
+  license_evidence:
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
+    holder: Jesse Vincent (2025)
+  evidence: pool/skills/fermin-executing-plans/meta.yaml quality_gate and R5-VALIDATION.json
+- id: fermin-subagent-driven-dev
+  path: pool/skills/fermin-subagent-driven-dev
+  status: candidate
+  source:
+    repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/subagent-driven-development/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/SKILL.md
+    license: MIT
+  license_spdx: MIT
+  decision: adapt
+  rationale: Fits DC Bot's scheduler role with bounded dispatch packets, independent acceptance review, and repository-independent closure.
+  fermin_tags:
+  - agent-skills
+  - scheduling
+  - task-packs
+  - subagents
+  - closed-loop
+  epistemic: evidenced
+  surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+  quality_gate:
+    static: pass
+    content: pass
+    package_links: pass
+    catalog_merge: pass
+    runtime_scenarios: pending
+    release: pending
+    checks: validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review
+  fermin_tag: borrow-adapt
+  adapted_from:
+  - repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/subagent-driven-development/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/SKILL.md
+    notes: Fresh-context implementation/review, bounded task packs, scheduler ledger, report adjudication.
+    license: MIT
+  - repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/subagent-driven-development/implementer-prompt.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/implementer-prompt.md
+    notes: Selective support for brief-first input, report-file contract, DONE/DONE_WITH_CONCERNS/NEEDS_CONTEXT/BLOCKED states.
+    license: MIT
+  license_evidence:
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
+    holder: Jesse Vincent (2025)
+  evidence: pool/skills/fermin-subagent-driven-dev/meta.yaml quality_gate and R5-VALIDATION.json
+- id: fermin-tdd
+  path: pool/skills/fermin-tdd
+  status: candidate
+  source:
+    repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/test-driven-development/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md
+    license: MIT
+  license_spdx: MIT AND MIT
+  decision: adapt
+  rationale: Collapses both TDD packs into one test-stack-discovering, evidence-producing Fermin workflow with truthful skill-artifact adaptation.
+  fermin_tags:
+  - agent-skills
+  - tdd
+  - regression
+  - fixtures
+  - evidence
+  epistemic: evidenced
+  surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+  quality_gate:
+    static: pass
+    content: pass
+    package_links: pass
+    catalog_merge: pass
+    runtime_scenarios: pending
+    release: pending
+    checks: validate_r5.py; R5-ADAPT-REPORT.md merge and validation
+  fermin_tag: borrow-adapt-merged
+  adapted_from:
+  - repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/test-driven-development/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md
+    notes: Observed RED rationale, minimal GREEN, real behavior and anti-rationalization.
+    license: MIT
+  - repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: skills/test-driven-development/SKILL.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/test-driven-development/SKILL.md
+    notes: Repository test-stack discovery, regression distinction, real-boundary and behavior-first selection.
+    license: MIT
+  license_evidence:
+  - ref: 301b02b12bff98e4688e6984af6556802322bbde
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/LICENSE
+    holder: Addy Osmani (2025)
+  - ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
+    holder: Jesse Vincent (2025)
+  evidence: pool/skills/fermin-tdd/meta.yaml quality_gate and R5-VALIDATION.json
+- id: fermin-verification-dod
+  path: pool/skills/fermin-verification-dod
+  status: candidate
+  source:
+    repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: references/definition-of-done.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/references/definition-of-done.md
+    license: MIT
+  license_spdx: MIT AND MIT
+  decision: adapt
+  rationale: Gives every Fermin asset one acceptance-plus-DoD evidence gate, with candidate versus released status made machine-readable.
+  fermin_tags:
+  - agent-skills
+  - verification
+  - dod
+  - provenance
+  - candidate-gate
+  epistemic: evidenced
+  surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+  quality_gate:
+    static: pass
+    content: pass
+    package_links: pass
+    catalog_merge: pass
+    runtime_scenarios: pending
+    release: pending
+    checks: validate_r5.py; R5-ADAPT-REPORT.md path-correction log and validation
+  fermin_tag: borrow-adapt-merged
+  adapted_from:
+  - repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: references/definition-of-done.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/references/definition-of-done.md
+    notes: Acceptance-criteria versus standing DoD distinction and the reusable quality floor.
+    license: MIT
+  - repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: skills/using-agent-skills/SKILL.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/using-agent-skills/SKILL.md
+    notes: Runtime verification requirement used instead of the R4 placeholder for a non-existent verification skill.
+    license: MIT
+  - repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/verification-before-completion/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/verification-before-completion/SKILL.md
+    notes: Fresh evidence before claims, check output and independent handling of worker success reports.
+    license: MIT
+  license_evidence:
+  - ref: 301b02b12bff98e4688e6984af6556802322bbde
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/LICENSE
+    holder: Addy Osmani (2025)
+  - ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
+    holder: Jesse Vincent (2025)
+  evidence: pool/skills/fermin-verification-dod/meta.yaml quality_gate and R5-VALIDATION.json
+- id: fermin-skill-anatomy
+  path: pool/skills/fermin-skill-anatomy
+  status: candidate
+  source:
+    repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: docs/skill-anatomy.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/docs/skill-anatomy.md
+    license: MIT
+  license_spdx: MIT AND MIT
+  decision: adapt
+  rationale: Bootstraps future pool work by combining portable anatomy and Fermin provenance with honest per-skill evidence gates.
+  fermin_tags:
+  - agent-skills
+  - authoring
+  - anatomy
+  - provenance
+  - evaluation
+  epistemic: evidenced
+  surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+  quality_gate:
+    static: pass
+    content: pass
+    package_links: pass
+    catalog_merge: pass
+    runtime_scenarios: pending
+    release: pending
+    checks: validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review
+  fermin_tag: borrow-adapt-merged
+  adapted_from:
+  - repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: docs/skill-anatomy.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/docs/skill-anatomy.md
+    notes: Portable frontmatter, description that identifies when to load, progressive disclosure, model-neutral procedures, shared-reference portability defect.
+    license: MIT
+  - repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/writing-skills/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-skills/SKILL.md
+    notes: Baseline/scenario evidence loop, fit guidance form to observed failure, one meaningful example, per-skill testing.
+    license: MIT
+  license_evidence:
+  - ref: 301b02b12bff98e4688e6984af6556802322bbde
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/LICENSE
+    holder: Addy Osmani (2025)
+  - ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
+    holder: Jesse Vincent (2025)
+  evidence: pool/skills/fermin-skill-anatomy/meta.yaml quality_gate and R5-VALIDATION.json

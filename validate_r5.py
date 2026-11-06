@@ -1,0 +1,167 @@
+#!/usr/bin/env python3
+"""Small offline R5 validation utility; not required at skill runtime."""
+from pathlib import Path
+import json
+import re
+import sys
+from datetime import datetime, timedelta, timezone
+import shutil
+import subprocess
+import tempfile
+
+try:
+    import yaml
+    import jsonschema
+except ImportError as exc:
+    raise SystemExit(f"Install PyYAML and jsonschema to run this check: {exc}")
+
+ROOT = Path(__file__).resolve().parent
+SKILLS = ROOT / "pool/skills"
+PIN_ADDY = "301b02b12bff98e4688e6984af6556802322bbde"
+PIN_OBRA = "22f0b463e7a5e579904dd6211a520321035526f7"
+EXPECTED = {
+    "fermin-using-skills", "fermin-brainstorm-or-spec", "fermin-writing-plans",
+    "fermin-executing-plans", "fermin-subagent-driven-dev", "fermin-tdd",
+    "fermin-verification-dod", "fermin-skill-anatomy",
+}
+
+errors = []
+check_count = 0
+
+
+def check(condition, message):
+    global check_count
+    check_count += 1
+    if not condition:
+        errors.append(message)
+
+
+for directory in sorted(p for p in SKILLS.iterdir() if p.is_dir()):
+    skill_id = directory.name
+    skill_file = directory / "SKILL.md"
+    meta_file = directory / "meta.yaml"
+    check(skill_file.is_file(), f"{skill_id}: missing SKILL.md")
+    check(meta_file.is_file(), f"{skill_id}: missing meta.yaml")
+    if not skill_file.is_file() or not meta_file.is_file():
+        continue
+    raw = skill_file.read_text()
+    parts = raw.split('---', 2)
+    check(raw.startswith('---\n') and len(parts) >= 3, f"{skill_id}: frontmatter delimiters")
+    if len(parts) < 3:
+        continue
+    fm = yaml.safe_load(parts[1])
+    meta = yaml.safe_load(meta_file.read_text())
+    check(fm["name"] == skill_id, f"{skill_id}: name/path mismatch")
+    check(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", fm["name"]) is not None, f"{skill_id}: naming")
+    check(isinstance(fm.get("description"), str) and len(fm["description"]) <= 1024, f"{skill_id}: description")
+    check(bool(re.search(r"\bUse (?:when|for)\b", fm["description"])), f"{skill_id}: trigger in description")
+    check(set(fm) == {"name", "description"}, f"{skill_id}: portable top-level frontmatter")
+    check(len(raw.splitlines()) <= 400, f"{skill_id}: SKILL.md exceeds 400 lines")
+    body = parts[2]
+    for section in ["Load / do not load", "Steps", "Done when"]:
+        check(section in body, f"{skill_id}: missing {section}")
+
+    schema = json.loads((ROOT / "schema/skill-entry.schema.json").read_text())
+    jsonschema.Draft202012Validator.check_schema(schema)
+    for problem in jsonschema.Draft202012Validator(schema).iter_errors(meta):
+        errors.append(f"{skill_id} schema: {problem.json_path}: {problem.message}")
+    check(meta.get("status") == "candidate", f"{skill_id}: must enter as candidate")
+    check(meta.get("id") == skill_id, f"{skill_id}: meta id mismatch")
+    check(meta.get("surfaces") == ["dc-bot", "cursor-cloud", "ubuntu"], f"{skill_id}: surfaces")
+    sources = [meta["source"], *meta.get("adapted_from", [])]
+    seen = set()
+    for source in sources:
+        key = (source["repo"], source["ref"], source["path"])
+        if key in seen:
+            continue
+        seen.add(key)
+        pin = PIN_ADDY if source["repo"] == "addyosmani/agent-skills" else PIN_OBRA
+        check(source["repo"] in {"addyosmani/agent-skills", "obra/superpowers"}, f"{skill_id}: unexpected repo {source['repo']}")
+        check(re.fullmatch(r"[0-9a-f]{40}", source["ref"]) is not None, f"{skill_id}: non-SHA source")
+        check(source["ref"] == pin, f"{skill_id}: wrong R3 pin at {source['path']}")
+        check(pin in source["url"] and source["path"] in source["url"], f"{skill_id}: pin/path URL mismatch")
+        check(not source["path"].startswith("/"), f"{skill_id}: absolute upstream path")
+        check(source.get("license") == "MIT", f"{skill_id}: source-level MIT license missing at {source['path']}")
+    for ref in meta.get("references", []):
+        check((directory / ref).is_file(), f"{skill_id}: missing reference {ref}")
+    for link in re.findall(r'\[[^]]+\]\(([^)]+)\)', raw):
+        if '://' not in link and not link.startswith('#'):
+            check((directory / link).exists(), f"{skill_id}: broken link {link}")
+    qg = meta.get("quality_gate", {})
+    for key in ("static", "content", "package_links", "catalog_merge"):
+        check(qg.get(key) == "pass", f"{skill_id}: {key} gate not pass")
+    check(qg.get("runtime_scenarios") == "pending", f"{skill_id}: invented runtime result")
+    check(qg.get("release") == "pending", f"{skill_id}: release should be pending")
+    check(bool(meta.get("open_risks")), f"{skill_id}: missing open risks")
+    check(bool(meta.get("fermin_tag")) and isinstance(meta.get("adaptation"), dict), f"{skill_id}: incomplete Fermin adaptation notes")
+    nums = [int(match.group(1)) for line in body.splitlines() if (match := re.match(r"### (\d+)\.", line))]
+    check(nums == list(range(1, len(nums) + 1)) and len(nums) >= 4, f"{skill_id}: malformed numbered steps")
+
+catalog_text = (ROOT / "catalog-entries.yaml").read_text()
+catalog = yaml.safe_load(catalog_text).get("entries", [])
+check(isinstance(catalog, list) and len(catalog) == 8, "catalog must have 8 entries")
+check({e["id"] for e in catalog} == EXPECTED, "catalog IDs mismatch")
+check({p.name for p in SKILLS.iterdir() if p.is_dir()} == EXPECTED, "unexpected or missing skill directories")
+for entry in catalog:
+    if str(entry.get("path", "")).startswith("pool/skills/"):
+        check((ROOT / entry["path"] / "SKILL.md").is_file(), f"catalog path missing for {entry['id']}")
+    local = SKILLS / entry["id"] / "meta.yaml"
+    if local.exists():
+        meta = yaml.safe_load(local.read_text())
+        for key in ("id", "status", "path", "source", "adapted_from", "license_spdx", "license_evidence", "decision", "rationale", "fermin_tags", "fermin_tag", "surfaces", "quality_gate"):
+            check(entry.get(key) == meta.get(key), f"catalog mismatch for {entry['id']}: {key}")
+
+report = ROOT / "research/reports/R5-ADAPT-REPORT.md"
+if not report.is_file():
+    report = ROOT / "R5-ADAPT-REPORT.md"
+check(report.is_file(), "missing report")
+check(any((ROOT / "rejected").glob("*r5*.md")) or any((ROOT / "rejected").glob("*.md")), "missing R5 rejected notes")
+check(any((ROOT / "attribution").glob("*")), "missing attribution notices")
+catalog_root = ROOT / "catalog.yaml"
+if catalog_root.is_file():
+    root_entries = yaml.safe_load(catalog_root.read_text()).get("entries", [])
+    check({e["id"] for e in root_entries} == EXPECTED, "catalog.yaml IDs mismatch")
+
+if errors:
+    print("FAIL", *errors, sep="\n- ")
+    sys.exit(1)
+print(f"PASS: {len(EXPECTED)} skills, catalog, frontmatter/meta, schema, R3 SHA pins, local links, candidate gates ({check_count} assertions).")
+
+if "--self-test" in sys.argv[1:]:
+    if len(sys.argv) != 2:
+        raise SystemExit("Usage: validate_r5.py [--self-test]")
+    scratch = Path(tempfile.mkdtemp(prefix="r5-validator-self-test-"))
+    try:
+        merged = scratch / "merge"
+        shutil.copytree(ROOT, merged)
+        base_schema = yaml.safe_load((ROOT / "schema/catalog.base.yaml").read_text())
+        additions = yaml.safe_load((ROOT / "catalog-entries.yaml").read_text())["entries"]
+        ids = [entry["id"] for entry in additions]
+        if len(ids) != len(set(ids)):
+            raise SystemExit("FAIL: duplicate overlay IDs")
+        base_schema["entries"] = [entry for entry in base_schema.get("entries", []) if entry["id"] not in ids] + additions
+        base_schema["version"] += 1
+        base_schema["updated"] = datetime.now(timezone(timedelta(hours=8))).date().isoformat()
+        # Validate only the overlay's new/replaced records. Preexisting base entries
+        # may retain their own schema; they are not paraphrased by this R5 tool.
+        base_meta = [{"id": entry["id"], "status": entry["status"], "source": entry["source"], "license_spdx": entry["license_spdx"], "decision": entry["decision"], "rationale": entry["rationale"], "fermin_tags": entry["fermin_tags"], "epistemic": entry["epistemic"]} for entry in base_schema["entries"] if entry["id"] in ids]
+        schema = json.loads((ROOT / "schema/skill-entry.schema.json").read_text())
+        for entry in base_meta:
+            jsonschema.Draft202012Validator(schema).validate(entry)
+        if len(base_schema["entries"]) != 8:
+            raise SystemExit("FAIL: overlay against the frozen empty R4 catalog did not yield eight entries")
+        print(f"PASS: catalog merge yielded {len(base_schema['entries'])} unique skill entries; version {base_schema['version']}, schema-valid overlay records.")
+
+        broken = scratch / "broken"
+        shutil.copytree(ROOT, broken)
+        target = broken / "pool/skills/fermin-tdd/meta.yaml"
+        data = yaml.safe_load(target.read_text())
+        data["source"]["ref"] = "0" * 40
+        target.write_text(yaml.safe_dump(data, sort_keys=False))
+        result = subprocess.run([sys.executable, str(broken / "validate_r5.py")], capture_output=True, text=True)
+        if result.returncode == 0 or "wrong R3 pin" not in result.stdout:
+            raise SystemExit(f"FAIL: broken-SHA mutation was not rejected. stdout={result.stdout}; stderr={result.stderr}")
+        print("PASS: negative control rejected the deliberately broken SHA (isolated temporary copy).")
+    finally:
+        shutil.rmtree(scratch)
+
