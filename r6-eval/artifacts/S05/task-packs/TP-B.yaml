@@ -1,0 +1,45 @@
+plan_id: "plan-s05-dispatch-isolation"
+task_id: "T-B"
+title: "Toy evidence-ledger note (skill-content)"
+surface: "dc-bot"
+context:
+  spec: "r6-eval/artifacts/S05/briefs/SPEC-s05-dispatch-toy.md"
+  plan: "r6-eval/artifacts/S05/briefs/PLAN-s05-dispatch-toy.md"
+  global_constraints:
+    - "Cite input paths; do not paste whole chat history into this pack or the report"
+    - "No GitHub, external messages, installs, or deletes"
+    - "Write only allowed_changes paths"
+inputs:
+  - path: "r6-eval/artifacts/S05/briefs/SPEC-s05-dispatch-toy.md"
+    role: "requirements"
+    revision: "local-s05"
+  - path: "r6-eval/artifacts/S05/briefs/PLAN-s05-dispatch-toy.md"
+    role: "interface"
+    revision: "local-s05"
+outputs:
+  - "r6-eval/artifacts/S05/outputs/note-evidence-ledger.md"
+  - "r6-eval/artifacts/S05/reports/TP-B-report.md"
+interfaces:
+  consumes: ["SPEC-s05 CAP-B requirements"]
+  produces: ["note-evidence-ledger.md prose note"]
+allowed_changes:
+  - "r6-eval/artifacts/S05/outputs/note-evidence-ledger.md"
+  - "r6-eval/artifacts/S05/reports/TP-B-report.md"
+prohibited_side_effects:
+  - "Mutating TP-A write scope or shared catalog"
+  - "External publish/send/install/delete"
+  - "Copying whole session chat into pack or artifact"
+acceptance:
+  - id: "AC-TB-1"
+    method: "artifact inspection: file exists at declared output path"
+    expected: "note-evidence-ledger.md present, non-empty, contains marker TASK-ID:T-B"
+  - id: "AC-TB-2"
+    method: "report inspection"
+    expected: "TP-B-report.md Status DONE with evidence paths pointing at real artifact"
+provenance:
+  source_repo: "not-applicable"
+  source_ref: "not-applicable"
+  source_path: "local toy"
+  license_spdx: "not-applicable"
+report_contract: "DONE | DONE_WITH_CONCERNS | NEEDS_CONTEXT | BLOCKED"
+chat_history_included: false

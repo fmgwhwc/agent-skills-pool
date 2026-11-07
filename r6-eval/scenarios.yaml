@@ -44,7 +44,7 @@ scenarios:
     stimulus: Two non-overlapping skill-content tasks; worker claims DONE without evidence.
     expected: Two task packs; actual artifacts; scheduler rejects missing proof; no whole-chat-history copy.
     evidence: evidence/S05-dispatch-isolation.yaml
-    status: not-run
+    status: pass
   - id: S06
     title: Shared-write collision
     skills: [fermin-writing-plans, fermin-subagent-driven-dev]
