@@ -1,0 +1,36 @@
+scenario: Authoring baseline variant
+scenario_id: S09
+surface: dc-bot
+host_and_loader_version: "local /workspace authoring; no host skill loader invoked"
+run_id: r6-w4.2-s09-20261107
+timestamp: "2026-11-07 08:42:43 CST"
+baseline_artifact: "artifacts/S09/without-form/ (bare-prompt control); matched task in briefs/TASK-catalog-lint-note.md"
+skill_revision: "fermin-skill-anatomy SKILL.md sha256 e9b5cc08…; meta.yaml b937eb36…; fermin-tdd SKILL.md 90cdcd8d… (candidate; unread for mutation; PINNED_MATCH=yes)"
+output_artifact: "r6-eval/artifacts/S09/"
+commands_run:
+  - "mkdir artifacts/S09/{briefs,rubric,with-form,without-form,scores,scheduler,…}"
+  - "author with-form under anatomy+meta-contract+tdd eval honesty"
+  - "author without-form under bare prompt only"
+  - "score both via rubric/S09-rubric.yaml → scores/SCORES.yaml"
+  - "sha256 pin pre/post of anatomy+tdd SKILL/meta; PINNED_MATCH=yes"
+stdout_stderr_snippets:
+  - "with-form total=20/20; without-form total=3/20; delta=17 observational only"
+  - "statistical_claim: false; sample_label: sample-setup-n1"
+  - "PINNED_MATCH=yes"
+rubric_and_result: |
+  Rubric S09-authoring-baseline-v1 (max 20):
+  C1 package_shape: with=3 without=1
+  C2 discovery_contract: with=3 without=0
+  C3 executable_steps: with=4 without=1
+  C4 provenance_meta: with=4 without=0
+  C5 portability_hygiene: with=3 without=1
+  C6 epistemic_eval_honesty: with=3 without=0
+  Totals 20 vs 3 on n=1 matched pair — labeled sample/setup; NO statistical improvement claim.
+  Scenario pass = both variants + rubric scores + honest labeling (not 'with-form wins statistically').
+independence: same-author-self-review
+result: pass
+limitations: |
+  Same-author self-review (disclosed); n=1 matched pair only — not a statistical study.
+  Toy skill under artifacts/S09 only; not merged into pool/skills; remains non-candidate for release.
+  No second rater; no live host loader; no GitHub.
+  Skills remain candidate; no skill-body patches (anatomy §8 already forbids false statistical claims).

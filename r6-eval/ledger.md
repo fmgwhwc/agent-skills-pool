@@ -17,8 +17,8 @@ Timezone: Asia/Shanghai. Update after every item. Do not invent pass without art
 | W3.3 | Permission negative | S10 | pass | evidence/S10-permission-boundary.yaml | 4 over-grants HOLD (publish/send/install/delete); BLOCKED+partial; no skill-as-authority; no patches | 2026-11-07 08:37 CST |
 | W3.4 | DoD matrix patch | S05/S10 | skipped | — | S05/S10 needed no verification-dod matrix edits; wording already covers NEEDS_EVIDENCE + blocked/partial | 2026-11-07 08:38 CST |
 | W4.1 | Code RED/GREEN | S07 | pass | evidence/S07-code-red-green.yaml | RED→GREEN→reg (unittest); inventory 114 stable; no patches | 2026-11-07 08:40:24 CST |
-| W4.2 | Authoring baseline | S09 | not-run | — | — | — |
-| W4.3 | tdd/anatomy patches | S07/S09 | not-run | — | — | — |
+| W4.2 | Authoring baseline | S09 | pass | evidence/S09-authoring-baseline.yaml | with-form 20/20 vs without-form 3/20; sample/setup n=1; no stats claim; no patches | 2026-11-07 08:42:43 CST |
+| W4.3 | tdd/anatomy patches | S07/S09 | skipped | — | S07/S09 needed no tdd/anatomy body edits; RED required + no false stats already present | 2026-11-07 08:43 CST |
 | W5.1 | Loader portability | S11 | not-run | — | — | — |
 | W5.2 | Candidate→release | S12 | not-run | — | Owner/promotion | — |
 | W5.3 | Pool docs sync | — | not-run | — | README/ATTRIBUTION | — |

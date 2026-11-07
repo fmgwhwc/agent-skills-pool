@@ -1,0 +1,51 @@
+# S09 Authoring baseline rubric — explicit scores; sample/setup only (n=1)
+# Do NOT derive population / statistical improvement claims from this run.
+rubric_id: S09-authoring-baseline-v1
+scenario_id: S09
+sample_label: sample-setup-n1
+statistical_claim_allowed: false
+max_total: 20
+criteria:
+  - id: C1
+    name: package_shape
+    max: 3
+    description: >
+      Self-contained skill dir with SKILL.md; name equals directory (kebab);
+      optional references one-hop; no unused scripts.
+  - id: C2
+    name: discovery_contract
+    max: 3
+    description: >
+      YAML frontmatter with name+description; description has concrete Use-when /
+      exclusions; body has Load / do not load.
+  - id: C3
+    name: executable_steps
+    max: 4
+    description: >
+      Ordered steps with observable artifacts; lint-note field contract explicit;
+      Done-when checklist present; exceptions/evidence for bad input.
+  - id: C4
+    name: provenance_meta
+    max: 4
+    description: >
+      meta.yaml present with meta_version, id, status=candidate, source/adapted_from
+      shape, license_spdx, surfaces, quality_gate including runtime_scenarios pending
+      or evidenced, open_risks if runtime pending.
+  - id: C5
+    name: portability_hygiene
+    max: 3
+    description: >
+      No installers/telemetry/marketing superiority; no hardcoded personal paths;
+      no self-granted publish/send/GitHub authority; model-neutral procedure.
+  - id: C6
+    name: epistemic_eval_honesty
+    max: 3
+    description: >
+      Mentions discriminating baseline/scenario or fixture idea; does not claim
+      statistical improvement from n=1; candidate not falsely released.
+scoring_notes: |
+  Score integers 0..max per criterion. Total = sum. Pass threshold for S09 setup:
+  both variants labeled and scored; with-form expected higher on C2–C4/C6 if anatomy
+  applied; without-form may still pass C1 partially. Scenario pass requires rubric
+  applied + no statistical claim in evidence/report — not that with-form "wins"
+  significantly.
