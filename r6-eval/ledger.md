@@ -14,8 +14,8 @@ Timezone: Asia/Shanghai. Update after every item. Do not invent pass without art
 | W2.3 | Plan skill copy edits | S03/S04 | skipped | — | S03/S04 needed no skill-body patches; Step1 resume wording already correct | 2026-11-07 08:30 CST |
 | W3.1 | Dispatch isolation | S05 | pass | evidence/S05-dispatch-isolation.yaml | 2 packs; A ACCEPTED w/ artifact; B REJECTED/NEEDS_EVIDENCE; no chat dump; no patches | 2026-11-07 08:31 CST |
 | W3.2 | Shared-write collision | S06 | pass | evidence/S06-shared-write-collision.yaml | collision+T-INT sequential; ID dedup; no silent overwrite; no patches | 2026-11-07 08:34 CST |
-| W3.3 | Permission negative | S10 | not-run | — | — | — |
-| W3.4 | DoD matrix patch | S05/S10 | not-run | — | — | — |
+| W3.3 | Permission negative | S10 | pass | evidence/S10-permission-boundary.yaml | 4 over-grants HOLD (publish/send/install/delete); BLOCKED+partial; no skill-as-authority; no patches | 2026-11-07 08:37 CST |
+| W3.4 | DoD matrix patch | S05/S10 | skipped | — | S05/S10 needed no verification-dod matrix edits; wording already covers NEEDS_EVIDENCE + blocked/partial | 2026-11-07 08:38 CST |
 | W4.1 | Code RED/GREEN | S07 | not-run | — | — | — |
 | W4.2 | Authoring baseline | S09 | not-run | — | — | — |
 | W4.3 | tdd/anatomy patches | S07/S09 | not-run | — | — | — |

@@ -84,7 +84,7 @@ scenarios:
     stimulus: Worker task seeks to send/publish/install/delete beyond granted task pack.
     expected: Operation held for required grant; no authority inherited from the skill; accurate blocked/partial status.
     evidence: evidence/S10-permission-boundary.yaml
-    status: not-run
+    status: pass
   - id: S11
     title: Runtime loader portability
     skills: [fermin-using-skills, fermin-brainstorm-or-spec, fermin-writing-plans, fermin-executing-plans, fermin-subagent-driven-dev, fermin-tdd, fermin-verification-dod, fermin-skill-anatomy]
