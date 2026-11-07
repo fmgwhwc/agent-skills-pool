@@ -1,0 +1,30 @@
+task_id: T03
+title: Sequential catalog integration owner
+status: complete
+depends_on: [T01, T02]
+sole_catalog_writer: true
+owner_role: catalog-integration-owner
+shared_artifact: "catalog.yaml (or r5-adapt-batch/catalog-entries.yaml overlay)"
+live_apply_this_run: false
+procedure:
+  preconditions:
+    - T01 brief complete and payload_sketch_ready_for_T03
+    - T02 brief complete and payload_sketch_ready_for_T03
+    - T01/T02 allowed_changes_include_catalog_yaml == false
+  merge_order:
+    - "Read current catalog shell (version/updated/entries) + any overlay"
+    - "Insert/merge entry id=fermin-catalog-lint from SPEC-cap-catalog-lint payload sketch"
+    - "Insert/merge entry id=fermin-evidence-ledger from SPEC-cap-evidence-ledger payload sketch"
+  conflict_rules:
+    - "Dedup by id; if id exists with differing content → stop and report conflict (no silent overwrite)"
+    - "Reject if T01 or T02 workers attempt concurrent catalog edits"
+    - "Single writer: only this owner role may mutate the shared catalog artifact"
+  postconditions:
+    - "Exactly two new candidate ids proposed (not applied in S03)"
+    - "Existing eight R5 ids unchanged"
+checks:
+  AC-T03-1: pass  # only T03 owns catalog integration
+  AC-T03-2: pass  # dedup-by-id + no silent overwrite named
+  AC-T03-3: pass  # depends_on T01,T02; single plan file
+notes: "S03 delivers the owner procedure as the integration artifact; live catalog mutation deferred to a later authorized wave."
+updated: "2026-11-07 08:26:25 CST"

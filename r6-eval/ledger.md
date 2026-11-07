@@ -9,7 +9,7 @@ Timezone: Asia/Shanghai. Update after every item. Do not invent pass without art
 | W1.1 | Router / low ceremony | S01 | pass | evidence/S01-router-low-ceremony.yaml | Bounded typo fix; only using-skills; patch proposed for Step 4 | 2026-11-07 08:23:11 CST |
 | W1.2 | Router / consequential unknown | S02 | pass | evidence/S02-router-consequential-unknown.yaml | Read-before-ask; default=deepen eight via R6; ≤1 fork Q non-blocking | 2026-11-07 08:25:21 CST |
 | W1.4 | Router / validator patches | S01/S08 | applied | patches/fermin-using-skills.SKILL.md.diff | Step-4 typo-path clarification applied on PR branch; status stays candidate | 2026-11-07 |
-| W2.1 | Requirements splitting | S03 | not-run | — | — | — |
+| W2.1 | Requirements splitting | S03 | pass | evidence/S03-requirements-splitting.yaml | IDs cap-catalog-lint + cap-evidence-ledger; T03 sole catalog owner; 1 plan; no patches | 2026-11-07 08:27 CST |
 | W2.2 | Resume behavior | S04 | not-run | — | — | — |
 | W2.3 | Plan skill copy edits | S03/S04 | not-run | — | — | — |
 | W3.1 | Dispatch isolation | S05 | not-run | — | — | — |

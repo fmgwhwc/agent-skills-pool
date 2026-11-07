@@ -1,0 +1,13 @@
+task_id: T01
+capability_id: cap-catalog-lint
+proposed_skill_id: fermin-catalog-lint
+status: complete
+spec: artifacts/S03/specs/SPEC-cap-catalog-lint.md
+checks:
+  AC-T01-1: pass  # ID + AC-1..AC-4 in SPEC
+  AC-T01-2: pass  # catalog.yaml NOT in allowed_changes
+allowed_changes_include_catalog_yaml: false
+depends_on: []
+payload_sketch_ready_for_T03: true
+notes: "S03 planning complete for this capability; full SKILL.md not authored (per parent brief)."
+updated: "2026-11-07 08:26:20 CST"

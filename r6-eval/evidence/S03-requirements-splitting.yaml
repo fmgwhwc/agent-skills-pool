@@ -1,0 +1,44 @@
+scenario: Requirements splitting
+scenario_id: S03
+surface: dc-bot
+host_and_loader_version: "DC Bot executor dry-run; fermin-brainstorm-or-spec + fermin-writing-plans SKILL.md read in full"
+run_id: r6-w2.1-s03-20261107
+timestamp: "2026-11-07 08:27:16 CST"
+baseline_artifact: "stimulus: two independently testable candidate micro-skills (catalog-lint + evidence-ledger) + shared catalog.yaml integration owner; local trees r5-adapt-batch/ + pool-skeleton/ + r6-eval/"
+skill_revision: "fermin-brainstorm-or-spec SKILL.md sha256:979fbaf980cf0482dc39a41989c9fef2c51040c2613a536f877a4023c3fd6513; fermin-writing-plans SKILL.md sha256:a93dfe05161159a268084e10f097c39425b273bec09144a61c0c5bda76af5c05"
+output_artifact: "r6-eval/artifacts/S03/{sources-checked.md,capability-map.md,specs/SPEC-cap-catalog-lint.md,specs/SPEC-cap-evidence-ledger.md,plan/PLAN-s03-pool-maintenance-microskills.md,plan/PLAN-LEDGER.md,briefs/T01-*.yaml,briefs/T02-*.yaml,briefs/T03-*.yaml}"
+commands_run:
+  - "Read r6-eval/scenarios.yaml S03 + R6-item-build-plan.md W2.1 + ledger.md"
+  - "Read pool/skills/fermin-brainstorm-or-spec/SKILL.md (split + capability map + decision record)"
+  - "Read pool/skills/fermin-writing-plans/SKILL.md (one plan; no parallel catalog writers; sequential integration owner)"
+  - "Read schema/skill-entry.schema.json, catalog.base.yaml, pool-skeleton/catalog.yaml, catalog-entries.yaml head"
+  - "Wrote artifacts/S03 sources, capability-map, two SPECs, one PLAN + PLAN-LEDGER, three task briefs"
+  - "Structural rubric: plan_count==1; IDs present; T01/T02 catalog omit; T03 depends_on [T01,T02]"
+  - "sha256sum brainstorm + writing-plans SKILL.md"
+stdout_stderr_snippets:
+  - "capability IDs: cap-catalog-lint | cap-evidence-ledger"
+  - "dep direction: both peers → T03 catalog-integration-owner; peers depends_on []"
+  - "plan_count=1 PLAN-s03-pool-maintenance-microskills.md"
+  - "T01/T02 allowed_changes_include_catalog_yaml: false"
+  - "T03 sole_catalog_writer: true; live_apply_this_run: false"
+  - "ALL STRUCTURAL CHECKS OK"
+  - "no SKILL.md patches; skills did not force wrong splitting/planning behavior"
+  - "no GitHub writes"
+rubric_and_result: |
+  Two stable capability IDs: PASS (cap-catalog-lint, cap-evidence-ledger in map + SPECs)
+  Dependency direction acyclic: PASS (T01∥T02; T03 depends_on [T01,T02]; peers have none)
+  One integration-owner catalog task: PASS (T03 only; sole_catalog_writer)
+  No duplicate plans: PASS (exactly one PLAN-*.md for initiative)
+  Split justified (distinct assets + independent AC): PASS (capability-map split verdict)
+  brainstorm Steps 1–2 then writing-plans (not reverse): PASS (sources-checked → map → SPECs → single plan)
+  Shared catalog not parallel-written by capability workers: PASS
+  Full SKILL bodies not required this scenario: PASS (contracts + payload sketches only)
+independence: same-author-self-review
+result: pass
+limitations: |
+  Same-author dry-run (executor followed brainstorm + writing-plans), not a fresh independent worker.
+  Live catalog.yaml / overlay not mutated (T03 procedure-only by design for S03); apply deferred.
+  Proposed micro-skills fermin-catalog-lint / fermin-evidence-ledger have no SKILL.md bodies yet — S03 validates splitting/planning, not runtime of those skills.
+  Payload source.ref values are local-s03-proposal placeholders, not git SHAs.
+  GitHub main not fetched; no PR this run (parent brief: No GitHub).
+  Spec status authorized-default for local reversible planning; owner may still reject authoring these two skills later without invalidating the S03 split evidence.
