@@ -1,6 +1,7 @@
-# Catalog entries for agent-skills-pool (merged with S12 release overlay).
-# R6 W5.2: eight process skills status=released; runtime_scenarios/release pass.
-# Provenance preserved; see r6-eval/artifacts/S12/PROMOTION.md.
+# R5/R6 catalog overlay for catalog.yaml. Merge by id; keep provenance.
+# Applied locally in W5.3 on 2026-11-07 08:48:44 CST (Asia/Shanghai). Eight entries status: released.
+# Full quality_gate / adapted_from / r6_promotion live here; pool-skeleton/catalog.yaml holds schema-required index fields.
+# validate_r5.py: use --mode admission|release|auto (default auto per skill status).
 updated: '2026-11-07'
 entries:
 - id: fermin-using-skills

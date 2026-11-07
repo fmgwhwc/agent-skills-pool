@@ -1,0 +1,25 @@
+FAIL
+- fermin-brainstorm-or-spec: must enter as candidate
+- fermin-brainstorm-or-spec: invented runtime result
+- fermin-brainstorm-or-spec: release should be pending
+- fermin-executing-plans: must enter as candidate
+- fermin-executing-plans: invented runtime result
+- fermin-executing-plans: release should be pending
+- fermin-skill-anatomy: must enter as candidate
+- fermin-skill-anatomy: invented runtime result
+- fermin-skill-anatomy: release should be pending
+- fermin-subagent-driven-dev: must enter as candidate
+- fermin-subagent-driven-dev: invented runtime result
+- fermin-subagent-driven-dev: release should be pending
+- fermin-tdd: must enter as candidate
+- fermin-tdd: invented runtime result
+- fermin-tdd: release should be pending
+- fermin-using-skills: must enter as candidate
+- fermin-using-skills: invented runtime result
+- fermin-using-skills: release should be pending
+- fermin-verification-dod: must enter as candidate
+- fermin-verification-dod: invented runtime result
+- fermin-verification-dod: release should be pending
+- fermin-writing-plans: must enter as candidate
+- fermin-writing-plans: invented runtime result
+- fermin-writing-plans: release should be pending

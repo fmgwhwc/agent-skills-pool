@@ -1,0 +1,2 @@
+FAIL
+- fermin-tdd: missing evidence file r6-eval/evidence/DOES-NOT-EXIST.yaml

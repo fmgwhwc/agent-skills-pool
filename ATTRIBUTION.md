@@ -1,20 +1,35 @@
-# Attribution
+# Attribution — agent-skills-pool (R5 ADAPT → R6 released)
 
-Upstream sources will be listed per catalog entry after ACCEPT/ADAPT.
+This is new Fermin packaging/procedural adaptation, **not a fork or mirror**. Substantial method and checklists were selected, reorganized, rewritten, and translated to Fermin execution surfaces from two MIT repositories. Eight process skills were promoted to `status: released` after R6 scenario evidence (W1–W5.2).
 
-Do not treat this file as a license grant; see each entry `meta.yaml` and root LICENSE.
+## Upstream pins (frozen)
 
-## R5 Fermin process-skill candidates (2026-11-07)
+| Upstream | Copyright | Exact pinned source (full SHA) | Retained notice |
+|---|---|---|---|
+| `addyosmani/agent-skills` | Addy Osmani (2025) | `301b02b12bff98e4688e6984af6556802322bbde` | [ADDYOSMANI-MIT.txt](attribution/ADDYOSMANI-MIT.txt) |
+| `obra/superpowers` | Jesse Vincent (2025) | `22f0b463e7a5e579904dd6211a520321035526f7` | [OBRA-MIT.txt](attribution/OBRA-MIT.txt) |
 
-This is new Fermin packaging/procedural adaptation, not a fork or mirror. Substantial method and checklists were selected, reorganized, rewritten, and translated to Fermin execution surfaces from two MIT repositories.
+## Released skills (R6) — source.repo@ref + license
 
-| Upstream | Copyright | Exact pinned source | Retained notice | Applies to |
+| Skill id | status | Primary `source.repo@ref` / path | `license_spdx` | Also adapted_from |
 |---|---|---|---|---|
-| `addyosmani/agent-skills` | Addy Osmani (2025) | `301b02b12bff98e4688e6984af6556802322bbde` | [attribution/ADDYOSMANI-MIT.txt](attribution/ADDYOSMANI-MIT.txt) | `fermin-using-skills`, `fermin-brainstorm-or-spec`, `fermin-tdd`, `fermin-verification-dod`, `fermin-skill-anatomy` |
-| `obra/superpowers` | Jesse Vincent (2025) | `22f0b463e7a5e579904dd6211a520321035526f7` | [attribution/OBRA-MIT.txt](attribution/OBRA-MIT.txt) | `fermin-writing-plans`, `fermin-executing-plans`, `fermin-subagent-driven-dev`, `fermin-brainstorm-or-spec`, `fermin-tdd`, `fermin-verification-dod`, `fermin-skill-anatomy` |
+| `fermin-using-skills` | released | `addyosmani/agent-skills@301b02b12bff98e4688e6984af6556802322bbde` / `skills/using-agent-skills/SKILL.md` | MIT | (primary only) |
+| `fermin-brainstorm-or-spec` | released | `addyosmani/agent-skills@301b02b12bff98e4688e6984af6556802322bbde` / `skills/spec-driven-development/SKILL.md` | MIT AND MIT | + `obra/superpowers@…/skills/brainstorming/SKILL.md` |
+| `fermin-writing-plans` | released | `obra/superpowers@22f0b463e7a5e579904dd6211a520321035526f7` / `skills/writing-plans/SKILL.md` | MIT | (primary only) |
+| `fermin-executing-plans` | released | `obra/superpowers@22f0b463e7a5e579904dd6211a520321035526f7` / `skills/executing-plans/SKILL.md` | MIT | (primary only) |
+| `fermin-subagent-driven-dev` | released | `obra/superpowers@22f0b463e7a5e579904dd6211a520321035526f7` / `skills/subagent-driven-development/SKILL.md` | MIT | + Obra implementer brief (see meta) |
+| `fermin-tdd` | released | `obra/superpowers@22f0b463e7a5e579904dd6211a520321035526f7` / `skills/test-driven-development/SKILL.md` | MIT AND MIT | + Addy TDD skill (see meta) |
+| `fermin-verification-dod` | released | `addyosmani/agent-skills@301b02b12bff98e4688e6984af6556802322bbde` / `references/definition-of-done.md` | MIT AND MIT | + Addy using-agent-skills + Obra verification-before-completion |
+| `fermin-skill-anatomy` | released | `addyosmani/agent-skills@301b02b12bff98e4688e6984af6556802322bbde` / `docs/skill-anatomy.md` | MIT AND MIT | + selective Obra `writing-skills` |
 
-Exact contributing paths and per-entry reasoning are in each `meta.yaml` and `research/reports/R5-ADAPT-REPORT.md`. `license_spdx: MIT AND MIT` on multi-source entries means attributions to both MIT sources are retained; it is not a claim that the root Fermin repository's packaging license has changed. Root `LICENSE` retains its own original-packaging notice; include `attribution/` when adapted skill content is copied or distributed as a pool.
+Exact contributing paths, adaptation notes, and per-entry reasoning remain in each `pool/skills/*/meta.yaml`. R6 runtime/release evidence lives under `r6-eval/evidence/` and promotion records under `r6-eval/artifacts/S12/` (see `r6-eval/artifacts/S12/PROMOTION.md` and `r6-eval/ledger.md`).
 
-License texts at those pins were read on 2026-11-07. No Anthropic documentation skill was adapted or copied. No legal conclusion is drawn about the upstream repositories beyond inspecting their root MIT texts at the listed revisions.
+`license_spdx: MIT AND MIT` on multi-source entries means attributions to both MIT sources are retained; it is **not** a claim that the root Fermin repository's packaging license has changed. Root `LICENSE` keeps its own original-packaging notice; this attribution directory must ship when adapted skill content is copied or distributed as a pool.
 
-See also `attribution/R5-ATTRIBUTION.md`.
+## Rejected / not promoted (separate)
+
+Scoped rejects and path corrections are **not** attributions for released skills. See `rejected/README.md` and `rejected/2026-11-07-r5-path-corrections.md`. No Anthropic documentation skill was adapted or copied.
+
+License texts at the pins above were read on 2026-11-07. No legal conclusion is drawn about the upstream repositories beyond inspecting their root MIT texts at the listed revisions.
+
+Updated: 2026-11-07 08:49:24 CST (Asia/Shanghai) — R6 W5.3 pool docs sync.
