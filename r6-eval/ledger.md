@@ -21,4 +21,4 @@ Timezone: Asia/Shanghai. Update after every item. Do not invent pass without art
 | W4.3 | tdd/anatomy patches | S07/S09 | skipped | — | S07/S09 needed no tdd/anatomy body edits; RED required + no false stats already present | 2026-11-07 08:43 CST |
 | W5.1 | Loader portability | S11 | pass | evidence/S11-loader-portability.yaml | 8/8 frontmatter+meta+links; port-tree copy; no patches | 2026-11-07 08:44:28 CST |
 | W5.2 | Candidate→release | S12 | pass | evidence/S12-candidate-to-release.yaml | 8/8 release (meta released); limits retained; catalog overlay only; no GitHub | 2026-11-07 08:47:15 CST |
-| W5.3 | Pool docs sync | — | not-run | — | README/ATTRIBUTION | — |
+| W5.3 | Pool docs sync | — | complete | artifacts/W5.3/; WAVE-W5.3-REPORT.md | README/ATTRIBUTION/rejected/catalog/validate_r5 split; handover zip | 2026-11-07 08:49:24 CST |
