@@ -1,0 +1,15 @@
+scenario: <row title>
+scenario_id: SNN
+surface: dc-bot | cursor-cloud | ubuntu
+host_and_loader_version: <if available>
+run_id: <identifier>
+timestamp: <actual time, Asia/Shanghai>
+baseline_artifact: <path or none; not-improvised>
+skill_revision: <immutable revision>
+output_artifact: <path>
+commands_run: []
+stdout_stderr_snippets: []
+rubric_and_result: <actual assertions/scores>
+independence: fresh-worker | same-author-self-review | static-only
+result: pass | fail | partial | blocked | not-run
+limitations: <exact gaps>

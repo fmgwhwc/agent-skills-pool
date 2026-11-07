@@ -1,0 +1,30 @@
+scenario: Router / low ceremony
+scenario_id: S01
+surface: dc-bot
+host_and_loader_version: "DC Bot executor dry-run; fermin-using-skills SKILL.md read in full"
+run_id: r6-w1.1-s01-20261107
+timestamp: "2026-11-07 08:23:11 CST"
+baseline_artifact: "r6-eval/fixtures/typo-doc.md (deliberate typo candiate); before-copy r6-eval/artifacts/S01/typo-doc.before.md"
+skill_revision: "fermin-using-skills SKILL.md sha256:3b3140fdfd9b122dc841cd5ed8d50243b2f9a9ea6356802334f880e27c51e8aa"
+output_artifact: "r6-eval/fixtures/typo-doc.md; r6-eval/artifacts/S01/"
+commands_run:
+  - "Created fixtures/typo-doc.md with known typo 'candiate'"
+  - "Read pool/skills/fermin-using-skills/SKILL.md (route table + steps)"
+  - "Bounded replace: 'is a candiate skill' → 'is a candidate skill'; update annotation line"
+  - "diff -u artifacts/S01/typo-doc.before.md artifacts/S01/typo-doc.after.md"
+stdout_stderr_snippets:
+  - "route table: Small, unambiguous tasks may use only the directly relevant skill. No choreography is needed to fix a typo..."
+  - "skills loaded: [fermin-using-skills] only"
+  - "diff shows two-line change in fixtures/typo-doc.md only"
+  - "no brainstorm-or-spec / writing-plans / executing-plans artifacts created for S01"
+rubric_and_result: |
+  Direct bounded edit on explicit path: PASS
+  No new spec/plan: PASS
+  No unrelated skills: PASS (only using-skills)
+  Inline routing note kept under artifacts/S01/routing-note.yaml (evidence aid, not a plan)
+independence: same-author-self-review
+result: pass
+limitations: |
+  Same-author dry-run (executor followed the skill), not a fresh independent worker.
+  SKILL.md Step 4 still says inline note is for 'short read-only' tasks; typo fix is a write — line 32 already exempts typo choreography, but Step 4 asymmetry could push over-ceremony. Minimal patch proposed under patches/fermin-using-skills.SKILL.md.diff (not applied to pool).
+  Annotation line still quotes the former misspelling by design (historical mention).

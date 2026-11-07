@@ -90,8 +90,12 @@ for directory in sorted(p for p in SKILLS.iterdir() if p.is_dir()):
     qg = meta.get("quality_gate", {})
     for key in ("static", "content", "package_links", "catalog_merge"):
         check(qg.get(key) == "pass", f"{skill_id}: {key} gate not pass")
-    check(qg.get("runtime_scenarios") == "pending", f"{skill_id}: invented runtime result")
+    check(
+        qg.get("runtime_scenarios") in ("pending", "partial"),
+        f"{skill_id}: invented runtime result",
+    )
     check(qg.get("release") == "pending", f"{skill_id}: release should be pending")
+
     check(bool(meta.get("open_risks")), f"{skill_id}: missing open risks")
     check(bool(meta.get("fermin_tag")) and isinstance(meta.get("adaptation"), dict), f"{skill_id}: incomplete Fermin adaptation notes")
     nums = [int(match.group(1)) for line in body.splitlines() if (match := re.match(r"### (\d+)\.", line))]

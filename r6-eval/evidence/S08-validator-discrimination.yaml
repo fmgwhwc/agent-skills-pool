@@ -1,0 +1,35 @@
+scenario: Validator discrimination
+scenario_id: S08
+surface: dc-bot
+host_and_loader_version: "python3 + r5-validation-venv (PyYAML, jsonschema); validate_r5.py local tree"
+run_id: r6-w1.3-s08-20261107
+timestamp: "2026-11-07 08:22:57 CST"
+baseline_artifact: "/workspace/fermin-main-subject/r5-adapt-batch/pool/skills/fermin-tdd/meta.yaml"
+skill_revision: "validate_r5.py sha256:0f48a352d09ed676fde101533f695990325d687eb743f52c550750bc2d1398c6; R3 pin obra/superpowers 22f0b463e7a5e579904dd6211a520321035526f7"
+output_artifact: "r6-eval/artifacts/S08/"
+commands_run:
+  - "source /workspace/r5-validation-venv/bin/activate && cd /workspace/fermin-main-subject/r5-adapt-batch && python validate_r5.py --self-test"
+  - "mktemp copy of r5-adapt-batch; set fermin-tdd meta source.ref to 40×0; python TEMP/validate_r5.py"
+  - "sha256sum original fermin-tdd/meta.yaml before and after"
+stdout_stderr_snippets:
+  - "PASS: 8 skills, catalog, frontmatter/meta, schema, R3 SHA pins, local links, candidate gates (400 assertions)."
+  - "PASS: catalog merge yielded 8 unique skill entries; version 1, schema-valid overlay records."
+  - "PASS: negative control rejected the deliberately broken SHA (isolated temporary copy)."
+  - "self-test EXIT:0"
+  - "TEMP_EXIT=1"
+  - "FAIL"
+  - "- fermin-tdd: wrong R3 pin at skills/test-driven-development/SKILL.md"
+  - "- fermin-tdd: pin/path URL mismatch"
+  - "- catalog mismatch for fermin-tdd: source"
+  - "ORIG_HASH_BEFORE=AFTER=57514e14c70855b9b41e59881b967c86c57951c4f6ac1168cc095db2ffd0542f"
+rubric_and_result: |
+  1) validate_r5.py --self-test exit 0 with 400 assertions + built-in SHA negative control: PASS
+  2) Independent TEMP copy with zeroed source.ref rejected with 'wrong R3 pin': PASS (exit 1)
+  3) Original pool meta.yaml SHA256 unchanged: PASS
+  Skills exercised indirectly: skill-anatomy/tdd package under validation; verification-dod honesty (static ≠ runtime).
+independence: static-only
+result: pass
+limitations: |
+  Static validator discrimination only — not an agent-behavior / TDD RED-GREEN scenario (that is S07).
+  Did not mutate adapted_from[].ref separately; source.ref alone was sufficient to trip the pin check.
+  Runtime_scenarios gates on meta remain pending by design.

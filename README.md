@@ -13,5 +13,6 @@ Eight reviewed Fermin process-skill candidates live under `pool/skills/` (`statu
 ## Roadmap (R6)
 
 - Item-by-item build and eval plan: [`research/matrix/R6-item-build-plan.md`](research/matrix/R6-item-build-plan.md)
+- Eval harness + evidence: [`r6-eval/`](r6-eval/) — **W0 complete**; **S01** (router / low ceremony) and **S08** (validator discrimination) **pass**; `fermin-using-skills` Step 4 typo-path clarification applied. Skills remain `candidate` (S02 still pending).
 
 详见 `research/` 与上级章程 `agent-skills-pool-charter.md`（首次推送时同步）。

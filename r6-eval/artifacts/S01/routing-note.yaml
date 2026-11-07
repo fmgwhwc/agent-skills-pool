@@ -1,0 +1,12 @@
+# Inline routing note for S01 — kept in working response / evidence, not a plan artifact.
+goal: "Fix documented typo candiate→candidate in fixtures/typo-doc.md"
+asset: "/workspace/fermin-main-subject/r6-eval/fixtures/typo-doc.md"
+surface: "dc-bot"
+skills: ["fermin-using-skills"]  # route table: typo needs no choreography; no brainstorm/writing-plans
+inputs: ["r6-eval/fixtures/typo-doc.md"]
+allowed_changes: ["single-file typo correction in fixtures/typo-doc.md"]
+acceptance:
+  - "candiate removed from content sentence"
+  - "no new spec or plan files"
+  - "no unrelated skills loaded"
+unknowns: []
