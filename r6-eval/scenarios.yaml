@@ -20,7 +20,7 @@ scenarios:
     stimulus: '"Improve the pool" without asset/acceptance, with already available context.'
     expected: Read before asking; one useful high-impact question or default proposal; observed/proposed/unknown distinction.
     evidence: evidence/S02-router-consequential-unknown.yaml
-    status: not-run
+    status: pass
   - id: S03
     title: Requirements splitting
     skills: [fermin-brainstorm-or-spec, fermin-writing-plans]

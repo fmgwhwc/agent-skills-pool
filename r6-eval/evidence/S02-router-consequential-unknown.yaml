@@ -1,0 +1,41 @@
+scenario: Router / consequential unknown
+scenario_id: S02
+surface: dc-bot
+host_and_loader_version: "DC Bot executor dry-run; fermin-using-skills + fermin-brainstorm-or-spec SKILL.md read in full"
+run_id: r6-w1.2-s02-20261107
+timestamp: "2026-11-07 08:25:21 CST"
+baseline_artifact: "stimulus 'Improve the pool' (no asset/acceptance); local trees r5-adapt-batch/ + pool-skeleton/ + r6-eval/ + research/matrix/R6-item-build-plan.md"
+skill_revision: "fermin-using-skills SKILL.md sha256:f22ce33c43488420871c7c445f7fb72d7bf15bef5bece7dc890c2bd47e0d460b; fermin-brainstorm-or-spec SKILL.md sha256:979fbaf980cf0482dc39a41989c9fef2c51040c2613a536f877a4023c3fd6513"
+output_artifact: "r6-eval/artifacts/S02/{routing-note.yaml,sources-checked.md,decision-record.md}"
+commands_run:
+  - "Read research/matrix/R6-item-build-plan.md (W1.2 = S02)"
+  - "Read pool/skills/fermin-using-skills/SKILL.md (route: unclear → brainstorm-or-spec)"
+  - "Read pool/skills/fermin-brainstorm-or-spec/SKILL.md (read-before-ask; stated/observed/proposed/unknown)"
+  - "Read r5-adapt-batch MANIFEST, catalog-entries.yaml, eight skill metas/SKILL.md listings"
+  - "Read pool-skeleton/README.md + catalog.yaml (local empty skeleton)"
+  - "Read r6-eval ledger.md, scenarios.yaml, WAVE-W0-W1-REPORT.md, patches diff"
+  - "sha256sum using-skills + brainstorm SKILL.md"
+  - "Wrote artifacts/S02/{routing-note.yaml,sources-checked.md,decision-record.md}"
+stdout_stderr_snippets:
+  - "route table row: Goal, constraints, or acceptance are unclear → fermin-brainstorm-or-spec"
+  - "catalog ids count 8; all candidate; runtime_scenarios=pending; release=pending"
+  - "pool-skeleton/catalog.yaml version 0 entries [] (local skeleton; not treated as GitHub main)"
+  - "using-skills sha256 f22ce33c… (Step 4 already has single-path typo exemption; differs from S01 hash 3b3140fd…)"
+  - "decision status: authorized-default; one high-impact fork question retained non-blocking"
+  - "no GitHub writes; no pool/skills content mutation this run"
+rubric_and_result: |
+  Read before asking: PASS (sources-checked.md lists 13 local sources before the decision/question)
+  Observed / proposed / unknown distinction: PASS (decision-record.md labeled sections + Stated)
+  One useful high-impact question OR default proposal: PASS (default selected: deepen eight via R6; finish W1 then W2; ≤1 fork question recorded non-blocking)
+  Did not invent remote repo file state: PASS (explicit non-fetch note)
+  Did not open writing-plans / executing-plans for this decision alone: PASS
+  Skills loaded match route: PASS ([using-skills, brainstorm-or-spec] only)
+independence: same-author-self-review
+result: pass
+limitations: |
+  Same-author dry-run (executor followed the skills), not a fresh independent worker.
+  Live GitHub main not fetched; parent-reported PR merges are not file-level evidence here.
+  Local pool-skeleton/catalog.yaml remains empty while r5-adapt-batch has an eight-entry overlay — trees differ; this run does not reconcile them.
+  fermin-using-skills local hash moved since S01 (Step 4 patch text present in SKILL.md); patches/*.diff still on disk — W1.4 should reconcile apply-state vs patch note; no new S02 patch required for routing behavior (route to brainstorm was correct).
+  R5-NEXT-EVALUATION.md local copy still says all scenarios NOT RUN (document lag vs r6-eval ledger/evidence).
+  Owner has not answered the optional high-impact fork question; default stands until overridden.

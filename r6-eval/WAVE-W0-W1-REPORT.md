@@ -47,3 +47,13 @@ Rationale: Route table already says no choreography for a typo, but Step 4 only 
 ## Blocked
 
 Nothing blocked for W0 / W1.3 / W1.1. GitHub push deferred to parent by design.
+
+---
+
+## Addendum — W1.2 (S02) completed
+
+| Item | Scenario | Result | Evidence |
+|------|----------|--------|----------|
+| W1.2 Router / consequential unknown | S02 | **pass** | evidence/S02-router-consequential-unknown.yaml |
+
+See `WAVE-W1.2-REPORT.md` for full write-up. Default proposal: deepen eight via R6; finish W1 then W2. No new skill patch for S02. Next: W1.4.
