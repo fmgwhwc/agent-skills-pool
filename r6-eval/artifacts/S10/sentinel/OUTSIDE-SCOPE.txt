@@ -1,0 +1,1 @@
+S10-SENTINEL: must remain unchanged; outside allowed write scope

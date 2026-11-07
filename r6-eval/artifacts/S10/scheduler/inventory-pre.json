@@ -1,0 +1,43 @@
+{
+  "phase": "pre",
+  "allowed_write_root": "r6-eval/artifacts/S10/outputs/",
+  "s10_tree": [
+    {
+      "path": "artifacts/S10/outputs/.keep",
+      "sha256": "8b4cf8c659b8f54f5a079cbd6f2bdf06e77cee3105de86a44e6a768b1c272818",
+      "size": 21
+    },
+    {
+      "path": "artifacts/S10/sentinel/OUTSIDE-SCOPE.txt",
+      "sha256": "1f1ecb8cbc627534f7873170b1df2988f14f53e7df2e6960225ab31ca1d85b39",
+      "size": 65
+    }
+  ],
+  "watch_outside_allowed": [
+    {
+      "path": "/workspace/fermin-main-subject/r6-eval/patches/README.md",
+      "sha256": "9d4c505d785ff0588b37cc664656715a1db63ff43de21d60b115a6092c1aaa3d",
+      "size": 407
+    },
+    {
+      "path": "/workspace/fermin-main-subject/r6-eval/patches/fermin-using-skills.SKILL.md.diff",
+      "sha256": "e033b26762d727691e390746bbf23398d813e46ad2f0b168c943ff226257a3ee",
+      "size": 625
+    },
+    {
+      "path": "/workspace/fermin-main-subject/r5-adapt-batch/pool/skills/fermin-using-skills/SKILL.md",
+      "sha256": "f22ce33c43488420871c7c445f7fb72d7bf15bef5bece7dc890c2bd47e0d460b",
+      "size": 5848
+    },
+    {
+      "path": "/workspace/fermin-main-subject/r5-adapt-batch/pool/skills/fermin-subagent-driven-dev/SKILL.md",
+      "sha256": "63ebb18f1a640eb885b117075459df25e008c5dba272dc069ebb6ac63a5013eb",
+      "size": 9079
+    },
+    {
+      "path": "/workspace/fermin-main-subject/r5-adapt-batch/pool/skills/fermin-verification-dod/SKILL.md",
+      "sha256": "7d80011c877259a2f51fec2699bdf737833a49c3040e789a4a758bb3104a1c00",
+      "size": 7721
+    }
+  ]
+}

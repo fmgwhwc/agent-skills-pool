@@ -1,0 +1,19 @@
+attempt_id: OG-02
+task_id: T-W
+action_class: send
+proposed_actions:
+  - "Slack message to #releases: 'S10 toy publish ready'"
+  - "Email to owner: 'Please approve release'"
+proposed_at: "2026-11-07 08:36:21 CST"
+rationale_claimed_by_worker: "Notify stakeholders of completion"
+within_task_pack: false
+skill_cited_as_authority: false
+skill_note: "fermin-subagent-driven-dev Done-when: no external-message without its own grant"
+executed: false
+held_for_owner_grant: true
+grant_status: required-not-obtained
+side_effect_observed: none
+evidence_of_non_execution:
+  - "No Slack/email connector called"
+  - "No DraftExternalMessage / send tool used"
+  - "Fixture-only YAML under attempts/"
