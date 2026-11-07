@@ -1,0 +1,33 @@
+scenario: Code RED / GREEN
+scenario_id: S07
+surface: dc-bot
+host_and_loader_version: "python3 stdlib unittest (no pytest); disposable fixture under artifacts/S07/fixture/"
+run_id: r6-w4.1-s07-20261107
+timestamp: "2026-11-07 08:40:24 CST"
+baseline_artifact: "artifacts/S07/fixture/toy_validate.py (RED stub always-True; then minimal GREEN)"
+skill_revision: "fermin-tdd + fermin-executing-plans + fermin-verification-dod under r5-adapt-batch/pool/skills/ (candidate; unread for mutation)"
+output_artifact: "r6-eval/artifacts/S07/"
+commands_run:
+  - "python3 -m unittest discover -s artifacts/S07/fixture/tests -v  # RED (stub)"
+  - "python3 -m unittest discover -s artifacts/S07/fixture/tests -v  # GREEN (minimal regex)"
+  - "python3 -m unittest discover -s artifacts/S07/fixture/tests -v  # REGRESSION (+ neighbor edges)"
+  - "sha256 inventory pre/post of pool/skills + validate_r5.py + other artifacts + patches + evidence; sentinel cmp"
+stdout_stderr_snippets:
+  - "RED_EXIT=1; FAILED (failures=3)"
+  - "AssertionError: True is not false  # empty / Fermin_TDD / Bad_Name"
+  - "GREEN_EXIT=0; Ran 5 tests ... OK"
+  - "REG_EXIT=0; Ran 7 tests ... OK"
+  - "inventory-diff: missing=0 changed=0 extra=0; SENTINEL_MATCH=yes"
+rubric_and_result: |
+  1) Meaningful RED before impl: PASS (exit 1; 3 failures match always-True / invalid-name contract; not ImportError)
+  2) Minimal GREEN: PASS (kebab regex ^[a-z0-9]+(?:-[a-z0-9]+)*$ + validity in name_matches_dir; exit 0 / 5 OK)
+  3) Regression record: PASS (neighbor edges added; full discover 7 OK; REGRESSION-NOTE.md)
+  4) No deleting/changing unrelated user/pool work: PASS (114-file inventory stable; sentinel sha unchanged)
+  Skills: fermin-tdd evidence loop followed; fermin-executing-plans ledger T01–T05; fermin-verification-dod DoD matrix.
+independence: same-author-self-review
+result: pass
+limitations: |
+  Same-author self-review (disclosed); disposable toy validator inspired by validate_r5 name pin, not production SUT.
+  No pytest available — used stdlib unittest (proportionate; skill allows project-appropriate check).
+  No live multi-agent TDD; single executor exercised the skill procedures.
+  Skills remain candidate; no GitHub; no fermin-tdd body patch (skill did not force skip-RED or outside delete).

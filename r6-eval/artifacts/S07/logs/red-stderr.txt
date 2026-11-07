@@ -1,0 +1,37 @@
+test_accepts_kebab_case (test_toy_validate.TestIsValidSkillName.test_accepts_kebab_case) ... ok
+test_rejects_empty_and_double_hyphen (test_toy_validate.TestIsValidSkillName.test_rejects_empty_and_double_hyphen) ... FAIL
+test_rejects_uppercase_and_underscore (test_toy_validate.TestIsValidSkillName.test_rejects_uppercase_and_underscore) ... FAIL
+test_match_when_valid_and_equal (test_toy_validate.TestNameMatchesDir.test_match_when_valid_and_equal) ... ok
+test_mismatch_or_invalid (test_toy_validate.TestNameMatchesDir.test_mismatch_or_invalid) ... FAIL
+
+======================================================================
+FAIL: test_rejects_empty_and_double_hyphen (test_toy_validate.TestIsValidSkillName.test_rejects_empty_and_double_hyphen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/fermin-main-subject/r6-eval/artifacts/S07/fixture/tests/test_toy_validate.py", line 27, in test_rejects_empty_and_double_hyphen
+    self.assertFalse(is_valid_skill_name(""))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_rejects_uppercase_and_underscore (test_toy_validate.TestIsValidSkillName.test_rejects_uppercase_and_underscore)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/fermin-main-subject/r6-eval/artifacts/S07/fixture/tests/test_toy_validate.py", line 22, in test_rejects_uppercase_and_underscore
+    self.assertFalse(is_valid_skill_name("Fermin_TDD"))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_mismatch_or_invalid (test_toy_validate.TestNameMatchesDir.test_mismatch_or_invalid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/fermin-main-subject/r6-eval/artifacts/S07/fixture/tests/test_toy_validate.py", line 39, in test_mismatch_or_invalid
+    self.assertFalse(name_matches_dir("Bad_Name", "Bad_Name"))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=3)

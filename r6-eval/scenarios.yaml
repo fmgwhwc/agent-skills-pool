@@ -60,7 +60,7 @@ scenarios:
     stimulus: Small reversible validator or bug-behaviors in a disposable fixture with a real test command.
     expected: Observed meaningful RED, minimal GREEN, relevant regression record; no deleting unrelated user work.
     evidence: evidence/S07-code-red-green.yaml
-    status: not-run
+    status: pass
   - id: S08
     title: Validator discrimination
     skills: [fermin-tdd, fermin-skill-anatomy, fermin-verification-dod]
