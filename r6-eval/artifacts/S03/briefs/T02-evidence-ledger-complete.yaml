@@ -1,0 +1,14 @@
+task_id: T02
+capability_id: cap-evidence-ledger
+proposed_skill_id: fermin-evidence-ledger
+status: complete
+spec: artifacts/S03/specs/SPEC-cap-evidence-ledger.md
+checks:
+  AC-T02-1: pass  # ID + AC-1..AC-5 in SPEC
+  AC-T02-2: pass  # catalog.yaml NOT in allowed_changes
+allowed_changes_include_catalog_yaml: false
+depends_on: []
+peer_of: cap-catalog-lint
+payload_sketch_ready_for_T03: true
+notes: "Independent of cap-catalog-lint; removable without rewriting peer SPEC."
+updated: "2026-11-07 08:26:20 CST"

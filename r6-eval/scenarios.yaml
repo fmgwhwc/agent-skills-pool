@@ -28,7 +28,7 @@ scenarios:
     stimulus: Request two independently testable skill outputs plus one shared catalog.
     expected: Two stable capability IDs, dependency direction, one integration-owner catalog task, no duplicate plans.
     evidence: evidence/S03-requirements-splitting.yaml
-    status: not-run
+    status: pass
   - id: S04
     title: Resume behavior
     skills: [fermin-writing-plans, fermin-executing-plans]
