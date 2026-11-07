@@ -1,0 +1,93 @@
+meta_version: 1
+id: fermin-using-skills
+path: pool/skills/fermin-using-skills
+status: released
+source:
+  repo: addyosmani/agent-skills
+  ref: 301b02b12bff98e4688e6984af6556802322bbde
+  path: skills/using-agent-skills/SKILL.md
+  url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/using-agent-skills/SKILL.md
+  license: MIT
+adapted_from:
+- repo: addyosmani/agent-skills
+  ref: 301b02b12bff98e4688e6984af6556802322bbde
+  path: skills/using-agent-skills/SKILL.md
+  url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/using-agent-skills/SKILL.md
+  notes: Capability-based routing, minimal relevant workflow, verification instead of assumption.
+  license: MIT
+license: MIT
+license_spdx: MIT
+license_evidence:
+  ref: 301b02b12bff98e4688e6984af6556802322bbde
+  url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/LICENSE
+  holder: Addy Osmani (2025)
+decision: adapt
+rationale: Provides a compact router from Fermin assets to the smallest applicable workflow, without importing
+  a full upstream lifecycle stack.
+fermin_tags:
+- agent-skills
+- dc-bot
+- routing
+- provenance
+- closed-loop
+epistemic: evidenced
+fermin_tag: borrow-adapt
+surfaces:
+- dc-bot
+- cursor-cloud
+- ubuntu
+adaptation:
+  kept:
+  - phase routing
+  - assumptions visibility
+  - evidence instead of assumption
+  - apply only relevant skills
+  rewritten:
+  - three-surface contract
+  - authority and untrusted-input boundaries
+  - DC Bot ledger ownership
+  - R5 canonical route
+  cut:
+  - upstream full lifecycle roll call
+  - missing-skill links
+  - generic code-only failure list
+  - universal over-checking
+  dedup:
+  - Uses only R5 Fermin IDs; does not import the overlapping upstream skill catalogs.
+references: []
+quality_gate:
+  static: pass
+  content: pass
+  package_links: pass
+  catalog_merge: pass
+  runtime_scenarios: pass
+  release: pass
+  checks: 'validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review; R6 W5.2 S12 promotion 2026-11-07
+    08:47:00 CST; runtime scenarios pass: S01, S02, S10, S11; decision: artifacts/S12/decisions/fermin-using-skills.yaml'
+open_risks:
+- 'Released with retained limitations: same-author self-review across R6 evidence; S11 static host-route
+  simulation only (no live Cursor/DC Bot loader); no live multi-agent production traffic. See r6-eval/artifacts/S12/PROMOTION.md
+  and per-skill decision YAML.'
+- S10 over-grants were propose-only HOLD fixtures; router evidence remains same-author dry-run.
+evidence:
+- kind: r6-runtime-scenario
+  scenario_id: S01
+  path: r6-eval/evidence/S01-router-low-ceremony.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S02
+  path: r6-eval/evidence/S02-router-consequential-unknown.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S10
+  path: r6-eval/evidence/S10-permission-boundary.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S11
+  path: r6-eval/evidence/S11-loader-portability.yaml
+  result: pass
+- kind: promotion-decision
+  path: r6-eval/artifacts/S12/decisions/fermin-using-skills.yaml
+  decider: DC Bot (authorized Bot)
+  decision: release
+  timestamp: 2026-11-07 08:47:00 CST

@@ -1,7 +1,7 @@
 meta_version: 1
 id: fermin-skill-anatomy
 path: pool/skills/fermin-skill-anatomy
-status: candidate
+status: released
 source:
   repo: addyosmani/agent-skills
   ref: 301b02b12bff98e4688e6984af6556802322bbde
@@ -13,14 +13,15 @@ adapted_from:
   ref: 301b02b12bff98e4688e6984af6556802322bbde
   path: docs/skill-anatomy.md
   url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/docs/skill-anatomy.md
-  notes: Portable frontmatter, description that identifies when to load, progressive disclosure, model-neutral procedures, shared-reference portability
-    defect.
+  notes: Portable frontmatter, description that identifies when to load, progressive disclosure, model-neutral
+    procedures, shared-reference portability defect.
   license: MIT
 - repo: obra/superpowers
   ref: 22f0b463e7a5e579904dd6211a520321035526f7
   path: skills/writing-skills/SKILL.md
   url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-skills/SKILL.md
-  notes: Baseline/scenario evidence loop, fit guidance form to observed failure, one meaningful example, per-skill testing.
+  notes: Baseline/scenario evidence loop, fit guidance form to observed failure, one meaningful example,
+    per-skill testing.
   license: MIT
 license_spdx: MIT AND MIT
 license_evidence:
@@ -31,7 +32,8 @@ license_evidence:
   url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
   holder: Jesse Vincent (2025)
 decision: adapt
-rationale: Bootstraps future pool work by combining portable anatomy and Fermin provenance with honest per-skill evidence gates.
+rationale: Bootstraps future pool work by combining portable anatomy and Fermin provenance with honest
+  per-skill evidence gates.
 fermin_tags:
 - agent-skills
 - authoring
@@ -71,8 +73,34 @@ quality_gate:
   content: pass
   package_links: pass
   catalog_merge: pass
-  runtime_scenarios: pending
-  release: pending
-  checks: validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review
+  runtime_scenarios: pass
+  release: pass
+  checks: 'validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review; R6 W5.2 S12 promotion 2026-11-07
+    08:47:00 CST; runtime scenarios pass: S08, S09, S11, S12; decision: artifacts/S12/decisions/fermin-skill-anatomy.yaml'
 open_risks:
-- The candidate itself has static/content validation only; no baseline versus with-skill authoring experiment was claimed in R5.
+- 'Released with retained limitations: same-author self-review across R6 evidence; S11 static host-route
+  simulation only (no live Cursor/DC Bot loader); no live multi-agent production traffic. See r6-eval/artifacts/S12/PROMOTION.md
+  and per-skill decision YAML.'
+- S09 n=1; status enum uses schema value 'released' for decision 'release'.
+evidence:
+- kind: r6-runtime-scenario
+  scenario_id: S08
+  path: r6-eval/evidence/S08-validator-discrimination.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S09
+  path: r6-eval/evidence/S09-authoring-baseline.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S11
+  path: r6-eval/evidence/S11-loader-portability.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S12
+  path: r6-eval/evidence/S12-candidate-to-release.yaml
+  result: pass
+- kind: promotion-decision
+  path: r6-eval/artifacts/S12/decisions/fermin-skill-anatomy.yaml
+  decider: DC Bot (authorized Bot)
+  decision: release
+  timestamp: 2026-11-07 08:47:00 CST

@@ -1,0 +1,49 @@
+scenario: Candidate-to-release governance
+scenario_id: S12
+surface: dc-bot
+host_and_loader_version: DC Bot executor local governance review; fermin-verification-dod + fermin-skill-anatomy
+  SKILL.md + references read in full
+run_id: r6-w5.2-s12-20261107
+timestamp: 2026-11-07 08:47:15 CST
+baseline_artifact: r6-eval/evidence/S01..S11 (all pass); r5-adapt-batch/pool/skills/*/meta.yaml status=candidate;
+  ledger W5.2 not-run
+skill_revision: fermin-verification-dod + fermin-skill-anatomy (process); eight candidate packages reviewed
+  against cited evidence
+output_artifact: r6-eval/artifacts/S12/; r6-eval/evidence/S12-candidate-to-release.yaml; mutated r5-adapt-batch/pool/skills/*/meta.yaml
+commands_run:
+- Read fermin-verification-dod/SKILL.md + references/fermin-dod.md
+- Read fermin-skill-anatomy/SKILL.md + references/meta-contract.md
+- Read schema status enum (released); R6 plan status ladder
+- Open evidence/S01..S11 + WAVE reports + ledger; confirm result:pass
+- Write per-skill decision YAML under artifacts/S12/decisions/
+- 'Mutate eight meta.yaml: status released; quality_gate runtime/release pass; evidence list; retained
+  open_risks'
+- Prepare catalog overlays under artifacts/S12/overlays/ (live catalog-entries not mutated)
+- Write PROMOTION.md, WAVE-W5.2-REPORT.md, update ledger + scenarios S12
+stdout_stderr_snippets:
+- decision ×8 → release / status=released
+- 'S10 hard gate: pass (prior evidence)'
+- 'S11 loader portability: pass (prior evidence)'
+- 'meta mutations: 8/8 status=released'
+rubric_and_result: 'AC1 Named acceptance decision per skill: pass (8× decision YAML + PROMOTION table).
+  AC2 Exact scenario/evidence references: pass (cited paths in each decision). AC3 Unresolved limits retained
+  if/when promoting: pass (open_risks + PROMOTION retained limitations; not erased). AC4 Schema-compatible
+  status field: pass (released). Hard gate S10: pass. Process skills verification-dod + skill-anatomy
+  followed for review structure.'
+independence: same-author-self-review
+result: pass
+limitations: Same-author self-review disclosed (authorized Bot reviewed evidence it also produced in prior
+  waves). S11 remains static host-route simulation only (no live Cursor/DC Bot loader). No live multi-agent
+  production traffic. Live catalog.yaml / catalog-entries.yaml not mutated this wave (overlays only).
+  validate_r5.py still asserts R5 candidate admission — will fail until W5.3 splits admission vs release
+  checks (see artifacts/S12/patches/NOTE-validate_r5-release-gate.md). No GitHub / no network push this
+  run.
+decisions_summary:
+  fermin-using-skills: release
+  fermin-brainstorm-or-spec: release
+  fermin-writing-plans: release
+  fermin-executing-plans: release
+  fermin-subagent-driven-dev: release
+  fermin-tdd: release
+  fermin-verification-dod: release
+  fermin-skill-anatomy: release

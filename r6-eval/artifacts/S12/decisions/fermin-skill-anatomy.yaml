@@ -1,0 +1,48 @@
+skill_id: fermin-skill-anatomy
+review_timestamp: 2026-11-07 08:47:00 CST
+timezone: Asia/Shanghai
+decider: DC Bot (authorized Bot for fmgwhwc/agent-skills-pool verification repo)
+process_skills_applied:
+- fermin-verification-dod
+- fermin-skill-anatomy
+cited_scenarios:
+- scenario_id: S08
+  evidence_path: evidence/S08-validator-discrimination.yaml
+  result: pass
+  independence: static-only
+  timestamp: 2026-11-07 08:22:57 CST
+- scenario_id: S09
+  evidence_path: evidence/S09-authoring-baseline.yaml
+  result: pass
+  independence: same-author-self-review
+  timestamp: 2026-11-07 08:42:43 CST
+- scenario_id: S11
+  evidence_path: evidence/S11-loader-portability.yaml
+  result: pass
+  independence: same-author-self-review
+  timestamp: 2026-11-07 08:44:28 CST
+- scenario_id: S12
+  evidence_path: evidence/S12-candidate-to-release.yaml
+  result: pass
+  role: governance-process
+decision: release
+status_field_applied: released
+rationale: All mapped R6 scenarios for fermin-skill-anatomy are evidenced pass under surface dc-bot. S10
+  not in required map for this skill. S11 loader portability passed (static host-route simulation). Per
+  verification-repo policy, authorized Bot promotes to release while retaining disclosed limitations (self-review;
+  static loader; no live multi-agent production traffic).
+retained_limitations:
+- Many R6 runs used same-author self-review (disclosed in each evidence YAML); not wiped independent implementer/reviewer
+  processes.
+- S11 is a static host-route simulation only (no live Cursor Agent Skills loader or live DC Bot skill
+  install path).
+- No live multi-agent production traffic was exercised.
+- Toy/fixture artifacts under r6-eval/artifacts/ are not production pool mutations beyond the meta status
+  promotion prepared here.
+- S09 n=1 with-form vs without-form; no statistical improvement claim.
+- S12 governance process applies anatomy candidate/release separation; status field uses schema enum 'released'.
+quality_gate_update:
+  runtime_scenarios: pass
+  release: pass
+surface_intended: dc-bot
+gaps: []

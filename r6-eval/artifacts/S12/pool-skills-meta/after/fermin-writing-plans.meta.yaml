@@ -1,0 +1,94 @@
+meta_version: 1
+id: fermin-writing-plans
+path: pool/skills/fermin-writing-plans
+status: released
+source:
+  repo: obra/superpowers
+  ref: 22f0b463e7a5e579904dd6211a520321035526f7
+  path: skills/writing-plans/SKILL.md
+  url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md
+  license: MIT
+adapted_from:
+- repo: obra/superpowers
+  ref: 22f0b463e7a5e579904dd6211a520321035526f7
+  path: skills/writing-plans/SKILL.md
+  url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md
+  notes: Independent deliverables, interfaces, checkable steps, spec-to-task-to-evidence self-review.
+  license: MIT
+license_spdx: MIT
+license_evidence:
+  ref: 22f0b463e7a5e579904dd6211a520321035526f7
+  url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
+  holder: Jesse Vincent (2025)
+decision: adapt
+rationale: Makes accepted intent executable and resumable with atomic task contracts and evidence ownership
+  across Fermin surfaces.
+fermin_tags:
+- agent-skills
+- planning
+- task-packs
+- evidence-map
+- dc-bot
+epistemic: evidenced
+fermin_tag: borrow-adapt
+surfaces:
+- dc-bot
+- cursor-cloud
+- ubuntu
+adaptation:
+  kept:
+  - smallest independently reviewable unit
+  - exact interfaces
+  - de-bloating plan
+  - coverage self-review
+  rewritten:
+  - skill-content research conversion branch
+  - shared mutable artifact integration owner
+  - plan ledger and specified acceptance IDs
+  cut:
+  - worktree scripts
+  - mandatory commit-per-task
+  - fixed repo paths
+  - unsolicited UX choice between native/subagent execution
+  dedup:
+  - Obra retained over Addy planning alias; Addy spec becomes input only
+  - avoiding two planning owners.
+references: []
+quality_gate:
+  static: pass
+  content: pass
+  package_links: pass
+  catalog_merge: pass
+  runtime_scenarios: pass
+  release: pass
+  checks: 'validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review; R6 W5.2 S12 promotion 2026-11-07
+    08:47:00 CST; runtime scenarios pass: S03, S04, S06, S11; decision: artifacts/S12/decisions/fermin-writing-plans.yaml'
+open_risks:
+- Task-pack schema remains deliberately minimal and must be exercised in a real Cloud Agent or Ubuntu
+  handoff before release.
+- 'Released with retained limitations: same-author self-review across R6 evidence; S11 static host-route
+  simulation only (no live Cursor/DC Bot loader); no live multi-agent production traffic. See r6-eval/artifacts/S12/PROMOTION.md
+  and per-skill decision YAML.'
+- Toy plan/catalog artifacts; live catalog.yaml merge is W5.3 / push follow-up.
+evidence:
+- kind: r6-runtime-scenario
+  scenario_id: S03
+  path: r6-eval/evidence/S03-requirements-splitting.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S04
+  path: r6-eval/evidence/S04-resume-behavior.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S06
+  path: r6-eval/evidence/S06-shared-write-collision.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S11
+  path: r6-eval/evidence/S11-loader-portability.yaml
+  result: pass
+- kind: promotion-decision
+  path: r6-eval/artifacts/S12/decisions/fermin-writing-plans.yaml
+  decider: DC Bot (authorized Bot)
+  decision: release
+  timestamp: 2026-11-07 08:47:00 CST

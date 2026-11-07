@@ -1,0 +1,165 @@
+# Preview only: pool-skeleton/catalog.yaml with eight released entries (schema-required fields).
+# Full quality_gate/adapted_from live in catalog-entries overlay + per-skill meta.yaml.
+version: 0
+updated: '2026-11-07'
+entries:
+- id: fermin-using-skills
+  path: pool/skills/fermin-using-skills
+  status: released
+  source:
+    repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: skills/using-agent-skills/SKILL.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/using-agent-skills/SKILL.md
+    license: MIT
+  license_spdx: MIT
+  decision: adapt
+  rationale: Provides a compact router from Fermin assets to the smallest applicable workflow, without
+    importing a full upstream lifecycle stack.
+  fermin_tags:
+  - agent-skills
+  - dc-bot
+  - routing
+  - provenance
+  - closed-loop
+  epistemic: evidenced
+- id: fermin-brainstorm-or-spec
+  path: pool/skills/fermin-brainstorm-or-spec
+  status: released
+  source:
+    repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: skills/spec-driven-development/SKILL.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/spec-driven-development/SKILL.md
+    license: MIT
+  license_spdx: MIT AND MIT
+  decision: adapt
+  rationale: Keep one requirements intake that combines clear acceptance evidence with high-impact questioning,
+    rather than maintaining separate brainstorm and spec workflows.
+  fermin_tags:
+  - agent-skills
+  - decision
+  - specification
+  - acceptance
+  - capability-map
+  epistemic: evidenced
+- id: fermin-writing-plans
+  path: pool/skills/fermin-writing-plans
+  status: released
+  source:
+    repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/writing-plans/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-plans/SKILL.md
+    license: MIT
+  license_spdx: MIT
+  decision: adapt
+  rationale: Makes accepted intent executable and resumable with atomic task contracts and evidence ownership
+    across Fermin surfaces.
+  fermin_tags:
+  - agent-skills
+  - planning
+  - task-packs
+  - evidence-map
+  - dc-bot
+  epistemic: evidenced
+- id: fermin-executing-plans
+  path: pool/skills/fermin-executing-plans
+  status: released
+  source:
+    repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/executing-plans/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/executing-plans/SKILL.md
+    license: MIT
+  license_spdx: MIT
+  decision: adapt
+  rationale: Gives a single Fermin executor a resumable quality loop without importing upstream shell
+    scripts or Git-worktree coupling.
+  fermin_tags:
+  - agent-skills
+  - execution
+  - ledger
+  - resume
+  - evidence
+  epistemic: evidenced
+- id: fermin-subagent-driven-dev
+  path: pool/skills/fermin-subagent-driven-dev
+  status: released
+  source:
+    repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/subagent-driven-development/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/SKILL.md
+    license: MIT
+  license_spdx: MIT
+  decision: adapt
+  rationale: Fits DC Bot's scheduler role with bounded dispatch packets, independent acceptance review,
+    and repository-independent closure.
+  fermin_tags:
+  - agent-skills
+  - scheduling
+  - task-packs
+  - subagents
+  - closed-loop
+  epistemic: evidenced
+- id: fermin-tdd
+  path: pool/skills/fermin-tdd
+  status: released
+  source:
+    repo: obra/superpowers
+    ref: 22f0b463e7a5e579904dd6211a520321035526f7
+    path: skills/test-driven-development/SKILL.md
+    url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md
+    license: MIT
+  license_spdx: MIT AND MIT
+  decision: adapt
+  rationale: Collapses both TDD packs into one test-stack-discovering, evidence-producing Fermin workflow
+    with truthful skill-artifact adaptation.
+  fermin_tags:
+  - agent-skills
+  - tdd
+  - regression
+  - fixtures
+  - evidence
+  epistemic: evidenced
+- id: fermin-verification-dod
+  path: pool/skills/fermin-verification-dod
+  status: released
+  source:
+    repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: references/definition-of-done.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/references/definition-of-done.md
+    license: MIT
+  license_spdx: MIT AND MIT
+  decision: adapt
+  rationale: Gives every Fermin asset one acceptance-plus-DoD evidence gate, with candidate versus released
+    status made machine-readable.
+  fermin_tags:
+  - agent-skills
+  - verification
+  - dod
+  - provenance
+  - candidate-gate
+  epistemic: evidenced
+- id: fermin-skill-anatomy
+  path: pool/skills/fermin-skill-anatomy
+  status: released
+  source:
+    repo: addyosmani/agent-skills
+    ref: 301b02b12bff98e4688e6984af6556802322bbde
+    path: docs/skill-anatomy.md
+    url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/docs/skill-anatomy.md
+    license: MIT
+  license_spdx: MIT AND MIT
+  decision: adapt
+  rationale: Bootstraps future pool work by combining portable anatomy and Fermin provenance with honest
+    per-skill evidence gates.
+  fermin_tags:
+  - agent-skills
+  - authoring
+  - anatomy
+  - provenance
+  - evaluation
+  epistemic: evidenced
