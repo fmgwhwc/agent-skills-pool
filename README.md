@@ -13,6 +13,6 @@ Eight reviewed Fermin process-skill candidates live under `pool/skills/` (`statu
 ## Roadmap (R6)
 
 - Item-by-item build and eval plan: [`research/matrix/R6-item-build-plan.md`](research/matrix/R6-item-build-plan.md)
-- Eval harness + evidence: [`r6-eval/`](r6-eval/) — **W0 complete**; **S01** / **S02** / **S03** / **S04** / **S05** / **S08** **pass**; `fermin-using-skills` Step 4 typo-path clarification applied. Skills remain `candidate` (W1.4 applied; W2.1–W2.2 done; W2.3 skipped — no copy edits; W3.1 S05 pass).
+- Eval harness + evidence: [`r6-eval/`](r6-eval/) — **W0 complete**; **S01** / **S02** / **S03** / **S04** / **S05** / **S06** / **S08** **pass**; `fermin-using-skills` Step 4 typo-path clarification applied. Skills remain `candidate` (W1.4 applied; W2.1–W2.2 done; W2.3 skipped — no copy edits; W3.1 S05 pass; W3.2 S06 pass).
 
 详见 `research/` 与上级章程 `agent-skills-pool-charter.md`（首次推送时同步）。

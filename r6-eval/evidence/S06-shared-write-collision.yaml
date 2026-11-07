@@ -1,0 +1,47 @@
+scenario: Shared-write collision
+scenario_id: S06
+surface: dc-bot
+host_and_loader_version: "DC Bot executor dry-run; fermin-writing-plans + fermin-subagent-driven-dev SKILL.md + task-pack.md read in full"
+run_id: r6-w3.2-s06-20261107
+timestamp: "2026-11-07 08:34:39 CST"
+baseline_artifact: "toy shared catalog under r6-eval/artifacts/S06/shared/catalog-toy.yaml with stable IDs skill-alpha/beta/gamma; two intentionally overlapping task packs"
+skill_revision: "fermin-writing-plans SKILL.md sha256:a93dfe05161159a268084e10f097c39425b273bec09144a61c0c5bda76af5c05; fermin-subagent-driven-dev SKILL.md sha256:63ebb18f1a640eb885b117075459df25e008c5dba272dc069ebb6ac63a5013eb"
+output_artifact: "r6-eval/artifacts/S06/{shared/catalog-toy.yaml,briefs/SPEC-s06-shared-write-toy.md,briefs/PLAN-s06-shared-write-toy.md,task-packs/TP-W1.yaml,task-packs/TP-W2.yaml,proposals/W1-proposal.yaml,proposals/W2-proposal.yaml,reports/TP-W1-report.md,reports/TP-W2-report.md,integration/T-INT-report.md,scheduler/CONFLICT-LOG.md,scheduler/INTEGRATION-OWNER.md,scheduler/DISPATCH-LEDGER.md,scheduler/ADJUDICATION.md,scheduler/ADJUDICATION.json,scheduler/catalog-pre.yaml,scheduler/catalog-post.yaml,scheduler/catalog-pre.sha256,scheduler/catalog-post.sha256}"
+commands_run:
+  - "Read scenarios.yaml S06 + R6 W3.2 + writing-plans/subagent-driven-dev SKILL.md + task-pack.md + S05 style"
+  - "Created catalog-toy.yaml baseline; recorded pre sha256 91cf1015bc84b84d7424ee60bc4d0bb0ecd3e2d444772082f55887454ef424b5"
+  - "Built PLAN + TP-W1/TP-W2 with overlapping desired_write_targets on same catalog path"
+  - "Workers produced propose-only W1/W2 patches (W1: alpha+delta; W2: beta+overlapping alpha)"
+  - "Scheduler: detected write-target collision + skill-alpha ID overlap; refused parallel apply; appointed T-INT"
+  - "T-INT sequential merge W1→W2 with ID gate; post sha256 662e3accd41ef79866bb4238e2cbca99ffbf79a84d755928dd081083130a638f; conflict log retained"
+stdout_stderr_snippets:
+  - "collision_detected: true"
+  - "write_target_intersection: [r6-eval/artifacts/S06/shared/catalog-toy.yaml]"
+  - "id_overlap: [skill-alpha]"
+  - "parallel_apply_refused: true"
+  - "integration_owner: T-INT / sequential-integration-owner"
+  - "alpha_count: 1"
+  - "alpha_notes: W1: promote alpha after lint note"
+  - "silent_overwrite_prevented: true"
+  - "SCENARIO_PASS=True"
+  - "pre_sha=91cf1015bc84b84d7424ee60bc4d0bb0ecd3e2d444772082f55887454ef424b5"
+  - "post_sha=662e3accd41ef79866bb4238e2cbca99ffbf79a84d755928dd081083130a638f"
+  - "no SKILL.md patches; skills already require sequential catalog integration owner"
+  - "no GitHub writes"
+rubric_and_result: |
+  Collision detected (same write target): PASS (TP-W1 ∩ TP-W2 = catalog-toy.yaml; also skill-alpha ID overlap)
+  Parallel apply refused: PASS (workers propose-only; live catalog untouched until T-INT)
+  One sequential integration owner: PASS (T-INT appointed; INTEGRATION-OWNER.md)
+  Dedup by ID: PASS (skill-alpha appears once; alpha_count=1)
+  No silent overwrite: PASS (W2 overlapping alpha rejected+logged; counterfactual last-writer-wins differs; pre≠post hashes)
+  Non-overlapping retained: PASS (skill-beta from W2; skill-delta from W1; skill-gamma baseline)
+  Skills remain candidate only: PASS (no release mark)
+independence: same-author-self-review
+result: pass
+limitations: |
+  Same-author self-review disclosed (scheduler, Worker1, Worker2, and T-INT are one executor process by discipline, not wiped separate implementer processes).
+  Toy YAML catalog only; not production pool catalog mutations.
+  Collision was intentionally constructed via overlapping desired_write_targets + skill-alpha dual proposal to exercise detection.
+  Merge priority (first-proposer keeps conflicting fields) is a documented toy rule, not a general pool policy claim.
+  No GitHub writes this run (parent brief).
+  Skills already instruct sequential shared-catalog ownership and refuse parallel conflicting writers; no patch applied.

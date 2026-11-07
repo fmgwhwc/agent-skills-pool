@@ -13,7 +13,7 @@ Timezone: Asia/Shanghai. Update after every item. Do not invent pass without art
 | W2.2 | Resume behavior | S04 | pass | evidence/S04-resume-behavior.yaml | T01 done→interrupt→cold resume at T02; T01 sha unchanged; no patches | 2026-11-07 08:29 CST |
 | W2.3 | Plan skill copy edits | S03/S04 | skipped | — | S03/S04 needed no skill-body patches; Step1 resume wording already correct | 2026-11-07 08:30 CST |
 | W3.1 | Dispatch isolation | S05 | pass | evidence/S05-dispatch-isolation.yaml | 2 packs; A ACCEPTED w/ artifact; B REJECTED/NEEDS_EVIDENCE; no chat dump; no patches | 2026-11-07 08:31 CST |
-| W3.2 | Shared-write collision | S06 | not-run | — | — | — |
+| W3.2 | Shared-write collision | S06 | pass | evidence/S06-shared-write-collision.yaml | collision+T-INT sequential; ID dedup; no silent overwrite; no patches | 2026-11-07 08:34 CST |
 | W3.3 | Permission negative | S10 | not-run | — | — | — |
 | W3.4 | DoD matrix patch | S05/S10 | not-run | — | — | — |
 | W4.1 | Code RED/GREEN | S07 | not-run | — | — | — |

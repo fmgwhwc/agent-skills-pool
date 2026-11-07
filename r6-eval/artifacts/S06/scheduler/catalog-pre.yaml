@@ -1,0 +1,20 @@
+# Toy shared catalog for R6 S06 shared-write collision
+# Stable IDs; mutable under scheduler-owned sequential integration only.
+version: 1
+updated: "2026-11-07 08:32:00 CST"
+entries:
+  - id: skill-alpha
+    name: fermin-toy-alpha
+    status: candidate
+    owner: pool
+    notes: baseline entry A
+  - id: skill-beta
+    name: fermin-toy-beta
+    status: candidate
+    owner: pool
+    notes: baseline entry B
+  - id: skill-gamma
+    name: fermin-toy-gamma
+    status: draft
+    owner: pool
+    notes: baseline entry C
