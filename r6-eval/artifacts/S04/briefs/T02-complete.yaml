@@ -1,0 +1,10 @@
+task_id: T02
+status: complete
+output: artifacts/S04/outputs/T02-evidence-ledger-note.md
+sha256: 75f50b2d09443e74e52a758c7199370be77ec296b83237e70b8776987efde837
+t01_sha256_verified_unchanged: e8b7dbd26e5e5ab2b3775d6d54353a545ab9cbe393d1dda8bcf49b08d2769680
+acceptance:
+  AC-T02-1: pass
+  AC-T02-2: pass
+completed_at: "2026-11-07 08:28:38 CST"
+resumed_from_interrupt: true

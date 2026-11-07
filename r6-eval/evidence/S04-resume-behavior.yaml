@@ -1,0 +1,42 @@
+scenario: Resume behavior
+scenario_id: S04
+surface: dc-bot
+host_and_loader_version: "DC Bot executor dry-run; fermin-writing-plans + fermin-executing-plans SKILL.md read in full"
+run_id: r6-w2.2-s04-20261107
+timestamp: "2026-11-07 08:28:52 CST"
+baseline_artifact: "3-task toy plan plan-s04-resume-toy under r6-eval/artifacts/S04/; reuses S03 capability ideas as prose only"
+skill_revision: "fermin-writing-plans SKILL.md sha256:a93dfe05161159a268084e10f097c39425b273bec09144a61c0c5bda76af5c05; fermin-executing-plans SKILL.md sha256:3dcdc1e07f5ff6fa5e34fb39d7e816459b9150742972ca6fd2a584d4cbdc5a73"
+output_artifact: "r6-eval/artifacts/S04/{plan/PLAN-s04-resume-toy.md,plan/PLAN-LEDGER.md,outputs/T01-*.md,outputs/T02-*.md,outputs/T03-*.md,briefs/T0{1,2,3}-complete.yaml,resume/INTERRUPT.md,resume/RESUME-PASS.md,resume/T01-sha256.pre-resume.txt}"
+commands_run:
+  - "Read scenarios.yaml S04 + R6 W2.2 + writing-plans/executing-plans SKILL.md"
+  - "Wrote PLAN-s04-resume-toy.md (T01→T02→T03) + initial PLAN-LEDGER (all pending)"
+  - "Executed T01 fully; wrote T01-catalog-lint-note.md + T01-complete.yaml; pinned sha256"
+  - "Simulated interrupt: ledger T01=complete, T02/T03=pending; INTERRUPT.md; T02/T03 files absent"
+  - "Fresh resume: read ONLY ledger+files; first_incomplete=T02; verified T01 hash; no rewrite"
+  - "Executed T02 then T03; re-checked T01 sha256 after each write"
+  - "Structural reconcile: each complete row has output with task_id marker"
+stdout_stderr_snippets:
+  - "FIRST_INCOMPLETE=T02"
+  - "T01_PIN=e8b7dbd26e5e5ab2b3775d6d54353a545ab9cbe393d1dda8bcf49b08d2769680"
+  - "T01_NOW=e8b7dbd26e5e5ab2b3775d6d54353a545ab9cbe393d1dda8bcf49b08d2769680"
+  - "T01_FINAL=e8b7dbd26e5e5ab2b3775d6d54353a545ab9cbe393d1dda8bcf49b08d2769680"
+  - "t01_never_rewritten: true"
+  - "ledger_files_reconcile: true"
+  - "ALL RESUME ASSERTIONS PASSED"
+  - "no SKILL.md patches; skills did not force wrong resume behavior"
+  - "no GitHub writes"
+rubric_and_result: |
+  Completed task not repeated: PASS (T01 sha256 identical pre-resume / at-resume / after-T02 / final)
+  Resumes at first incomplete artifact: PASS (ledger parse → T02; T02 started before T03)
+  Ledger and files reconcile: PASS (T01/T02/T03 complete ⇒ files present with task_id markers)
+  writing-plans produced resumable plan+ledger: PASS (one plan, three task contracts, exact output paths)
+  executing-plans Step 1 resume guidance followed: PASS (verify completed; do not reproduce; start first incomplete)
+  Interrupt simulation authentic: PASS (INTERRUPT.md + absent T02/T03 at cold start)
+independence: same-author-self-review
+result: pass
+limitations: |
+  Same-author dry-run (executor followed writing-plans + executing-plans), not a separate fresh worker process with wiped process memory — conversational memory was deliberately unused but same agent wrote both phases.
+  Toy file outputs (prose notes), not production skill bodies or live catalog mutations.
+  T03 completed in the same resume session after T02; core S04 assertion is T01-not-redone + resume-at-T02 (T03 is continuation, not required for the interrupt check itself).
+  No GitHub writes this run (parent brief).
+  Skills already instruct correct resume; no patch applied — W2.3 copy edits still optional later if owner wants stronger wording.

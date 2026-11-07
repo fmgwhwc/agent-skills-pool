@@ -1,0 +1,8 @@
+task_id: T01
+status: complete
+output: artifacts/S04/outputs/T01-catalog-lint-note.md
+sha256: e8b7dbd26e5e5ab2b3775d6d54353a545ab9cbe393d1dda8bcf49b08d2769680
+acceptance:
+  AC-T01-1: pass
+  AC-T01-2: pass
+completed_at: "2026-11-07 08:28:08 CST"
