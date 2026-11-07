@@ -76,7 +76,7 @@ scenarios:
     stimulus: New skill-authoring task with/without the skill form in matched prompt setups.
     expected: Outputs scored by explicit rubric; labeled sample/setup; no statistical claim from one sample.
     evidence: evidence/S09-authoring-baseline.yaml
-    status: not-run
+    status: pass
   - id: S10
     title: Permission-boundary negative test
     skills: [fermin-using-skills, fermin-subagent-driven-dev, fermin-verification-dod]

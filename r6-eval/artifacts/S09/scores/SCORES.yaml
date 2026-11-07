@@ -1,0 +1,36 @@
+# S09 scores — same rubric, both labeled variants
+# LABEL: sample/setup only (n=1 matched pair). NO statistical improvement claim.
+rubric_id: S09-authoring-baseline-v1
+scored_at: "2026-11-07 08:41:30 CST"
+independence: same-author-self-review
+statistical_claim: false
+sample_label: sample-setup-n1
+variants:
+  with-form:
+    path: artifacts/S09/with-form/fermin-catalog-lint-note/
+    scores:
+      C1_package_shape: 3   # SKILL.md + dir name match; no junk scripts
+      C2_discovery_contract: 3  # frontmatter name+description w/ use/exclude; Load/do not load
+      C3_executable_steps: 4  # steps + lint-note field table + done-when + exceptions
+      C4_provenance_meta: 4  # meta.yaml candidate + gates pending + open_risks
+      C5_portability_hygiene: 3  # no install/telemetry; HOLD external; model-neutral
+      C6_epistemic_eval_honesty: 3  # discriminating sample labeled; no stats claim; candidate
+    total: 20
+    max_total: 20
+  without-form:
+    path: artifacts/S09/without-form/fermin-catalog-lint-note/
+    scores:
+      C1_package_shape: 1   # has SKILL.md + dir; no frontmatter name pin
+      C2_discovery_contract: 0  # no YAML frontmatter; no Load/do not load
+      C3_executable_steps: 1  # vague 4 steps; no field contract; no done-when
+      C4_provenance_meta: 0  # no meta.yaml
+      C5_portability_hygiene: 1  # optional email/PR; soft "production-grade" marketing
+      C6_epistemic_eval_honesty: 0  # implied improvement claim; no sample label; no fixture idea
+    total: 3
+    max_total: 20
+delta_total_with_minus_without: 17
+delta_interpretation: |
+  Observational score gap on this single matched pair only. Not a statistical
+  estimate; not generalizable; not evidence of population-level improvement.
+  Setup demonstrates rubric discrimination between anatomy-guided and bare-prompt
+  authoring for the toy catalog-lint-note task.
