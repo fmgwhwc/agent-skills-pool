@@ -1,0 +1,11 @@
+--- /workspace/fermin-main-subject/r6-eval/artifacts/S01/typo-doc.before.md	2026-11-07 08:23:00.931350491 +0800
++++ /workspace/fermin-main-subject/r6-eval/artifacts/S01/typo-doc.after.md	2026-11-07 08:23:11.111246979 +0800
+@@ -2,6 +2,6 @@
+ 
+ This document is a disposable fixture for R6 S01 (Router / low ceremony).
+ 
+-The catalog entry for fermin-using-skills is a candiate skill pending runtime evaluation.
++The catalog entry for fermin-using-skills is a candidate skill pending runtime evaluation.
+ 
+-Known deliberate typo above: "candiate" → should be "candidate".
++Corrected: former typo "candiate" → "candidate" (S01 bounded fix).

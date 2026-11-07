@@ -70,7 +70,7 @@ acceptance: ["<checks from the request and selected skills>"]
 unknowns: ["<material unknowns; empty if none>"]
 ```
 
-For a short read-only task, this note can stay in the working response. For delegated or interruptible work, put it in the task pack or ledger.
+For a short read-only task, or a single reversible edit with an explicit path (typo, one-line factual fix), keep this note inline in the working response and do not open brainstorm-or-spec or writing-plans. For delegated or interruptible work, put it in the task pack or ledger.
 
 ### 5. Dispatch and track
 

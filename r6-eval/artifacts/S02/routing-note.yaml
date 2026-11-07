@@ -1,0 +1,34 @@
+# Routing note for S02 — consequential unknown: "Improve the pool"
+# Created per fermin-using-skills Step 4; full skill loaded before use.
+goal: "Turn vague 'Improve the pool' into one bounded next improvement with acceptance"
+asset: "r6-eval/artifacts/S02/decision-record.md"
+surface: "dc-bot"
+skills:
+  - "fermin-using-skills"          # router; goal/acceptance unclear → route table row 1
+  - "fermin-brainstorm-or-spec"    # loaded in full after route; read-before-ask + decision record
+inputs:
+  - "/workspace/fermin-main-subject/r5-adapt-batch/MANIFEST.md"
+  - "/workspace/fermin-main-subject/r5-adapt-batch/catalog-entries.yaml"
+  - "/workspace/fermin-main-subject/r5-adapt-batch/pool/skills/*/SKILL.md+meta.yaml"
+  - "/workspace/fermin-main-subject/r5-adapt-batch/R5-NEXT-EVALUATION.md"
+  - "/workspace/fermin-main-subject/pool-skeleton/README.md"
+  - "/workspace/fermin-main-subject/pool-skeleton/catalog.yaml"
+  - "/workspace/fermin-main-subject/research/matrix/R6-item-build-plan.md"
+  - "/workspace/fermin-main-subject/r6-eval/ledger.md"
+  - "/workspace/fermin-main-subject/r6-eval/scenarios.yaml"
+  - "/workspace/fermin-main-subject/r6-eval/WAVE-W0-W1-REPORT.md"
+allowed_changes:
+  - "r6-eval/artifacts/S02/** (eval artifacts only)"
+  - "r6-eval/evidence/S02-*.yaml"
+  - "r6-eval/ledger.md"
+  - "r6-eval/scenarios.yaml (S02 status)"
+  - "r6-eval/WAVE-*.md"
+  - "zip packaging under /workspace/fermin-main-subject/"
+acceptance:
+  - "Sources read before any clarifying question"
+  - "Artifact distinguishes observed / proposed / unknown"
+  - "≤1 high-impact question OR an explicit default proposal (not both as blocking forks)"
+  - "No silent rewrite of pool/skills; no GitHub writes"
+  - "No inventing remote repo file state"
+unknowns:
+  - "Whether 'improve' means deepen/eval the current eight candidates only, or also ADAPT new skills this cycle (material fork)"

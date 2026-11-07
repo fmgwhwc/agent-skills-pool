@@ -1,0 +1,4 @@
+FAIL
+- fermin-tdd: wrong R3 pin at skills/test-driven-development/SKILL.md
+- fermin-tdd: pin/path URL mismatch
+- catalog mismatch for fermin-tdd: source
