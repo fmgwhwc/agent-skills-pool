@@ -1,7 +1,7 @@
 meta_version: 1
 id: fermin-subagent-driven-dev
 path: pool/skills/fermin-subagent-driven-dev
-status: candidate
+status: released
 source:
   repo: obra/superpowers
   ref: 22f0b463e7a5e579904dd6211a520321035526f7
@@ -19,7 +19,8 @@ adapted_from:
   ref: 22f0b463e7a5e579904dd6211a520321035526f7
   path: skills/subagent-driven-development/implementer-prompt.md
   url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development/implementer-prompt.md
-  notes: Selective support for brief-first input, report-file contract, DONE/DONE_WITH_CONCERNS/NEEDS_CONTEXT/BLOCKED states.
+  notes: Selective support for brief-first input, report-file contract, DONE/DONE_WITH_CONCERNS/NEEDS_CONTEXT/BLOCKED
+    states.
   license: MIT
 license_spdx: MIT
 license_evidence:
@@ -27,7 +28,8 @@ license_evidence:
   url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
   holder: Jesse Vincent (2025)
 decision: adapt
-rationale: Fits DC Bot's scheduler role with bounded dispatch packets, independent acceptance review, and repository-independent closure.
+rationale: Fits DC Bot's scheduler role with bounded dispatch packets, independent acceptance review,
+  and repository-independent closure.
 fermin_tags:
 - agent-skills
 - scheduling
@@ -60,7 +62,8 @@ adaptation:
   - worktree/script coupling
   - mandatory commits and reviewer templates
   dedup:
-  - Only one distributed execution skill; single-session route references it rather than redefining distributed mechanics.
+  - Only one distributed execution skill; single-session route references it rather than redefining distributed
+    mechanics.
 references:
 - references/task-pack.md
 quality_gate:
@@ -68,8 +71,36 @@ quality_gate:
   content: pass
   package_links: pass
   catalog_merge: pass
-  runtime_scenarios: pending
-  release: pending
-  checks: validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review
+  runtime_scenarios: pass
+  release: pass
+  checks: 'validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review; R6 W5.2 S12 promotion 2026-11-07
+    08:47:00 CST; runtime scenarios pass: S05, S06, S10, S11; decision: artifacts/S12/decisions/fermin-subagent-driven-dev.yaml'
 open_risks:
-- Dispatcher templates need an end-to-end Cloud Agent or available subagent run; no claim about cost improvement or parallel speedup is made.
+- Dispatcher templates need an end-to-end Cloud Agent or available subagent run; no claim about cost improvement
+  or parallel speedup is made.
+- 'Released with retained limitations: same-author self-review across R6 evidence; S11 static host-route
+  simulation only (no live Cursor/DC Bot loader); no live multi-agent production traffic. See r6-eval/artifacts/S12/PROMOTION.md
+  and per-skill decision YAML.'
+- S05 adversarial missing-evidence fixture; S06 constructed collision; no cost/parallel claims.
+evidence:
+- kind: r6-runtime-scenario
+  scenario_id: S05
+  path: r6-eval/evidence/S05-dispatch-isolation.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S06
+  path: r6-eval/evidence/S06-shared-write-collision.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S10
+  path: r6-eval/evidence/S10-permission-boundary.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S11
+  path: r6-eval/evidence/S11-loader-portability.yaml
+  result: pass
+- kind: promotion-decision
+  path: r6-eval/artifacts/S12/decisions/fermin-subagent-driven-dev.yaml
+  decider: DC Bot (authorized Bot)
+  decision: release
+  timestamp: 2026-11-07 08:47:00 CST

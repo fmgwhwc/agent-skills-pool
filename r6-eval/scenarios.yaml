@@ -100,4 +100,4 @@ scenarios:
     stimulus: Review candidate evidence with pool owner.
     expected: Named acceptance decision; exact scenario/evidence references; unresolved limits retained if candidate remains.
     evidence: evidence/S12-candidate-to-release.yaml
-    status: not-run
+    status: pass

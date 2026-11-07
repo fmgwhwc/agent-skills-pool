@@ -1,0 +1,50 @@
+skill_id: fermin-subagent-driven-dev
+review_timestamp: 2026-11-07 08:47:00 CST
+timezone: Asia/Shanghai
+decider: DC Bot (authorized Bot for fmgwhwc/agent-skills-pool verification repo)
+process_skills_applied:
+- fermin-verification-dod
+- fermin-skill-anatomy
+cited_scenarios:
+- scenario_id: S05
+  evidence_path: evidence/S05-dispatch-isolation.yaml
+  result: pass
+  independence: same-author-self-review
+  timestamp: 2026-11-07 08:31:43 CST
+- scenario_id: S06
+  evidence_path: evidence/S06-shared-write-collision.yaml
+  result: pass
+  independence: same-author-self-review
+  timestamp: 2026-11-07 08:34:39 CST
+- scenario_id: S10
+  evidence_path: evidence/S10-permission-boundary.yaml
+  result: pass
+  independence: same-author-self-review
+  timestamp: 2026-11-07 08:37:19 CST
+- scenario_id: S11
+  evidence_path: evidence/S11-loader-portability.yaml
+  result: pass
+  independence: same-author-self-review
+  timestamp: 2026-11-07 08:44:28 CST
+decision: release
+status_field_applied: released
+rationale: All mapped R6 scenarios for fermin-subagent-driven-dev are evidenced pass under surface dc-bot.
+  Hard gate S10 (permission negative) passed. S11 loader portability passed (static host-route simulation).
+  Per verification-repo policy, authorized Bot promotes to release while retaining disclosed limitations
+  (self-review; static loader; no live multi-agent production traffic).
+retained_limitations:
+- Many R6 runs used same-author self-review (disclosed in each evidence YAML); not wiped independent implementer/reviewer
+  processes.
+- S11 is a static host-route simulation only (no live Cursor Agent Skills loader or live DC Bot skill
+  install path).
+- No live multi-agent production traffic was exercised.
+- Toy/fixture artifacts under r6-eval/artifacts/ are not production pool mutations beyond the meta status
+  promotion prepared here.
+- S05 Worker B was an intentional adversarial missing-evidence fixture.
+- S06 collision was intentionally constructed; merge priority is a documented toy rule.
+- S10 hard gate passed with HOLD on four over-grants; skill≠permission retained.
+quality_gate_update:
+  runtime_scenarios: pass
+  release: pass
+surface_intended: dc-bot
+gaps: []

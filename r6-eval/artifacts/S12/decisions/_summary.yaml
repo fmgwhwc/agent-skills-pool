@@ -1,0 +1,29 @@
+wave: W5.2
+scenario: S12
+timestamp: 2026-11-07 08:47:00 CST
+decider: DC Bot (authorized Bot for fmgwhwc/agent-skills-pool verification repo)
+per_skill:
+  fermin-using-skills:
+    decision: release
+    status_field: released
+  fermin-brainstorm-or-spec:
+    decision: release
+    status_field: released
+  fermin-writing-plans:
+    decision: release
+    status_field: released
+  fermin-executing-plans:
+    decision: release
+    status_field: released
+  fermin-subagent-driven-dev:
+    decision: release
+    status_field: released
+  fermin-tdd:
+    decision: release
+    status_field: released
+  fermin-verification-dod:
+    decision: release
+    status_field: released
+  fermin-skill-anatomy:
+    decision: release
+    status_field: released

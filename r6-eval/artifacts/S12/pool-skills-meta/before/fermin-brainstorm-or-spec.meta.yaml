@@ -1,0 +1,78 @@
+meta_version: 1
+id: fermin-brainstorm-or-spec
+path: pool/skills/fermin-brainstorm-or-spec
+status: candidate
+source:
+  repo: addyosmani/agent-skills
+  ref: 301b02b12bff98e4688e6984af6556802322bbde
+  path: skills/spec-driven-development/SKILL.md
+  url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/spec-driven-development/SKILL.md
+  license: MIT
+adapted_from:
+- repo: addyosmani/agent-skills
+  ref: 301b02b12bff98e4688e6984af6556802322bbde
+  path: skills/spec-driven-development/SKILL.md
+  url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/spec-driven-development/SKILL.md
+  notes: Primary observable acceptance and independently testable capability mapping.
+  license: MIT
+- repo: obra/superpowers
+  ref: 22f0b463e7a5e579904dd6211a520321035526f7
+  path: skills/brainstorming/SKILL.md
+  url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/brainstorming/SKILL.md
+  notes: Read-first inquiry, proposal/statement separation, approach selection before writing the design.
+  license: MIT
+license_spdx: MIT AND MIT
+license_evidence:
+- ref: 301b02b12bff98e4688e6984af6556802322bbde
+  url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/LICENSE
+  holder: Addy Osmani (2025)
+- ref: 22f0b463e7a5e579904dd6211a520321035526f7
+  url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
+  holder: Jesse Vincent (2025)
+decision: adapt
+rationale: Keep one requirements intake that combines clear acceptance evidence with high-impact questioning, rather than maintaining separate
+  brainstorm and spec workflows.
+fermin_tags:
+- agent-skills
+- decision
+- specification
+- acceptance
+- capability-map
+epistemic: evidenced
+fermin_tag: borrow-adapt
+surfaces:
+- dc-bot
+- cursor-cloud
+- ubuntu
+adaptation:
+  kept:
+  - testable acceptance
+  - fact/assumption visibility
+  - capability split test
+  - approach comparison
+  rewritten:
+  - decision-record degrees of freedom
+  - Bot-rulings versus human choices
+  - no blanket stop on authorized local work
+  - spec to task-pack route
+  cut:
+  - mandatory all-creative-work hard gate
+  - visual companion server and browser prompts
+  - code-stack boilerplate
+  - automatic-in-turn stop
+  - code-only mandatory-plan flow
+  dedup:
+  - Addy spec selected as primary due to clearer verification/capability map; Obra not separately accepted but used as secondary input for question
+    quality.
+references: []
+quality_gate:
+  static: pass
+  content: pass
+  package_links: pass
+  catalog_merge: pass
+  runtime_scenarios: pending
+  release: pending
+  checks: validate_r5.py; R5-ADAPT-REPORT.md selection rationale and validation
+open_risks:
+- Mixed-source requirements workflow needs user-in-the-loop scenarios to tune question count and authorized defaults; no unconditional upstream
+  demand for user questions was retained.

@@ -1,7 +1,7 @@
 meta_version: 1
 id: fermin-executing-plans
 path: pool/skills/fermin-executing-plans
-status: candidate
+status: released
 source:
   repo: obra/superpowers
   ref: 22f0b463e7a5e579904dd6211a520321035526f7
@@ -21,7 +21,8 @@ license_evidence:
   url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
   holder: Jesse Vincent (2025)
 decision: adapt
-rationale: Gives a single Fermin executor a resumable quality loop without importing upstream shell scripts or Git-worktree coupling.
+rationale: Gives a single Fermin executor a resumable quality loop without importing upstream shell scripts
+  or Git-worktree coupling.
 fermin_tags:
 - agent-skills
 - execution
@@ -51,15 +52,38 @@ adaptation:
   - required worktrees/branch finishers
   - normal-task push gate tied only to Git
   dedup:
-  - Complements rather than duplicates subagent route by owning one-session execution with a shared ledger contract.
+  - Complements rather than duplicates subagent route by owning one-session execution with a shared ledger
+    contract.
 references: []
 quality_gate:
   static: pass
   content: pass
   package_links: pass
   catalog_merge: pass
-  runtime_scenarios: pending
-  release: pending
-  checks: validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review
+  runtime_scenarios: pass
+  release: pass
+  checks: 'validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review; R6 W5.2 S12 promotion 2026-11-07
+    08:47:00 CST; runtime scenarios pass: S04, S07, S11; decision: artifacts/S12/decisions/fermin-executing-plans.yaml'
 open_risks:
-- Cross-session compaction recovery was not exercised on all three target surfaces; candidate explicitly requires such scenarios before release.
+- 'Released with retained limitations: same-author self-review across R6 evidence; S11 static host-route
+  simulation only (no live Cursor/DC Bot loader); no live multi-agent production traffic. See r6-eval/artifacts/S12/PROMOTION.md
+  and per-skill decision YAML.'
+- S04 single-process memory abstinence; S07 stdlib unittest on disposable fixture.
+evidence:
+- kind: r6-runtime-scenario
+  scenario_id: S04
+  path: r6-eval/evidence/S04-resume-behavior.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S07
+  path: r6-eval/evidence/S07-code-red-green.yaml
+  result: pass
+- kind: r6-runtime-scenario
+  scenario_id: S11
+  path: r6-eval/evidence/S11-loader-portability.yaml
+  result: pass
+- kind: promotion-decision
+  path: r6-eval/artifacts/S12/decisions/fermin-executing-plans.yaml
+  decider: DC Bot (authorized Bot)
+  decision: release
+  timestamp: 2026-11-07 08:47:00 CST

@@ -1,0 +1,74 @@
+meta_version: 1
+id: fermin-tdd
+path: pool/skills/fermin-tdd
+status: candidate
+source:
+  repo: obra/superpowers
+  ref: 22f0b463e7a5e579904dd6211a520321035526f7
+  path: skills/test-driven-development/SKILL.md
+  url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md
+  license: MIT
+adapted_from:
+- repo: obra/superpowers
+  ref: 22f0b463e7a5e579904dd6211a520321035526f7
+  path: skills/test-driven-development/SKILL.md
+  url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/test-driven-development/SKILL.md
+  notes: Observed RED rationale, minimal GREEN, real behavior and anti-rationalization.
+  license: MIT
+- repo: addyosmani/agent-skills
+  ref: 301b02b12bff98e4688e6984af6556802322bbde
+  path: skills/test-driven-development/SKILL.md
+  url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/skills/test-driven-development/SKILL.md
+  notes: Repository test-stack discovery, regression distinction, real-boundary and behavior-first selection.
+  license: MIT
+license_spdx: MIT AND MIT
+license_evidence:
+- ref: 301b02b12bff98e4688e6984af6556802322bbde
+  url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/LICENSE
+  holder: Addy Osmani (2025)
+- ref: 22f0b463e7a5e579904dd6211a520321035526f7
+  url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
+  holder: Jesse Vincent (2025)
+decision: adapt
+rationale: Collapses both TDD packs into one test-stack-discovering, evidence-producing Fermin workflow with truthful skill-artifact adaptation.
+fermin_tags:
+- agent-skills
+- tdd
+- regression
+- fixtures
+- evidence
+epistemic: evidenced
+fermin_tag: borrow-adapt-merged
+surfaces:
+- dc-bot
+- cursor-cloud
+- ubuntu
+adaptation:
+  kept:
+  - observed RED and GREEN
+  - test behavior not mocks
+  - minimal implementation
+  - project regression tests
+  rewritten:
+  - skill fixture/scenario TDD
+  - safe characterization alternative
+  - no destructive reset of user work
+  - explicit evidence table
+  cut:
+  - rigid pyramid percentages and universal no-output-warning rule
+  - browser-specific long appendix
+  - language-specific sample sprawl
+  - blanket-delete rhetoric
+  dedup:
+  - One primary Fermin skill; dual-source provenance retained for both MIT sources.
+references: []
+quality_gate:
+  static: pass
+  content: pass
+  package_links: pass
+  catalog_merge: pass
+  runtime_scenarios: pending
+  release: pending
+  checks: validate_r5.py; R5-ADAPT-REPORT.md merge and validation
+open_risks:
+- The skill/structured-fixture adaptation needs scenario validation beyond its own static validator; no claim of universal TDD coverage is intended.

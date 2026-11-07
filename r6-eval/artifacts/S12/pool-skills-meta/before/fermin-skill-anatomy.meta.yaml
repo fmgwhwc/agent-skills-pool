@@ -1,0 +1,78 @@
+meta_version: 1
+id: fermin-skill-anatomy
+path: pool/skills/fermin-skill-anatomy
+status: candidate
+source:
+  repo: addyosmani/agent-skills
+  ref: 301b02b12bff98e4688e6984af6556802322bbde
+  path: docs/skill-anatomy.md
+  url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/docs/skill-anatomy.md
+  license: MIT
+adapted_from:
+- repo: addyosmani/agent-skills
+  ref: 301b02b12bff98e4688e6984af6556802322bbde
+  path: docs/skill-anatomy.md
+  url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/docs/skill-anatomy.md
+  notes: Portable frontmatter, description that identifies when to load, progressive disclosure, model-neutral procedures, shared-reference portability
+    defect.
+  license: MIT
+- repo: obra/superpowers
+  ref: 22f0b463e7a5e579904dd6211a520321035526f7
+  path: skills/writing-skills/SKILL.md
+  url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-skills/SKILL.md
+  notes: Baseline/scenario evidence loop, fit guidance form to observed failure, one meaningful example, per-skill testing.
+  license: MIT
+license_spdx: MIT AND MIT
+license_evidence:
+- ref: 301b02b12bff98e4688e6984af6556802322bbde
+  url: https://github.com/addyosmani/agent-skills/blob/301b02b12bff98e4688e6984af6556802322bbde/LICENSE
+  holder: Addy Osmani (2025)
+- ref: 22f0b463e7a5e579904dd6211a520321035526f7
+  url: https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/LICENSE
+  holder: Jesse Vincent (2025)
+decision: adapt
+rationale: Bootstraps future pool work by combining portable anatomy and Fermin provenance with honest per-skill evidence gates.
+fermin_tags:
+- agent-skills
+- authoring
+- anatomy
+- provenance
+- evaluation
+epistemic: evidenced
+fermin_tag: borrow-adapt-merged
+surfaces:
+- dc-bot
+- cursor-cloud
+- ubuntu
+adaptation:
+  kept:
+  - description as index rather than recipe
+  - progressive disclosure
+  - reusable-need test
+  - scenario baseline
+  - fit guidance to failure
+  rewritten:
+  - meta schema extension
+  - multi-source pin contract
+  - candidate/release distinction
+  - Fermin material-to-index workflow
+  - source notice requirements
+  cut:
+  - mandatory blind pressure tests and micro-test quotas
+  - unsupported repetition of cross-model study results
+  - personal-runtime installation paths
+  - contribute-back/push/deployment checklists
+  dedup:
+  - Single self-bootstrapping authoring entry; Addy primary anatomy plus selective Obra quality methodology.
+references:
+- references/meta-contract.md
+quality_gate:
+  static: pass
+  content: pass
+  package_links: pass
+  catalog_merge: pass
+  runtime_scenarios: pending
+  release: pending
+  checks: validate_r5.py; R5-ADAPT-REPORT.md validation and per-skill review
+open_risks:
+- The candidate itself has static/content validation only; no baseline versus with-skill authoring experiment was claimed in R5.
