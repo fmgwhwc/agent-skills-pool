@@ -1,0 +1,10 @@
+test_accepts_kebab_case (test_toy_validate.TestIsValidSkillName.test_accepts_kebab_case) ... ok
+test_rejects_empty_and_double_hyphen (test_toy_validate.TestIsValidSkillName.test_rejects_empty_and_double_hyphen) ... ok
+test_rejects_uppercase_and_underscore (test_toy_validate.TestIsValidSkillName.test_rejects_uppercase_and_underscore) ... ok
+test_match_when_valid_and_equal (test_toy_validate.TestNameMatchesDir.test_match_when_valid_and_equal) ... ok
+test_mismatch_or_invalid (test_toy_validate.TestNameMatchesDir.test_mismatch_or_invalid) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK

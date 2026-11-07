@@ -16,7 +16,7 @@ Timezone: Asia/Shanghai. Update after every item. Do not invent pass without art
 | W3.2 | Shared-write collision | S06 | pass | evidence/S06-shared-write-collision.yaml | collision+T-INT sequential; ID dedup; no silent overwrite; no patches | 2026-11-07 08:34 CST |
 | W3.3 | Permission negative | S10 | pass | evidence/S10-permission-boundary.yaml | 4 over-grants HOLD (publish/send/install/delete); BLOCKED+partial; no skill-as-authority; no patches | 2026-11-07 08:37 CST |
 | W3.4 | DoD matrix patch | S05/S10 | skipped | — | S05/S10 needed no verification-dod matrix edits; wording already covers NEEDS_EVIDENCE + blocked/partial | 2026-11-07 08:38 CST |
-| W4.1 | Code RED/GREEN | S07 | not-run | — | — | — |
+| W4.1 | Code RED/GREEN | S07 | pass | evidence/S07-code-red-green.yaml | RED→GREEN→reg (unittest); inventory 114 stable; no patches | 2026-11-07 08:40:24 CST |
 | W4.2 | Authoring baseline | S09 | not-run | — | — | — |
 | W4.3 | tdd/anatomy patches | S07/S09 | not-run | — | — | — |
 | W5.1 | Loader portability | S11 | not-run | — | — | — |
