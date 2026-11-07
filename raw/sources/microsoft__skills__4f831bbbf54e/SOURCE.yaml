@@ -1,0 +1,20 @@
+upstream:
+  repo: microsoft/skills
+  ref: 4f831bbbf54e004507758d8ef2ab420c77bb81b6
+  url: https://github.com/microsoft/skills/tree/4f831bbbf54e004507758d8ef2ab420c77bb81b6
+  fetched_at: 2026-11-07T10:40:00+08:00 Asia/Shanghai
+  license_spdx: MIT
+  license_file: LICENSE
+scope:
+  included_paths:
+  - LICENSE
+  - .github/skills/
+  - .github/plugins/
+  excluded_paths: []
+  notes: Archival only; not loadable as Fermin skills. Fetched via GitHub archive tarball at exact pin
+    SHA; file bytes preserved. Upstream skill trees live under .github/skills and .github/plugins (paths
+    preserved). Root LICENSE is MIT (Microsoft Corporation).
+fermin:
+  role: raw-archive
+  not_a_fork: true
+  linked_pool_skills: []

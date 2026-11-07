@@ -1,0 +1,19 @@
+upstream:
+  repo: google/skills
+  ref: c2cf4ba74c0e47f0e7a81d29e053e740998a0ae2
+  url: https://github.com/google/skills/tree/c2cf4ba74c0e47f0e7a81d29e053e740998a0ae2
+  fetched_at: 2026-11-07T10:40:00+08:00 Asia/Shanghai
+  license_spdx: Apache-2.0
+  license_file: LICENSE
+scope:
+  included_paths:
+  - LICENSE
+  - skills/
+  - plugins/
+  excluded_paths: []
+  notes: Archival only; not loadable as Fermin skills. Fetched via GitHub archive tarball at exact pin
+    SHA; file bytes preserved. Includes skills/ and plugins/ trees that contain SKILL.md (paths preserved).
+fermin:
+  role: raw-archive
+  not_a_fork: true
+  linked_pool_skills: []

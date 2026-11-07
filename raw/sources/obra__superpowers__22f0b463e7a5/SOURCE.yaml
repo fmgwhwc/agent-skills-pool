@@ -1,0 +1,26 @@
+upstream:
+  repo: obra/superpowers
+  ref: 22f0b463e7a5e579904dd6211a520321035526f7
+  url: https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7
+  fetched_at: 2026-11-07T10:40:00+08:00 Asia/Shanghai
+  license_spdx: MIT
+  license_file: LICENSE
+scope:
+  included_paths:
+  - LICENSE
+  - skills/
+  excluded_paths: []
+  notes: Archival only; not loadable as Fermin skills. Fetched via GitHub archive tarball at exact pin
+    SHA (https://github.com/obra/superpowers/archive/<sha>.tar.gz); file bytes preserved. Entire upstream
+    skills/ tree + root LICENSE.
+fermin:
+  role: raw-archive
+  not_a_fork: true
+  linked_pool_skills:
+  - fermin-brainstorm-or-spec
+  - fermin-writing-plans
+  - fermin-executing-plans
+  - fermin-subagent-driven-dev
+  - fermin-tdd
+  - fermin-verification-dod
+  - fermin-skill-anatomy
