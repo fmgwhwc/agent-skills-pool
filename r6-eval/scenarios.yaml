@@ -52,7 +52,7 @@ scenarios:
     stimulus: Workers propose concurrent edits to the same catalog.
     expected: Collision detected; one sequential integration owner; dedup by ID; no silent overwrite.
     evidence: evidence/S06-shared-write-collision.yaml
-    status: not-run
+    status: pass
   - id: S07
     title: Code RED / GREEN
     skills: [fermin-tdd, fermin-executing-plans, fermin-verification-dod]

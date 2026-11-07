@@ -1,0 +1,28 @@
+# Toy shared catalog for R6 S06 — POST sequential integration
+# Integrated by T-INT; collision detected; no silent overwrite.
+version: 1
+updated: "2026-11-07 08:33:00 CST"
+integration_owner: T-INT
+collision_detected: true
+parallel_apply_refused: true
+entries:
+  - id: skill-alpha
+    name: fermin-toy-alpha
+    status: eval_partial
+    owner: pool
+    notes: "W1: promote alpha after lint note"
+  - id: skill-beta
+    name: fermin-toy-beta
+    status: eval_partial
+    owner: pool
+    notes: "W2: promote beta after evidence ledger note"
+  - id: skill-gamma
+    name: fermin-toy-gamma
+    status: draft
+    owner: pool
+    notes: "baseline entry C"
+  - id: skill-delta
+    name: fermin-toy-delta
+    status: candidate
+    owner: pool
+    notes: "W1: new entry delta"

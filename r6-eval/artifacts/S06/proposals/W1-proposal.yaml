@@ -1,0 +1,18 @@
+# Worker1 proposed patch against catalog-toy.yaml (PROPOSE ONLY — not applied)
+proposer: Worker1
+task_id: T-W1
+base_catalog_sha256: "91cf1015bc84b84d7424ee60bc4d0bb0ecd3e2d444772082f55887454ef424b5"
+target_path: "r6-eval/artifacts/S06/shared/catalog-toy.yaml"
+operations:
+  - op: update
+    id: skill-alpha
+    fields:
+      status: eval_partial
+      notes: "W1: promote alpha after lint note"
+  - op: add
+    id: skill-delta
+    fields:
+      name: fermin-toy-delta
+      status: candidate
+      owner: pool
+      notes: "W1: new entry delta"
