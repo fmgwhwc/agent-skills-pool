@@ -1,0 +1,26 @@
+upstream:
+  repo: addyosmani/agent-skills
+  ref: 301b02b12bff98e4688e6984af6556802322bbde
+  url: https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde
+  fetched_at: 2026-11-07T10:40:00+08:00 Asia/Shanghai
+  license_spdx: MIT
+  license_file: LICENSE
+scope:
+  included_paths:
+  - LICENSE
+  - skills/
+  - docs/
+  - references/
+  excluded_paths: []
+  notes: Archival only; not loadable as Fermin skills. Fetched via GitHub archive tarball at exact pin
+    SHA; file bytes preserved. Includes docs/ and references/ required for skill-anatomy and definition-of-done
+    provenance.
+fermin:
+  role: raw-archive
+  not_a_fork: true
+  linked_pool_skills:
+  - fermin-using-skills
+  - fermin-brainstorm-or-spec
+  - fermin-tdd
+  - fermin-verification-dod
+  - fermin-skill-anatomy

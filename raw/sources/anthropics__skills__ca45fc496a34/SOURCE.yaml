@@ -1,0 +1,40 @@
+upstream:
+  repo: anthropics/skills
+  ref: ca45fc496a3436251f191354091d557da31c15b5
+  url: https://github.com/anthropics/skills/tree/ca45fc496a3436251f191354091d557da31c15b5
+  fetched_at: 2026-11-07T10:40:00+08:00 Asia/Shanghai
+  license_spdx: Apache-2.0
+  license_file: LICENSE
+scope:
+  included_paths:
+  - LICENSE
+  - THIRD_PARTY_NOTICES.md
+  - skills/academy-guide/
+  - skills/algorithmic-art/
+  - skills/brand-guidelines/
+  - skills/canvas-design/
+  - skills/claude-api/
+  - skills/discernment-nudge/
+  - skills/frontend-design/
+  - skills/internal-comms/
+  - skills/mcp-builder/
+  - skills/skill-creator/
+  - skills/slack-gif-creator/
+  - skills/theme-factory/
+  - skills/webapp-testing/
+  - skills/web-artifacts-builder/
+  excluded_paths:
+  - skills/docx/
+  - skills/pdf/
+  - skills/pptx/
+  - skills/xlsx/
+  - skills/doc-coauthoring/
+  notes: Archival only; not loadable as Fermin skills. Fetched via GitHub archive tarball at exact pin
+    SHA; file bytes preserved. Root LICENSE is a copy of skills/skill-creator/LICENSE.txt (Apache-2.0)
+    because upstream root has no LICENSE; THIRD_PARTY_NOTICES.md retained. Excluded document skills (docx/pdf/pptx/xlsx)
+    — source-available, not open source per upstream README / R3. Excluded skills/doc-coauthoring (no
+    LICENSE.txt; unsure redistributability).
+fermin:
+  role: raw-archive
+  not_a_fork: true
+  linked_pool_skills: []

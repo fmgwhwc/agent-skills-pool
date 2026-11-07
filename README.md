@@ -71,6 +71,7 @@ agent-skills-pool/
 ├── validate_r5.py
 ├── schema/
 ├── pool/skills/          # eight released packages
+├── raw/                  # archival upstream snapshots at R3 pins (not loadable; loaders use pool/ only)
 ├── rejected/             # scoped rejects (not entries)
 ├── attribution/          # upstream MIT notices
 ├── research/             # Bot-closed process artifacts
