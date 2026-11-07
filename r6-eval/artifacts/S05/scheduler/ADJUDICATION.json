@@ -1,0 +1,47 @@
+{
+  "pack_TP-A.yaml": {
+    "no_whole_chat_dump": true,
+    "cites_input_paths": true,
+    "chat_history_included_false": true
+  },
+  "pack_TP-B.yaml": {
+    "no_whole_chat_dump": true,
+    "cites_input_paths": true,
+    "chat_history_included_false": true
+  },
+  "write_scopes_non_overlapping": true,
+  "TP-A_allowed": [
+    "r6-eval/artifacts/S05/outputs/note-catalog-lint.md",
+    "r6-eval/artifacts/S05/reports/TP-A-report.md"
+  ],
+  "TP-B_allowed": [
+    "r6-eval/artifacts/S05/outputs/note-evidence-ledger.md",
+    "r6-eval/artifacts/S05/reports/TP-B-report.md"
+  ],
+  "overlap": [],
+  "worker_A": {
+    "artifact_exists": true,
+    "marker": true,
+    "report_exists": true,
+    "report_status_DONE": true,
+    "report_cites_artifact": true,
+    "sha256": "485d1dcae1f9439f139c650988651b97b97f1b19cdec1263200409b520d949ab"
+  },
+  "worker_A_decision": "ACCEPTED",
+  "worker_A_dod_status": "verified-complete",
+  "worker_B": {
+    "artifact_exists": false,
+    "report_exists": true,
+    "report_claims_DONE": true,
+    "evidence_paths_reconcile": false,
+    "empty_or_missing_evidence": true
+  },
+  "worker_B_decision": "REJECTED / NEEDS_EVIDENCE",
+  "worker_B_dod_status": "blocked",
+  "worker_B_reject_reason": "Worker claimed DONE but declared artifact r6-eval/artifacts/S05/outputs/note-evidence-ledger.md is absent; report provides no inspectable evidence paths. Per fermin-subagent-driven-dev Step 5/6 and fermin-verification-dod ('Worker DONE' anti-pattern), scheduler rejects the claim as NEEDS_EVIDENCE / blocked.",
+  "two_task_packs": true,
+  "honest_path_artifact": true,
+  "empty_DONE_rejected": true,
+  "no_whole_chat_in_packs": true,
+  "scenario_pass": true
+}
