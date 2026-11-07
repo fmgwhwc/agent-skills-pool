@@ -1,0 +1,39 @@
+scenario: Runtime loader portability
+scenario_id: S11
+surface: dc-bot
+host_and_loader_version: "simulated host skills route: artifacts/S11/port-tree/skills/<id>/SKILL.md; no live Cursor/DC Bot loader invoked"
+run_id: r6-w5.1-s11-20261107
+timestamp: "2026-11-07 08:44:28 CST"
+baseline_artifact: "r5-adapt-batch/pool/skills/ (read-only source; copied not moved)"
+skill_revision: "eight packages copy-identical to pool; PINNED_MATCH=yes; frontmatter name+description only; status=candidate throughout"
+output_artifact: "r6-eval/artifacts/S11/"
+commands_run:
+  - "cp -a r5-adapt-batch/pool/skills/. artifacts/S11/port-tree/skills/"
+  - "diff -rq pool/skills artifacts/S11/port-tree/skills → ORIG_COPY_IDENTICAL=yes"
+  - "python artifacts/S11/checks/check_loader_portability.py --skills-root artifacts/S11/port-tree/skills --out-json …/RESULTS.json --out-md …/RESULTS.md"
+  - "sha256 pin pre/post of pool/skills → PINNED_MATCH=yes"
+stdout_stderr_snippets:
+  - '{"all_ok": true, "pass": 8, "fail": 0}'
+  - "EXIT:0"
+  - "ORIG_COPY_IDENTICAL=yes; PINNED_MATCH=yes"
+  - "3 local reference links resolved (meta-contract.md, task-pack.md, fermin-dod.md)"
+rubric_and_result: |
+  S11 loader portability assertions (per skill × 8):
+  1. SKILL.md YAML frontmatter parses; name + description present and non-empty.
+  2. frontmatter name == package dirname (host route convention).
+  3. frontmatter keys are only {name, description} — no meta-only field leak.
+  4. adjacent meta.yaml exists and parses; meta has no name/description discovery keys (no parser conflict).
+  5. meta.id aligns with frontmatter name; status remains candidate.
+  6. Relative markdown links in SKILL.md resolve to in-package files after copy.
+  7. meta.references paths (when listed) exist after copy.
+  Result: 8/8 PASS; all_ok=true. No frontmatter/meta conflicts; no broken local links.
+  Skills with in-package refs: anatomy→references/meta-contract.md;
+  subagent-driven-dev→references/task-pack.md; verification-dod→references/fermin-dod.md.
+independence: same-author-self-review
+result: pass
+limitations: |
+  Same-author self-review (disclosed). Static discovery-contract simulation only —
+  did not invoke a live Cursor Agent Skills loader or DC Bot skill install path.
+  Host route modeled as <skills_root>/<skill-id>/SKILL.md with adjacent meta.yaml.
+  No GitHub; pool originals unread for mutation (copy-only); skills remain candidate.
+  No skill-body patches (no conflicts or broken links found).

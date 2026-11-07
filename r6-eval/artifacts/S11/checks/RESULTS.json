@@ -1,0 +1,500 @@
+{
+  "skills_root": "artifacts/S11/port-tree/skills",
+  "skill_count": 8,
+  "pass_count": 8,
+  "fail_count": 0,
+  "all_ok": true,
+  "results": [
+    {
+      "skill_dir": "fermin-brainstorm-or-spec",
+      "skill_md": "artifacts/S11/port-tree/skills/fermin-brainstorm-or-spec/SKILL.md",
+      "ok": true,
+      "checks": {
+        "skill_md_present": true,
+        "frontmatter_parse": true,
+        "frontmatter_name": true,
+        "frontmatter_description": true,
+        "name_matches_dirname": true,
+        "frontmatter_no_meta_leak": true,
+        "meta_yaml_adjacent": true,
+        "meta_parse": true,
+        "meta_no_discovery_keys": true,
+        "meta_id_aligns_name": true,
+        "local_links_resolve": true,
+        "local_links_count": 0,
+        "meta_references_exist": true
+      },
+      "failures": [],
+      "frontmatter": {
+        "name": "fermin-brainstorm-or-spec",
+        "description": "Turns an ambiguous request into an executable decision record or specification. Use when Fermin lacks a clear outcome, s",
+        "keys": [
+          "description",
+          "name"
+        ]
+      },
+      "frontmatter_meta_leaks": [],
+      "frontmatter_extra_keys": [],
+      "meta_keys": [
+        "adaptation",
+        "adapted_from",
+        "decision",
+        "epistemic",
+        "fermin_tag",
+        "fermin_tags",
+        "id",
+        "license_evidence",
+        "license_spdx",
+        "meta_version",
+        "open_risks",
+        "path",
+        "quality_gate",
+        "rationale",
+        "references",
+        "source",
+        "status",
+        "surfaces"
+      ],
+      "meta_id": "fermin-brainstorm-or-spec",
+      "meta_status": "candidate",
+      "meta_discovery_collisions": [],
+      "local_links": [],
+      "meta_references": []
+    },
+    {
+      "skill_dir": "fermin-executing-plans",
+      "skill_md": "artifacts/S11/port-tree/skills/fermin-executing-plans/SKILL.md",
+      "ok": true,
+      "checks": {
+        "skill_md_present": true,
+        "frontmatter_parse": true,
+        "frontmatter_name": true,
+        "frontmatter_description": true,
+        "name_matches_dirname": true,
+        "frontmatter_no_meta_leak": true,
+        "meta_yaml_adjacent": true,
+        "meta_parse": true,
+        "meta_no_discovery_keys": true,
+        "meta_id_aligns_name": true,
+        "local_links_resolve": true,
+        "local_links_count": 0,
+        "meta_references_exist": true
+      },
+      "failures": [],
+      "frontmatter": {
+        "name": "fermin-executing-plans",
+        "description": "Executes a Fermin plan in one accountable session while preserving a resumable evidence ledger. Use when a single execut",
+        "keys": [
+          "description",
+          "name"
+        ]
+      },
+      "frontmatter_meta_leaks": [],
+      "frontmatter_extra_keys": [],
+      "meta_keys": [
+        "adaptation",
+        "adapted_from",
+        "decision",
+        "epistemic",
+        "fermin_tag",
+        "fermin_tags",
+        "id",
+        "license_evidence",
+        "license_spdx",
+        "meta_version",
+        "open_risks",
+        "path",
+        "quality_gate",
+        "rationale",
+        "references",
+        "source",
+        "status",
+        "surfaces"
+      ],
+      "meta_id": "fermin-executing-plans",
+      "meta_status": "candidate",
+      "meta_discovery_collisions": [],
+      "local_links": [],
+      "meta_references": []
+    },
+    {
+      "skill_dir": "fermin-skill-anatomy",
+      "skill_md": "artifacts/S11/port-tree/skills/fermin-skill-anatomy/SKILL.md",
+      "ok": true,
+      "checks": {
+        "skill_md_present": true,
+        "frontmatter_parse": true,
+        "frontmatter_name": true,
+        "frontmatter_description": true,
+        "name_matches_dirname": true,
+        "frontmatter_no_meta_leak": true,
+        "meta_yaml_adjacent": true,
+        "meta_parse": true,
+        "meta_no_discovery_keys": true,
+        "meta_id_aligns_name": true,
+        "local_links_resolve": true,
+        "local_links_count": 1,
+        "meta_references_exist": true
+      },
+      "failures": [],
+      "frontmatter": {
+        "name": "fermin-skill-anatomy",
+        "description": "Authors, adapts, revises, and audits Fermin pool skills with portable contracts, complete provenance, and evidence-based",
+        "keys": [
+          "description",
+          "name"
+        ]
+      },
+      "frontmatter_meta_leaks": [],
+      "frontmatter_extra_keys": [],
+      "meta_keys": [
+        "adaptation",
+        "adapted_from",
+        "decision",
+        "epistemic",
+        "fermin_tag",
+        "fermin_tags",
+        "id",
+        "license_evidence",
+        "license_spdx",
+        "meta_version",
+        "open_risks",
+        "path",
+        "quality_gate",
+        "rationale",
+        "references",
+        "source",
+        "status",
+        "surfaces"
+      ],
+      "meta_id": "fermin-skill-anatomy",
+      "meta_status": "candidate",
+      "meta_discovery_collisions": [],
+      "local_links": [
+        {
+          "label": "references/meta-contract.md",
+          "href": "references/meta-contract.md",
+          "resolved": "/workspace/fermin-main-subject/r6-eval/artifacts/S11/port-tree/skills/fermin-skill-anatomy/references/meta-contract.md",
+          "exists": true,
+          "in_package": true,
+          "ok": true
+        }
+      ],
+      "meta_references": [
+        {
+          "ref": "references/meta-contract.md",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "skill_dir": "fermin-subagent-driven-dev",
+      "skill_md": "artifacts/S11/port-tree/skills/fermin-subagent-driven-dev/SKILL.md",
+      "ok": true,
+      "checks": {
+        "skill_md_present": true,
+        "frontmatter_parse": true,
+        "frontmatter_name": true,
+        "frontmatter_description": true,
+        "name_matches_dirname": true,
+        "frontmatter_no_meta_leak": true,
+        "meta_yaml_adjacent": true,
+        "meta_parse": true,
+        "meta_no_discovery_keys": true,
+        "meta_id_aligns_name": true,
+        "local_links_resolve": true,
+        "local_links_count": 1,
+        "meta_references_exist": true
+      },
+      "failures": [],
+      "frontmatter": {
+        "name": "fermin-subagent-driven-dev",
+        "description": "Schedules independent Fermin task packs with bounded context, artifact-based reporting, and separate acceptance review. ",
+        "keys": [
+          "description",
+          "name"
+        ]
+      },
+      "frontmatter_meta_leaks": [],
+      "frontmatter_extra_keys": [],
+      "meta_keys": [
+        "adaptation",
+        "adapted_from",
+        "decision",
+        "epistemic",
+        "fermin_tag",
+        "fermin_tags",
+        "id",
+        "license_evidence",
+        "license_spdx",
+        "meta_version",
+        "open_risks",
+        "path",
+        "quality_gate",
+        "rationale",
+        "references",
+        "source",
+        "status",
+        "surfaces"
+      ],
+      "meta_id": "fermin-subagent-driven-dev",
+      "meta_status": "candidate",
+      "meta_discovery_collisions": [],
+      "local_links": [
+        {
+          "label": "references/task-pack.md",
+          "href": "references/task-pack.md",
+          "resolved": "/workspace/fermin-main-subject/r6-eval/artifacts/S11/port-tree/skills/fermin-subagent-driven-dev/references/task-pack.md",
+          "exists": true,
+          "in_package": true,
+          "ok": true
+        }
+      ],
+      "meta_references": [
+        {
+          "ref": "references/task-pack.md",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "skill_dir": "fermin-tdd",
+      "skill_md": "artifacts/S11/port-tree/skills/fermin-tdd/SKILL.md",
+      "ok": true,
+      "checks": {
+        "skill_md_present": true,
+        "frontmatter_parse": true,
+        "frontmatter_name": true,
+        "frontmatter_description": true,
+        "name_matches_dirname": true,
+        "frontmatter_no_meta_leak": true,
+        "meta_yaml_adjacent": true,
+        "meta_parse": true,
+        "meta_no_discovery_keys": true,
+        "meta_id_aligns_name": true,
+        "local_links_resolve": true,
+        "local_links_count": 0,
+        "meta_references_exist": true
+      },
+      "failures": [],
+      "frontmatter": {
+        "name": "fermin-tdd",
+        "description": "Produces proof that a behavior-changing implementation or regression is correct using observed failing and passing check",
+        "keys": [
+          "description",
+          "name"
+        ]
+      },
+      "frontmatter_meta_leaks": [],
+      "frontmatter_extra_keys": [],
+      "meta_keys": [
+        "adaptation",
+        "adapted_from",
+        "decision",
+        "epistemic",
+        "fermin_tag",
+        "fermin_tags",
+        "id",
+        "license_evidence",
+        "license_spdx",
+        "meta_version",
+        "open_risks",
+        "path",
+        "quality_gate",
+        "rationale",
+        "references",
+        "source",
+        "status",
+        "surfaces"
+      ],
+      "meta_id": "fermin-tdd",
+      "meta_status": "candidate",
+      "meta_discovery_collisions": [],
+      "local_links": [],
+      "meta_references": []
+    },
+    {
+      "skill_dir": "fermin-using-skills",
+      "skill_md": "artifacts/S11/port-tree/skills/fermin-using-skills/SKILL.md",
+      "ok": true,
+      "checks": {
+        "skill_md_present": true,
+        "frontmatter_parse": true,
+        "frontmatter_name": true,
+        "frontmatter_description": true,
+        "name_matches_dirname": true,
+        "frontmatter_no_meta_leak": true,
+        "meta_yaml_adjacent": true,
+        "meta_parse": true,
+        "meta_no_discovery_keys": true,
+        "meta_id_aligns_name": true,
+        "local_links_resolve": true,
+        "local_links_count": 0,
+        "meta_references_exist": true
+      },
+      "failures": [],
+      "frontmatter": {
+        "name": "fermin-using-skills",
+        "description": "Routes Fermin work through only the skills and evidence it needs. Use when starting or resuming a task, choosing between",
+        "keys": [
+          "description",
+          "name"
+        ]
+      },
+      "frontmatter_meta_leaks": [],
+      "frontmatter_extra_keys": [],
+      "meta_keys": [
+        "adaptation",
+        "adapted_from",
+        "decision",
+        "epistemic",
+        "fermin_tag",
+        "fermin_tags",
+        "id",
+        "license",
+        "license_evidence",
+        "license_spdx",
+        "meta_version",
+        "open_risks",
+        "path",
+        "quality_gate",
+        "rationale",
+        "references",
+        "source",
+        "status",
+        "surfaces"
+      ],
+      "meta_id": "fermin-using-skills",
+      "meta_status": "candidate",
+      "meta_discovery_collisions": [],
+      "local_links": [],
+      "meta_references": []
+    },
+    {
+      "skill_dir": "fermin-verification-dod",
+      "skill_md": "artifacts/S11/port-tree/skills/fermin-verification-dod/SKILL.md",
+      "ok": true,
+      "checks": {
+        "skill_md_present": true,
+        "frontmatter_parse": true,
+        "frontmatter_name": true,
+        "frontmatter_description": true,
+        "name_matches_dirname": true,
+        "frontmatter_no_meta_leak": true,
+        "meta_yaml_adjacent": true,
+        "meta_parse": true,
+        "meta_no_discovery_keys": true,
+        "meta_id_aligns_name": true,
+        "local_links_resolve": true,
+        "local_links_count": 1,
+        "meta_references_exist": true
+      },
+      "failures": [],
+      "frontmatter": {
+        "name": "fermin-verification-dod",
+        "description": "Gates Fermin completion claims on fresh artifact-linked evidence and reconciles task acceptance with a stable Definition",
+        "keys": [
+          "description",
+          "name"
+        ]
+      },
+      "frontmatter_meta_leaks": [],
+      "frontmatter_extra_keys": [],
+      "meta_keys": [
+        "adaptation",
+        "adapted_from",
+        "decision",
+        "epistemic",
+        "fermin_tag",
+        "fermin_tags",
+        "id",
+        "license_evidence",
+        "license_spdx",
+        "meta_version",
+        "open_risks",
+        "path",
+        "quality_gate",
+        "rationale",
+        "references",
+        "source",
+        "status",
+        "surfaces"
+      ],
+      "meta_id": "fermin-verification-dod",
+      "meta_status": "candidate",
+      "meta_discovery_collisions": [],
+      "local_links": [
+        {
+          "label": "references/fermin-dod.md",
+          "href": "references/fermin-dod.md",
+          "resolved": "/workspace/fermin-main-subject/r6-eval/artifacts/S11/port-tree/skills/fermin-verification-dod/references/fermin-dod.md",
+          "exists": true,
+          "in_package": true,
+          "ok": true
+        }
+      ],
+      "meta_references": [
+        {
+          "ref": "references/fermin-dod.md",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "skill_dir": "fermin-writing-plans",
+      "skill_md": "artifacts/S11/port-tree/skills/fermin-writing-plans/SKILL.md",
+      "ok": true,
+      "checks": {
+        "skill_md_present": true,
+        "frontmatter_parse": true,
+        "frontmatter_name": true,
+        "frontmatter_description": true,
+        "name_matches_dirname": true,
+        "frontmatter_no_meta_leak": true,
+        "meta_yaml_adjacent": true,
+        "meta_parse": true,
+        "meta_no_discovery_keys": true,
+        "meta_id_aligns_name": true,
+        "local_links_resolve": true,
+        "local_links_count": 0,
+        "meta_references_exist": true
+      },
+      "failures": [],
+      "frontmatter": {
+        "name": "fermin-writing-plans",
+        "description": "Converts an approved Fermin decision or specification into resumable task packs with explicit inputs, interfaces, eviden",
+        "keys": [
+          "description",
+          "name"
+        ]
+      },
+      "frontmatter_meta_leaks": [],
+      "frontmatter_extra_keys": [],
+      "meta_keys": [
+        "adaptation",
+        "adapted_from",
+        "decision",
+        "epistemic",
+        "fermin_tag",
+        "fermin_tags",
+        "id",
+        "license_evidence",
+        "license_spdx",
+        "meta_version",
+        "open_risks",
+        "path",
+        "quality_gate",
+        "rationale",
+        "references",
+        "source",
+        "status",
+        "surfaces"
+      ],
+      "meta_id": "fermin-writing-plans",
+      "meta_status": "candidate",
+      "meta_discovery_collisions": [],
+      "local_links": [],
+      "meta_references": []
+    }
+  ]
+}

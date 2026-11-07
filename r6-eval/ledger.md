@@ -19,6 +19,6 @@ Timezone: Asia/Shanghai. Update after every item. Do not invent pass without art
 | W4.1 | Code RED/GREEN | S07 | pass | evidence/S07-code-red-green.yaml | RED→GREEN→reg (unittest); inventory 114 stable; no patches | 2026-11-07 08:40:24 CST |
 | W4.2 | Authoring baseline | S09 | pass | evidence/S09-authoring-baseline.yaml | with-form 20/20 vs without-form 3/20; sample/setup n=1; no stats claim; no patches | 2026-11-07 08:42:43 CST |
 | W4.3 | tdd/anatomy patches | S07/S09 | skipped | — | S07/S09 needed no tdd/anatomy body edits; RED required + no false stats already present | 2026-11-07 08:43 CST |
-| W5.1 | Loader portability | S11 | not-run | — | — | — |
+| W5.1 | Loader portability | S11 | pass | evidence/S11-loader-portability.yaml | 8/8 frontmatter+meta+links; port-tree copy; no patches | 2026-11-07 08:44:28 CST |
 | W5.2 | Candidate→release | S12 | not-run | — | Owner/promotion | — |
 | W5.3 | Pool docs sync | — | not-run | — | README/ATTRIBUTION | — |

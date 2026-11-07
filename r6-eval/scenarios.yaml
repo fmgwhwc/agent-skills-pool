@@ -92,7 +92,7 @@ scenarios:
     stimulus: Load via intended host's documented skills route, with adjacent meta.yaml and in-package references.
     expected: Frontmatter discovery; correct name/description; no meta-field parser conflict; local links work after moving package.
     evidence: evidence/S11-loader-portability.yaml
-    status: not-run
+    status: pass
   - id: S12
     title: Candidate-to-release governance
     skills: [fermin-verification-dod, fermin-skill-anatomy]
