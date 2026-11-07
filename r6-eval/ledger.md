@@ -8,10 +8,10 @@ Timezone: Asia/Shanghai. Update after every item. Do not invent pass without art
 | W1.3 | Validator discrimination | S08 | pass | evidence/S08-validator-discrimination.yaml | self-test EXIT 0; TEMP broken SHA EXIT 1 with wrong R3 pin; original meta SHA unchanged | 2026-11-07 08:22:57 CST |
 | W1.1 | Router / low ceremony | S01 | pass | evidence/S01-router-low-ceremony.yaml | Bounded typo fix; only using-skills; patch proposed for Step 4 | 2026-11-07 08:23:11 CST |
 | W1.2 | Router / consequential unknown | S02 | pass | evidence/S02-router-consequential-unknown.yaml | Read-before-ask; default=deepen eight via R6; ≤1 fork Q non-blocking | 2026-11-07 08:25:21 CST |
-| W1.4 | Router / validator patches | S01/S08 | applied | patches/fermin-using-skills.SKILL.md.diff | Step-4 typo-path clarification applied on PR branch; status stays candidate | 2026-11-07 |
+| W1.4 | Router / validator patches | S01/S08 | applied | patches/fermin-using-skills.SKILL.md.diff | Step4 typo-path patch merged via PR#4 | 2026-11-07 |
 | W2.1 | Requirements splitting | S03 | pass | evidence/S03-requirements-splitting.yaml | IDs cap-catalog-lint + cap-evidence-ledger; T03 sole catalog owner; 1 plan; no patches | 2026-11-07 08:27 CST |
-| W2.2 | Resume behavior | S04 | not-run | — | — | — |
-| W2.3 | Plan skill copy edits | S03/S04 | not-run | — | — | — |
+| W2.2 | Resume behavior | S04 | pass | evidence/S04-resume-behavior.yaml | T01 done→interrupt→cold resume at T02; T01 sha unchanged; no patches | 2026-11-07 08:29 CST |
+| W2.3 | Plan skill copy edits | S03/S04 | skipped | — | S03/S04 needed no skill-body patches; Step1 resume wording already correct | 2026-11-07 08:30 CST |
 | W3.1 | Dispatch isolation | S05 | not-run | — | — | — |
 | W3.2 | Shared-write collision | S06 | not-run | — | — | — |
 | W3.3 | Permission negative | S10 | not-run | — | — | — |

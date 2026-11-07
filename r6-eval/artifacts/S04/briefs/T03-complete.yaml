@@ -1,0 +1,7 @@
+task_id: T03
+status: complete
+output: artifacts/S04/outputs/T03-integration-index.md
+sha256: b7a32727e2f5dd95046759b0ffe2b8fae9a34b336a2dc13dde4a862e598fd926
+acceptance:
+  AC-T03-1: pass
+completed_at: "2026-11-07 08:28:38 CST"

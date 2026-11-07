@@ -36,7 +36,7 @@ scenarios:
     stimulus: Complete one task, interrupt, then restart with ledger and no conversational memory.
     expected: Completed task not repeated; resumes at first incomplete artifact; ledger and files reconcile.
     evidence: evidence/S04-resume-behavior.yaml
-    status: not-run
+    status: pass
   - id: S05
     title: Dispatch isolation
     skills: [fermin-subagent-driven-dev, fermin-verification-dod]
