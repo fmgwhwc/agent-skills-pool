@@ -1,9 +1,10 @@
 # Machine index for agent-skills-pool. Entries added only after R5 ACCEPT/ADAPT.
 # R5→R6: eight Fermin process skills promoted to status=released (W5.2 / S12).
-# Quality gates: runtime_scenarios/release pass; retained limits in PROMOTION.md / open_risks.
-# See r6-eval/artifacts/S12/PROMOTION.md and r6-eval/WAVE-W5.2-REPORT.md.
+# W6.1: three THEME-trip-scenic-food Fermin skills added as status=candidate (JOB-TSF-INTAKE-R1).
+# Quality gates: runtime_scenarios/release pass for released; pending for TSF candidates.
+# See r6-eval/artifacts/S12/PROMOTION.md and material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/VERDICT.md.
 version: 1
-updated: '2026-11-07'
+updated: '2026-11-09'
 entries:
 - id: fermin-using-skills
   path: pool/skills/fermin-using-skills
@@ -514,3 +515,262 @@ entries:
     - S11
     - S12
     retained_limitations_ref: r6-eval/artifacts/S12/PROMOTION.md
+- id: fermin-tsf-itinerary-structure
+  path: pool/skills/fermin-tsf-itinerary-structure
+  status: candidate
+  theme: THEME-trip-scenic-food
+  grids:
+  - T-plan
+  - T-navigate
+  - T-source
+  source:
+    repo: moonlight-lupin/agent-skills
+    ref: main
+    path: productivity/travel-itinerary/SKILL.md
+    url: https://github.com/moonlight-lupin/agent-skills/blob/main/productivity/travel-itinerary/SKILL.md
+    license: MIT
+    pin_pending: true
+  license_spdx: MIT
+  decision: adapt
+  rationale: Narrow upstream itinerary structure into a TSF half-day/one-day coaxial plan with honest
+    UNKNOWN facts.
+  fermin_tags:
+  - agent-skills
+  - tsf
+  - itinerary
+  - trip-scenic-food
+  - candidate
+  epistemic: provisional
+  surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+  quality_gate:
+    static: pass
+    content: pass
+    package_links: pass
+    catalog_merge: pass
+    runtime_scenarios: pending
+    release: pending
+    checks: material-line JOB-TSF-INTAKE-R1 PATH-CHECK + LICENSE-NOTES; validate_r5 admission for candidate
+  fermin_tag: borrow-adapt
+  adapted_from:
+  - repo: moonlight-lupin/agent-skills
+    ref: main
+    path: productivity/travel-itinerary/SKILL.md
+    url: https://github.com/moonlight-lupin/agent-skills/blob/main/productivity/travel-itinerary/SKILL.md
+    notes: Trip/day/node structure retained; business export/sanitize stack cut; TSF coaxial roles added.
+    license: MIT
+    pin_pending: true
+  - repo: jeffreytse/grimoire-core
+    ref: main
+    path: skills/travel/planning/skills/design-trip-itinerary/SKILL.md
+    url: https://github.com/jeffreytse/grimoire-core/blob/main/skills/travel/planning/skills/design-trip-itinerary/SKILL.md
+    notes: Secondary cite — geography clustering and buffer practice; not primary body.
+    license: MIT
+    pin_pending: true
+  - repo: AtlasOmnia/donna-starter
+    ref: main
+    path: skills/productivity/destination-trip-planning/SKILL.md
+    url: https://github.com/AtlasOmnia/donna-starter/blob/main/skills/productivity/destination-trip-planning/SKILL.md
+    notes: Secondary cite — theme/destination lock; reject generic city fill.
+    license: MIT
+    pin_pending: true
+  license_evidence:
+    ref: main
+    url: https://github.com/moonlight-lupin/agent-skills/blob/main/LICENSE
+    holder: moonlight-lupin (pin_pending)
+    pin_pending: true
+  fermin_boundaries:
+  - TSF half-day/one-day only
+  - nodes coaxial with shoot and food
+  - no unverified hours/traffic as facts
+  - no fabricated venues
+  - no murage AGPL body
+  adaptation:
+    kept:
+    - day/node sequencing mental model
+    - explicit structure over prose dump
+    rewritten:
+    - leisure TSF coaxial roles
+    - fact vs opinion columns
+    - UNKNOWN discipline
+    cut:
+    - business-trip export stack
+    - privacy-sharing admin variants
+    - generic multi-city packing
+    dedup:
+    - C02/C03 cite-only; C01 primary
+  open_risks:
+  - source.ref is main with pin_pending; freeze SHA before release.
+  - No runtime scenario pack for TSF itinerary yet (Gate3/human).
+  - Secondary cites not independently re-executed beyond path EXISTS.
+  evidence: material-line/evidence/JOB-TSF-INTAKE-R1/PATH-CHECK.md
+  material: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/
+- id: fermin-tsf-landscape-shoot
+  path: pool/skills/fermin-tsf-landscape-shoot
+  status: candidate
+  theme: THEME-trip-scenic-food
+  grids:
+  - S-shoot-card
+  - S-scout
+  - S-rights-exif
+  source:
+    repo: clawic/skills
+    ref: main
+    path: skills/photography/SKILL.md
+    url: https://github.com/clawic/skills/blob/main/skills/photography/SKILL.md
+    license: MIT
+    pin_pending: true
+  license_spdx: MIT
+  decision: adapt
+  rationale: TSF landscape shoot cards coaxial with itinerary; MIT primary; unsigned makaronz not copied.
+  fermin_tags:
+  - agent-skills
+  - tsf
+  - landscape
+  - photography
+  - candidate
+  epistemic: provisional
+  surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+  quality_gate:
+    static: pass
+    content: pass
+    package_links: pass
+    catalog_merge: pass
+    runtime_scenarios: pending
+    release: pending
+    checks: material-line JOB-TSF-INTAKE-R1 PATH-CHECK + LICENSE-NOTES; validate_r5 admission for candidate
+  fermin_tag: borrow-adapt
+  adapted_from:
+  - repo: clawic/skills
+    ref: main
+    path: skills/photography/SKILL.md
+    url: https://github.com/clawic/skills/blob/main/skills/photography/SKILL.md
+    notes: Exposure/composition fundamentals; landscapes emphasis retained; portrait-primary cut.
+    license: MIT
+    pin_pending: true
+  - repo: makaronz/skilslsls
+    ref: main
+    path: landscape-photography/SKILL.md
+    url: https://github.com/makaronz/skilslsls/blob/main/landscape-photography/SKILL.md
+    notes: Structure inspiration only; repo SPDX missing — no verbatim body in pool.
+    license: unknown
+    pin_pending: true
+  - repo: pjt222/agent-almanac
+    ref: main
+    path: skills/plan-hiking-tour/SKILL.md
+    url: https://github.com/pjt222/agent-almanac/blob/main/skills/plan-hiking-tour/SKILL.md
+    notes: Outdoor access/safety vocabulary cite; not full hiking engine.
+    license: MIT
+    pin_pending: true
+  license_evidence:
+    ref: main
+    url: https://github.com/clawic/skills/blob/main/LICENSE
+    holder: clawic (pin_pending)
+    pin_pending: true
+  fermin_boundaries:
+  - scenic outdoor stills only
+  - rights default UNKNOWN
+  - no product/portrait mainline
+  - no fabricated overlooks
+  - makaronz body not copied
+  adaptation:
+    kept:
+    - exposure triangle starting points
+    - landscape composition cues
+    rewritten:
+    - itinerary-bound shoot card schema
+    - rights/access UNKNOWN discipline
+    cut:
+    - portrait eye-focus defaults as primary
+    - product photography
+    - unsigned upstream verbatim sections
+    dedup:
+    - clawic primary for redistribution; makaronz cite-only body
+  open_risks:
+  - makaronz/skilslsls lacks repo SPDX; release must not depend on its verbatim text.
+  - pin_pending on all sources until SHA freeze.
+  - No live field test of shoot cards.
+  evidence: material-line/evidence/JOB-TSF-INTAKE-R1/PATH-CHECK.md
+  material: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/
+- id: fermin-tsf-food-discovery
+  path: pool/skills/fermin-tsf-food-discovery
+  status: candidate
+  theme: THEME-trip-scenic-food
+  grids:
+  - F-shortlist
+  - F-taste-vs-fact
+  - F-allergen-hours
+  source:
+    repo: hwspen7/PoreiaGo
+    ref: main
+    path: plugins/skills/culinary-specialty-discovery/SKILL.md
+    url: https://github.com/hwspen7/PoreiaGo/blob/main/plugins/skills/culinary-specialty-discovery/SKILL.md
+    license: MIT
+    pin_pending: true
+  license_spdx: MIT
+  decision: adapt
+  rationale: MIT food shortlist discipline for TSF; murage C08 held on AGPL conflict and not copied.
+  fermin_tags:
+  - agent-skills
+  - tsf
+  - food
+  - anti-hallucination
+  - candidate
+  epistemic: provisional
+  surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+  quality_gate:
+    static: pass
+    content: pass
+    package_links: pass
+    catalog_merge: pass
+    runtime_scenarios: pending
+    release: pending
+    checks: material-line JOB-TSF-INTAKE-R1 PATH-CHECK + LICENSE-NOTES; validate_r5 admission for candidate
+  fermin_tag: borrow-adapt
+  adapted_from:
+  - repo: hwspen7/PoreiaGo
+    ref: main
+    path: plugins/skills/culinary-specialty-discovery/SKILL.md
+    url: https://github.com/hwspen7/PoreiaGo/blob/main/plugins/skills/culinary-specialty-discovery/SKILL.md
+    notes: Anti-fabrication and UNKNOWN discipline; registry/handler specifics cut for portable Fermin
+      card.
+    license: MIT
+    pin_pending: true
+  license_evidence:
+    ref: main
+    url: https://github.com/hwspen7/PoreiaGo/blob/main/LICENSE
+    holder: hwspen7 (pin_pending)
+    pin_pending: true
+  fermin_boundaries:
+  - no invented venues/menus
+  - fact requires source or UNKNOWN
+  - taste is opinion
+  - coaxial with itinerary when present
+  - do not adapt murage AGPL body
+  adaptation:
+    kept:
+    - no fabrication of specialties
+    - explicit limitations in output
+    - advisory not booking commit
+    rewritten:
+    - TSF shortlist row schema
+    - itinerary node linkage
+    cut:
+    - PoreiaGo registry/handler runtime specifics
+    - murage planner prose
+    dedup:
+    - C08 hold-only; C10 primary
+  open_risks:
+  - pin_pending until SHA freeze.
+  - Empty-input sessions may frustrate users expecting invented lists — intentional.
+  - Gate3 human still pending on shortlist UX.
+  evidence: material-line/evidence/JOB-TSF-INTAKE-R1/PATH-CHECK.md
+  material: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/

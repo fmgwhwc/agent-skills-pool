@@ -19,3 +19,17 @@ entries:
     notes: >
       L2 Canonical Candidate only. E06 硬伤未修；禁止标 L3/L4。
       正文全文不在本仓；见目录 README/NOTES 指针。
+  - id: TSF-INTAKE-R1
+    title: TSF Skills intake R1（分析物料包）
+    level: L2
+    status: candidate_pack
+    path: materials/L2-canonical-candidate/TSF-INTAKE-R1/
+    subject_id: SUBJ-trip-decision-maker
+    theme_id: THEME-trip-scenic-food
+    related_job: JOB-TSF-INTAKE-R1
+    fermin_outputs:
+      - pool/skills/fermin-tsf-itinerary-structure
+      - pool/skills/fermin-tsf-landscape-shoot
+      - pool/skills/fermin-tsf-food-discovery
+    notes: >
+      VERDICT+MATRIX；Gate2 path/license verified；三条 fermin-tsf-* 为 catalog candidate，未 released。

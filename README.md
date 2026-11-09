@@ -59,7 +59,8 @@ python validate_r5.py --self-test --mode auto
 | W5.1 | Loader portability (S11) | **done** |
 | W5.2 | Candidate→release (S12) | **done** |
 | W5.3 | Pool docs sync (README / ATTRIBUTION / rejected / validator split) | **done** |
-| W6 | Material Line init (`material-line/` scaffold + Gate1 self-test) | **this wave** |
+| W6 | Material Line init (`material-line/` scaffold + Gate1 self-test) | **done** |
+| W6.1 | TSF intake R1 — theme collect → material-line → 3×`fermin-tsf-*` candidates | **this wave** |
 | W6.x | Sample offline Job closed loop (E06 fix → Gate2 evidence → Gate3) | next |
 
 ## Layout
@@ -72,13 +73,13 @@ agent-skills-pool/
 ├── catalog.yaml            # Skills index (≠ materials INDEX)
 ├── validate_r5.py
 ├── schema/
-├── pool/skills/            # eight released packages
+├── pool/skills/            # eight released process packages + TSF candidates
 ├── raw/                    # archival upstream snapshots at R3 pins (not loadable; loaders use pool/ only)
 ├── rejected/               # scoped rejects (not entries)
 ├── attribution/            # upstream MIT notices
 ├── research/               # Bot-closed process artifacts
 ├── r6-eval/                # scenarios, evidence, ledger, wave reports (retained)
-└── material-line/          # Material production line (subjects/themes/jobs/materials/gates)
+└── material-line/          # Material production line (subjects/themes/jobs/materials/gates) + TSF intake
 ```
 
 ---
@@ -101,7 +102,7 @@ KPI 改口后看 **物料 Job 闭环数**，不是 Skills 条目堆叠或流程�
 |------|------|
 | Subject | 为谁存、谁用、谁验收 |
 | Function | 装上后 Agent 多会做哪类事 |
-| Theme | 窄、可证伪的主题包（如 Python 对象模型 / 弱引用） |
+| Theme | 窄、可证伪的主题包（如 Python 对象模型 / 弱引用；或 TSF 旅游×风景×美食） |
 | Value | Human 可一句话否决或接受的价值陈述 |
 | Offline Job | 可调度单元：锁版本 → 出稿 → Gate → 交审 |
 | Gates | Gate1 结构 → Gate2 事实/代码 → Gate3 Human |

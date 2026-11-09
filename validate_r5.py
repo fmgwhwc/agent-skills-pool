@@ -30,11 +30,26 @@ SKILLS = ROOT / "pool/skills"
 SUBJECT = ROOT.parent
 PIN_ADDY = "301b02b12bff98e4688e6984af6556802322bbde"
 PIN_OBRA = "22f0b463e7a5e579904dd6211a520321035526f7"
-EXPECTED = {
+R5_RELEASED = {
     "fermin-using-skills", "fermin-brainstorm-or-spec", "fermin-writing-plans",
     "fermin-executing-plans", "fermin-subagent-driven-dev", "fermin-tdd",
     "fermin-verification-dod", "fermin-skill-anatomy",
 }
+TSF_CANDIDATES = {
+    "fermin-tsf-itinerary-structure",
+    "fermin-tsf-landscape-shoot",
+    "fermin-tsf-food-discovery",
+}
+TSF_ALLOWED_REPOS = {
+    "moonlight-lupin/agent-skills",
+    "jeffreytse/grimoire-core",
+    "AtlasOmnia/donna-starter",
+    "clawic/skills",
+    "makaronz/skilslsls",
+    "pjt222/agent-almanac",
+    "hwspen7/PoreiaGo",
+}
+EXPECTED = R5_RELEASED | TSF_CANDIDATES
 
 errors = []
 check_count = 0
@@ -165,13 +180,33 @@ def main(argv=None):
             if key in seen:
                 continue
             seen.add(key)
-            pin = PIN_ADDY if source["repo"] == "addyosmani/agent-skills" else PIN_OBRA
-            check(source["repo"] in {"addyosmani/agent-skills", "obra/superpowers"}, f"{skill_id}: unexpected repo {source['repo']}")
-            check(re.fullmatch(r"[0-9a-f]{40}", source["ref"]) is not None, f"{skill_id}: non-SHA source")
-            check(source["ref"] == pin, f"{skill_id}: wrong R3 pin at {source['path']}")
-            check(pin in source["url"] and source["path"] in source["url"], f"{skill_id}: pin/path URL mismatch")
             check(not source["path"].startswith("/"), f"{skill_id}: absolute upstream path")
-            check(source.get("license") == "MIT", f"{skill_id}: source-level MIT license missing at {source['path']}")
+            check(source["path"] in source.get("url", ""), f"{skill_id}: path URL mismatch")
+            if skill_id in TSF_CANDIDATES:
+                check(source["repo"] in TSF_ALLOWED_REPOS, f"{skill_id}: unexpected TSF repo {source['repo']}")
+                check(source.get("pin_pending") is True, f"{skill_id}: TSF source requires pin_pending at {source['path']}")
+                check(
+                    source["ref"] == "main" or re.fullmatch(r"[0-9a-f]{40}", source["ref"] or "") is not None,
+                    f"{skill_id}: TSF ref must be main or full SHA",
+                )
+                check(
+                    source.get("license") in {"MIT", "unknown"},
+                    f"{skill_id}: TSF source license must be MIT or unknown at {source['path']}",
+                )
+                if source["ref"] == "main":
+                    check("/blob/main/" in source["url"] or "@main" in source["url"], f"{skill_id}: main URL mismatch")
+            else:
+                pin = PIN_ADDY if source["repo"] == "addyosmani/agent-skills" else PIN_OBRA
+                check(source["repo"] in {"addyosmani/agent-skills", "obra/superpowers"}, f"{skill_id}: unexpected repo {source['repo']}")
+                check(re.fullmatch(r"[0-9a-f]{40}", source["ref"]) is not None, f"{skill_id}: non-SHA source")
+                check(source["ref"] == pin, f"{skill_id}: wrong R3 pin at {source['path']}")
+                check(pin in source["url"] and source["path"] in source["url"], f"{skill_id}: pin/path URL mismatch")
+                check(source.get("license") == "MIT", f"{skill_id}: source-level MIT license missing at {source['path']}")
+        if skill_id in TSF_CANDIDATES:
+            check(meta.get("theme") == "THEME-trip-scenic-food", f"{skill_id}: missing TSF theme")
+            check(isinstance(meta.get("grids"), list) and meta.get("grids"), f"{skill_id}: missing grids")
+            check(isinstance(meta.get("fermin_boundaries"), list) and meta.get("fermin_boundaries"), f"{skill_id}: missing fermin_boundaries")
+            check(meta.get("source", {}).get("license") == "MIT", f"{skill_id}: primary source must be MIT")
         for ref in meta.get("references", []):
             check((directory / ref).is_file(), f"{skill_id}: missing reference {ref}")
         for link in re.findall(r"\[[^]]+\]\(([^)]+)\)", raw):
@@ -202,7 +237,7 @@ def main(argv=None):
 
     catalog_text = (ROOT / "catalog-entries.yaml").read_text()
     catalog = yaml.safe_load(catalog_text).get("entries", [])
-    check(isinstance(catalog, list) and len(catalog) == 8, "catalog must have 8 entries")
+    check(isinstance(catalog, list) and len(catalog) == len(EXPECTED), f"catalog must have {len(EXPECTED)} entries")
     check({e["id"] for e in catalog} == EXPECTED, "catalog IDs mismatch")
     check({p.name for p in SKILLS.iterdir() if p.is_dir()} == EXPECTED, "unexpected or missing skill directories")
     for entry in catalog:
@@ -220,6 +255,9 @@ def main(argv=None):
                         check(eq.get(gk) == mq.get(gk), f"catalog mismatch for {entry['id']}: quality_gate.{gk}")
                 else:
                     check(entry.get(key) == meta.get(key), f"catalog mismatch for {entry['id']}: {key}")
+            if entry["id"] in TSF_CANDIDATES:
+                check(entry.get("status") == "candidate", f"{entry['id']}: TSF catalog status must be candidate")
+                check(entry.get("theme") == meta.get("theme"), f"catalog mismatch for {entry['id']}: theme")
 
     # Repo layout keeps the ADAPT report under research/reports/; batch zips may place it at root.
     report = ROOT / "research/reports/R5-ADAPT-REPORT.md"
@@ -277,8 +315,10 @@ def run_self_test():
         schema = json.loads((ROOT / "schema/skill-entry.schema.json").read_text())
         for entry in base_meta:
             jsonschema.Draft202012Validator(schema).validate(entry)
-        if len(base_schema["entries"]) != 8:
-            raise SystemExit("FAIL: overlay against the frozen empty R4 catalog did not yield eight entries")
+        if len(base_schema["entries"]) != len(EXPECTED):
+            raise SystemExit(
+                f"FAIL: overlay against the frozen empty R4 catalog did not yield {len(EXPECTED)} entries"
+            )
         print(
             f"PASS: catalog merge yielded {len(base_schema['entries'])} unique skill entries; "
             f"version {base_schema['version']}, schema-valid overlay records."

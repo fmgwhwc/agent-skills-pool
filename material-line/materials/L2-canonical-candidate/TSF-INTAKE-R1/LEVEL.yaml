@@ -1,0 +1,16 @@
+id: TSF-INTAKE-R1
+level: L2-canonical-candidate
+theme: THEME-trip-scenic-food
+job: JOB-TSF-INTAKE-R1
+created: "2026-11-09"
+artifacts:
+  - README.md
+  - VERDICT.md
+  - MATRIX.md
+  - LEVEL.yaml
+fermin_links:
+  - pool/skills/fermin-tsf-itinerary-structure
+  - pool/skills/fermin-tsf-landscape-shoot
+  - pool/skills/fermin-tsf-food-discovery
+evidence: material-line/evidence/JOB-TSF-INTAKE-R1/
+status: candidate_analysis_pack
