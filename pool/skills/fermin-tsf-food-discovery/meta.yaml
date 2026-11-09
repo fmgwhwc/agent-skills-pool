@@ -1,0 +1,89 @@
+meta_version: 1
+id: fermin-tsf-food-discovery
+path: pool/skills/fermin-tsf-food-discovery
+status: candidate
+theme: THEME-trip-scenic-food
+grids:
+- F-shortlist
+- F-taste-vs-fact
+- F-allergen-hours
+source:
+  repo: hwspen7/PoreiaGo
+  ref: main
+  path: plugins/skills/culinary-specialty-discovery/SKILL.md
+  url: https://github.com/hwspen7/PoreiaGo/blob/main/plugins/skills/culinary-specialty-discovery/SKILL.md
+  license: MIT
+  pin_pending: true
+adapted_from:
+- repo: hwspen7/PoreiaGo
+  ref: main
+  path: plugins/skills/culinary-specialty-discovery/SKILL.md
+  url: https://github.com/hwspen7/PoreiaGo/blob/main/plugins/skills/culinary-specialty-discovery/SKILL.md
+  notes: Anti-fabrication and UNKNOWN discipline; registry/handler specifics cut for portable Fermin card.
+  license: MIT
+  pin_pending: true
+license_spdx: MIT
+license_evidence:
+  ref: main
+  url: https://github.com/hwspen7/PoreiaGo/blob/main/LICENSE
+  holder: hwspen7 (pin_pending)
+  pin_pending: true
+decision: adapt
+rationale: MIT food shortlist discipline for TSF; murage C08 held on AGPL conflict and not copied.
+fermin_tags:
+- agent-skills
+- tsf
+- food
+- anti-hallucination
+- candidate
+epistemic: provisional
+fermin_tag: borrow-adapt
+fermin_boundaries:
+- no invented venues/menus
+- fact requires source or UNKNOWN
+- taste is opinion
+- coaxial with itinerary when present
+- do not adapt murage AGPL body
+hold_citations:
+- id: C08
+  repo: FerroxLabs/murage
+  path: skills-library/food-tourism-planner/SKILL.md
+  disposition: hold_license
+  reason: repo AGPL-3.0 vs skill frontmatter Apache-2.0
+  note: VERDICT/MATRIX only; not in adapted_from body
+surfaces:
+- dc-bot
+- cursor-cloud
+- ubuntu
+adaptation:
+  kept:
+  - no fabrication of specialties
+  - explicit limitations in output
+  - advisory not booking commit
+  rewritten:
+  - TSF shortlist row schema
+  - itinerary node linkage
+  cut:
+  - PoreiaGo registry/handler runtime specifics
+  - murage planner prose
+  dedup:
+  - C08 hold-only; C10 primary
+quality_gate:
+  static: pass
+  content: pass
+  package_links: pass
+  catalog_merge: pass
+  runtime_scenarios: pending
+  release: pending
+  checks: material-line JOB-TSF-INTAKE-R1 PATH-CHECK + LICENSE-NOTES; validate_r5 admission for candidate
+open_risks:
+- pin_pending until SHA freeze.
+- Empty-input sessions may frustrate users expecting invented lists — intentional.
+- Gate3 human still pending on shortlist UX.
+evidence:
+- kind: path-check
+  path: material-line/evidence/JOB-TSF-INTAKE-R1/PATH-CHECK.md
+- kind: license-notes
+  path: material-line/evidence/JOB-TSF-INTAKE-R1/LICENSE-NOTES.md
+- kind: verdict
+  path: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/VERDICT.md

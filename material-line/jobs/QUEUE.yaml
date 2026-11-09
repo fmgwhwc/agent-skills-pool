@@ -1,0 +1,16 @@
+# material-line job queue (incremental append only)
+updated: "2026-11-09"
+jobs:
+  - id: JOB-TSF-INTAKE-R1
+    theme: THEME-trip-scenic-food
+    status: in_progress
+    round: R1
+    created: "2026-11-09"
+    path: material-line/jobs/JOB-TSF-INTAKE-R1/
+    materials: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/
+    evidence: material-line/evidence/JOB-TSF-INTAKE-R1/
+    fermin_outputs:
+      - pool/skills/fermin-tsf-itinerary-structure
+      - pool/skills/fermin-tsf-landscape-shoot
+      - pool/skills/fermin-tsf-food-discovery
+    notes: "Human authorized build+verify; candidate only; pin_pending on sources"

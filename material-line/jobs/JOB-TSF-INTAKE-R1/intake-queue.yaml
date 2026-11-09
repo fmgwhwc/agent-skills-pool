@@ -1,0 +1,177 @@
+theme: THEME-trip-scenic-food
+round: R1
+collected_at: "2026-11-09T16:10:00+08:00"
+query_freeze: 5
+candidate_cap: 30
+candidates:
+  - id: C01
+    repo: moonlight-lupin/agent-skills
+    path: productivity/travel-itinerary/SKILL.md
+    grid: [T-plan, T-navigate]
+    score: 3
+    license_skill: MIT
+    license_repo: unknown_pin_pending
+    disposition: adapt
+    note: "结构化行程 YAML/导出；偏商务差旅，ADAPT 收窄到 TSF 休闲一日包"
+  - id: C02
+    repo: jeffreytse/grimoire-core
+    path: skills/travel/planning/skills/design-trip-itinerary/SKILL.md
+    grid: [T-plan]
+    score: 3
+    license_skill: unknown
+    disposition: adapt_secondary
+    note: "行程结构最佳实践；作 secondary cite"
+  - id: C03
+    repo: AtlasOmnia/donna-starter
+    path: skills/productivity/destination-trip-planning/SKILL.md
+    grid: [T-plan, T-source]
+    score: 3
+    license_skill: MIT
+    disposition: adapt_secondary
+    note: "主题化目的地研究；禁止泛城市填充 — 对齐 TSF 交织"
+  - id: C04
+    repo: pjt222/agent-almanac
+    path: skills/plan-hiking-tour/SKILL.md
+    grid: [S-scout, T-plan]
+    score: 3
+    license_skill: MIT
+    disposition: adapt_secondary
+    note: "户外可达/安全；风景线辅源"
+  - id: C05
+    repo: pjt222/agent-almanac
+    path: skills/plan-tour-route/SKILL.md
+    grid: [T-navigate]
+    score: 2
+    disposition: hold_queue
+  - id: C06
+    repo: clawic/skills
+    path: skills/photography/SKILL.md
+    grid: [S-shoot-card]
+    score: 3
+    disposition: adapt
+    note: "含 landscapes 段；通用摄影"
+  - id: C07
+    repo: makaronz/skilslsls
+    path: landscape-photography/SKILL.md
+    grid: [S-shoot-card, S-scout]
+    score: 3
+    disposition: adapt
+    note: "风景摄影主源"
+  - id: C08
+    repo: FerroxLabs/murage
+    path: skills-library/food-tourism-planner/SKILL.md
+    grid: [F-shortlist, T-plan]
+    score: 3
+    license_skill_claimed: Apache-2.0
+    license_repo: AGPL-3.0
+    disposition: hold_license
+    note: "主题最贴合 T∩F；仓 AGPL 与 frontmatter 冲突 → HOLD 不进 pool 正文"
+  - id: C09
+    repo: FerroxLabs/murage
+    path: skills-library/international-cuisine-explorer/SKILL.md
+    grid: [F-shortlist]
+    score: 2
+    license_repo: AGPL-3.0
+    disposition: hold_license
+  - id: C10
+    repo: hwspen7/PoreiaGo
+    path: plugins/skills/culinary-specialty-discovery/SKILL.md
+    grid: [F-shortlist, F-taste-vs-fact]
+    score: 3
+    disposition: adapt
+    note: "反编造纪律强；美食发现主可用源"
+  - id: C11
+    repo: mickpletcher/AI-Skills
+    path: claude/skills/food-analyzer/SKILL.md
+    grid: [F-taste-vs-fact]
+    score: 2
+    disposition: weak_fit
+    note: "营养分析非旅游美食发现；弱相关"
+  - id: C12
+    repo: mickpletcher/AI-Skills
+    path: claude/skills/travel-itinerary/SKILL.md
+    grid: [T-plan]
+    score: 2
+    disposition: duplicate_like
+  - id: C13
+    repo: injurka/trip-scheduler
+    path: .agents/skills/travel-itinerary-enricher/SKILL.md
+    grid: [T-plan]
+    score: 2
+    disposition: hold_queue
+  - id: C14
+    repo: majiayu000/spellbook
+    path: skills/trip-planner/SKILL.md
+    grid: [T-plan]
+    score: 2
+    disposition: hold_queue
+  - id: C15
+    repo: torlyai/Schengen-master
+    path: skills/plan-trip/SKILL.md
+    grid: [T-plan]
+    score: 2
+    disposition: hold_queue
+  - id: C16
+    repo: hummbl-io/agent-skills
+    path: skills/travel-itinerary/SKILL.md
+    grid: [T-plan]
+    score: 2
+    disposition: duplicate_like
+  - id: C17
+    repo: skills-on-ai/skills-on-ai
+    path: skills/travel-itinerary/SKILL.md
+    grid: [T-plan]
+    score: 2
+    disposition: duplicate_like
+  - id: C18
+    repo: skills-on-ai/skills-on-ai
+    path: skills/photography/SKILL.md
+    grid: [S-shoot-card]
+    score: 2
+    disposition: duplicate_like
+  - id: C19
+    repo: modbender/skill-library-mcp
+    path: data/photography/SKILL.md
+    grid: [S-shoot-card]
+    score: 2
+    disposition: hold_queue
+  - id: C20
+    repo: DedInc/chef-agentic-skills
+    path: skills/chef-cuisine-french/SKILL.md
+    grid: [F-shortlist]
+    score: 1
+    disposition: reject_narrow
+    note: "单一菜系过窄，非 TSF 交集主线"
+  - id: C21
+    repo: nexscope-ai/Amazon-Skills
+    path: amazon-product-photography/SKILL.md
+    grid: [S-shoot-card]
+    score: 0
+    disposition: reject
+    note: "电商产品摄影，非风景"
+  - id: C22
+    repo: tourmind-com/Tourmind-Booking-Skills
+    path: skills/tourmind-booking/SKILL.md
+    grid: [T-navigate]
+    score: 1
+    disposition: reject
+    note: "平台绑定预订"
+  - id: C23
+    repo: lightspeedwp/.github
+    path: skills/tour-operator-gravity-forms-configuration/SKILL.md
+    grid: [T-plan]
+    score: 0
+    disposition: reject
+    note: "WordPress 表单配置，不相关"
+  - id: C24
+    repo: princemanjee/EngineeredPromptLibrary
+    path: plugins/pl-critique-review/skills/food-critic/SKILL.md
+    grid: [F-taste-vs-fact]
+    score: 1
+    disposition: weak_fit
+  - id: C25
+    repo: fewling/travel-plans
+    path: .claude/skills/travel-itinerary/SKILL.md
+    grid: [T-plan]
+    score: 2
+    disposition: hold_queue

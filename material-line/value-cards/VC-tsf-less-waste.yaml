@@ -1,0 +1,21 @@
+id: VC-tsf-less-waste
+title: 少浪费决策 — TSF 交织
+status: active
+created: "2026-11-09"
+theme: THEME-trip-scenic-food
+subject: SUBJ-trip-decision-maker
+promise: "减少无效折返、错过光与瞎点店；不把幻觉当攻略。"
+value_props:
+  - 行程节点与拍摄点、就餐点同轴，避免拆成三套互不相干清单
+  - 事实栏必须有来源或 UNKNOWN；口味/构图建议标 opinion
+  - 宁缺毋滥：候选 ≤30，Fermin ≤8，许可冲突 HOLD
+anti_value:
+  - 堆砌通用城市百科
+  - 复制 AGPL 源正文进 pool
+  - 未验证路径/许可却宣称 released
+metrics_for_intake_round:
+  - candidates_scored
+  - score_ge_2_ratio
+  - adapt_recommend_count
+  - hold_license_count
+  - path_exists_rate_for_adapt_hold

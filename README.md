@@ -58,7 +58,8 @@ python validate_r5.py --self-test --mode auto
 | W4 | TDD + authoring baseline (S07/S09) | **done** |
 | W5.1 | Loader portability (S11) | **done** |
 | W5.2 | Candidate→release (S12) | **done** |
-| W5.3 | Pool docs sync (README / ATTRIBUTION / rejected / validator split) | **this wave** |
+| W5.3 | Pool docs sync (README / ATTRIBUTION / rejected / validator split) | **done** |
+| W6.1 | TSF intake R1 — theme collect → material-line → 3×`fermin-tsf-*` candidates | **this wave** |
 
 ## Layout
 
@@ -70,7 +71,8 @@ agent-skills-pool/
 ├── catalog.yaml
 ├── validate_r5.py
 ├── schema/
-├── pool/skills/          # eight released packages
+├── pool/skills/          # eight released process packages + TSF candidates
+├── material-line/        # theme/job/analysis/evidence channel (W6.1+)
 ├── raw/                  # archival upstream snapshots at R3 pins (not loadable; loaders use pool/ only)
 ├── rejected/             # scoped rejects (not entries)
 ├── attribution/          # upstream MIT notices

@@ -1,0 +1,19 @@
+id: SUBJ-trip-decision-maker
+title: TSF 一日/半日决策主体
+status: active
+created: "2026-11-09"
+theme: THEME-trip-scenic-food
+persona: "需要把行程节点、拍摄窗口与就餐点同轴编排的休闲旅客/小团队"
+decides:
+  - 半日或一日包的节点顺序与缓冲
+  - 可外拍风景点的时段与器材最低集
+  - 就近饮食短名单（事实 vs 口味意见分栏）
+does_not_decide:
+  - 未核验的营业时间、路况、票务库存
+  - 版权/禁拍是否成立（默认 UNKNOWN）
+  - 预订成交或平台下单
+surfaces:
+  - dc-bot
+  - cursor-cloud
+  - ubuntu
+success_signal: "输出可装载的结构化卡（行程/拍摄/美食）且每条事实可指回源或标 UNKNOWN"

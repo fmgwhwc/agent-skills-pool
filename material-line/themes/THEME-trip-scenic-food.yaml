@@ -1,0 +1,36 @@
+id: THEME-trip-scenic-food
+title: 旅游 × 风景照 × 美食（TSF）
+status: active
+created: "2026-11-09"
+timezone: Asia/Shanghai
+subject: SUBJ-trip-decision-maker
+value_card: VC-tsf-less-waste
+narrative_ref: material-line/jobs/JOB-TSF-INTAKE-R1/BRIEF.md
+walls:
+  theme: "只认交集：出行动线 ∩ 外拍风景 ∩ 就近饮食"
+  relevance: "候选 Skill 必须映射到 12 能力格之一，否则 REJECT"
+  quantity: "本主题线 Fermin 限定 Skills 目标 ≤ 8"
+  source: "只收 GitHub 可指回 repo/ref/path/license 的源；无许可或文档技能类冲突按池宪章 HOLD"
+grids:
+  - T-plan
+  - T-navigate
+  - T-source
+  - T-retro
+  - S-scout
+  - S-shoot-card
+  - S-rights-exif
+  - S-select
+  - F-shortlist
+  - F-order-note
+  - F-allergen-hours
+  - F-taste-vs-fact
+forbidden:
+  - 凭空旅游攻略当终点产物
+  - 未核验营业时间/路况当事实
+  - 编造店名/菜单/景点
+  - 把 AGPL 冲突源正文 ADAPT 进 pool
+  - 平台绑定预订技能冒充通用行程能力
+fermin_skill_target_max: 8
+intake_candidate_cap: 30
+query_freeze_max: 10
+notes: "首轮样板主题；物料通道产出分析/VERDICT/证据，再 ADAPT 进 pool/skills/fermin-tsf-*（candidate）"
