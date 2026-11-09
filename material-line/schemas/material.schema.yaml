@@ -1,0 +1,36 @@
+# Schema: material — 主题物料元数据（L0–L4）
+# id: material-line.material/v0
+version: 0
+kind: material
+required_fields:
+  - id
+  - title
+  - level
+  - subject_id
+  - theme_id
+  - status
+optional_fields:
+  - contract
+  - dslx
+  - python_pin
+  - gate2_failed
+  - source_pointer
+  - score
+  - notes
+field_notes:
+  id: "PYTEXT-<slug> 或其它物料前缀"
+  level: "L0 | L1 | L2 | L3 | L4"
+  status: "draft | candidate | review_required | validated | production | rejected"
+allowed_levels:
+  - L0
+  - L1
+  - L2
+  - L3
+  - L4
+level_meaning:
+  L0: Raw — 原始问题 / 来源
+  L1: Parsed — 解析与概念提取
+  L2: Canonical Candidate — 结构/来源/版本/契约基本完整
+  L3: Validated — 代码运行 + 事实核验 + 证据
+  L4: Production — Human 接受 + 可复用发布
+promotion_rule: "禁止未过 Gate2+Gate3 将 level 标为 L3/L4"

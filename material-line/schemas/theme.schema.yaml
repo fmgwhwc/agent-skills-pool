@@ -1,0 +1,19 @@
+# Schema: theme — 主题包（窄、可证伪、可迁移）
+# id: material-line.theme/v0
+version: 0
+kind: theme
+required_fields:
+  - id
+  - name
+  - subject_id
+  - scope
+  - out_of_scope
+  - sample_jobs
+optional_fields:
+  - related_skills
+  - value_card_ids
+  - notes
+field_notes:
+  id: "THEME-<slug>"
+  subject_id: "指向 subjects/SUBJ-*.yaml"
+  sample_jobs: "关联 jobs/ 下 Job ID 列表"

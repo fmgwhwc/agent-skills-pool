@@ -1,0 +1,25 @@
+id: JOB-PY-RAW-040-E06-GATE2
+title: "PY-RAW-040 E06 修复 + Gate2 执行证据"
+status: queued
+subject_id: SUBJ-python-textbook
+theme_id: THEME-py-object-model
+value_card_id: VC-python-textbook-weakref
+input_material_id: PYTEXT-PY-RAW-040
+python_pin: "3.11.18"
+assignee_roles:
+  - dc-bot
+  - cursor
+  - ubuntu
+  - human
+gates:
+  gate1: structure
+  gate2: facts
+  gate3: human
+outputs:
+  - materials/L2-canonical-candidate/PYTEXT-PY-RAW-040/  # still L2 until Gate2+3
+  - evidence/JOB-PY-RAW-040-E06-GATE2/
+blocked_by: []
+notes: >
+  输入为 L2 Canonical Candidate；已知 E06 硬伤（第三行预测应为 False，需 del box）。
+  独立核验曾在 CPython 3.13.5 复现逻辑错误；主线门禁锁定 3.11.18。
+  未过 Gate2+Gate3 前禁止标 L3/L4。
