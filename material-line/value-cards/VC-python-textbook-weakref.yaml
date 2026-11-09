@@ -1,0 +1,20 @@
+id: VC-python-textbook-weakref
+title: 弱引用实验物料 — 价值陈述
+subject_id: SUBJ-python-textbook
+theme_id: THEME-py-object-model
+one_liner: >
+  用一份可跑、可证伪的弱引用对照实验，降低「删容器即对象销毁」类幻觉，
+  并给 Gate2 事实门提供可回归样例。
+saves:
+  - 重复手写错误预测的弱引用 demo
+  - 无执行痕迹却声称「已验证」的教材段落
+reduces:
+  - 把 CPython 回收时序误当语言保证
+  - 浅复制 / 强引用集合归因错误（E06 类）
+supports:
+  - python-textbook 教学线
+  - 物料 Job 门禁建设（Gate1/2/3）
+human_veto_test: >
+  Human 应能一句话否决或接受本价值；「条目变多」本身不算价值。
+status: proposed
+related_job: JOB-PY-RAW-040-E06-GATE2

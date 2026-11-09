@@ -1,0 +1,23 @@
+# Copy to jobs/JOB-<SLUG>/job.yaml and fill.
+id: JOB-TEMPLATE
+title: "<one-line job title>"
+status: queued  # queued | running | gate1 | gate2 | gate3 | accepted | returned | blocked
+subject_id: SUBJ-python-textbook
+theme_id: THEME-py-object-model
+value_card_id: null
+input_material_id: null
+python_pin: "3.11.18"
+assignee_roles:
+  - dc-bot      # lock contract / summarize
+  - cursor      # fix experiments
+  - ubuntu      # run Gate2
+  - human       # Gate3 accept
+gates:
+  gate1: structure  # YAML / dirs / BRIEF
+  gate2: facts      # code exec + prediction vs actual
+  gate3: human      # accept / conditional / return
+outputs:
+  - materials/L2-or-higher/
+  - evidence/<JOB-ID>/
+blocked_by: []
+notes: ""

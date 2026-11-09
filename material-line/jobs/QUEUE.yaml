@@ -1,0 +1,14 @@
+# Offline Job queue — material-line
+# KPI: closed material jobs (not skill entry count)
+version: 0
+updated: '2026-11-09'
+queues:
+  - id: JOB-PY-RAW-040-E06-GATE2
+    priority: 1
+    status: queued
+    path: jobs/JOB-PY-RAW-040-E06-GATE2/
+    subject_id: SUBJ-python-textbook
+    theme_id: THEME-py-object-model
+    summary: Fix E06 prediction + Gate2 exec evidence for PYTEXT-PY-RAW-040
+notes: >
+  单条样板优先。Phase2 扩源 Job 不入本队列，直至样板闭环证明验证能力。

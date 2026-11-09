@@ -1,0 +1,16 @@
+id: PYTEXT-PY-RAW-040
+title: 弱引用（验证实验）
+level: L2
+status: review_required
+subject_id: SUBJ-python-textbook
+theme_id: THEME-py-object-model
+contract: encyclopedia-v2
+dslx: fermin/python-textbook/0.2
+python_pin: "3.11.18"
+gate2_failed: E06
+score: "86/100"
+source_pointer: >
+  External CLI encyclopedia body + FMS-PYTEXT-EVAL-PY-RAW-040-2026-11-09 review;
+  full text not vendored in this repo.
+notes: >
+  Canonical Candidate only. Do not mark L3/L4 until Gate2 pass + Human Gate3.
