@@ -1,0 +1,33 @@
+# Schema: job — 脱机 Job 规格
+# id: material-line.job/v0
+version: 0
+kind: job
+required_fields:
+  - id
+  - title
+  - status
+  - subject_id
+  - theme_id
+  - input_material_id
+  - python_pin
+  - gates
+  - outputs
+optional_fields:
+  - value_card_id
+  - assignee_roles
+  - blocked_by
+  - notes
+field_notes:
+  id: "JOB-<slug>"
+  status: "queued | running | gate1 | gate2 | gate3 | accepted | returned | blocked"
+  python_pin: "主线解释器版本，如 3.11.18"
+  gates: "gate1 / gate2 / gate3 期望"
+allowed_status:
+  - queued
+  - running
+  - gate1
+  - gate2
+  - gate3
+  - accepted
+  - returned
+  - blocked

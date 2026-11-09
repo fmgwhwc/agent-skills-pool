@@ -1,0 +1,18 @@
+id: SUBJ-python-textbook
+name: Python Textbook（教材知识线）
+purpose: >
+  为 Fermin 主主体下的 Python 教材能力线积累可审、可证伪、可晋升的知识物料；
+  Skills 池提供工序半成品，本主体回答「为谁存、谁用、谁验收」。
+audience:
+  - learner
+  - reviewer
+  - downstream-job
+surfaces:
+  - ubuntu-cli
+  - cursor
+  - dc-bot
+owner: dc-bot
+capability_line: python-textbook / object-model
+acceptance_role: human
+notes: >
+  样板水位参照 PYTEXT-PY-RAW-040（弱引用）。不把「开源 Skills 合集」本身当主体。

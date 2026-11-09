@@ -1,0 +1,24 @@
+# Schema: gate-result — Gate 运行结果 sidecar
+# id: material-line.gate-result/v0
+version: 0
+kind: gate_result
+required_fields:
+  - job_id
+  - gate
+  - verdict
+  - runner
+  - recorded_at
+optional_fields:
+  - python_version
+  - evidence_path
+  - failures
+  - notes
+field_notes:
+  gate: "1 | 2 | 3"
+  verdict: "pass | fail | skip | not_executed"
+  runner: "脚本或角色标识"
+allowed_verdict:
+  - pass
+  - fail
+  - skip
+  - not_executed

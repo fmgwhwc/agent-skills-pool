@@ -1,0 +1,17 @@
+id: THEME-py-object-model
+name: Python 对象模型（弱引用 / 身份 / 绑定）
+subject_id: SUBJ-python-textbook
+scope: >
+  窄主题：对象身份、名字绑定、弱引用、弱容器、浅复制与强引用集合的对照实验；
+  可证伪、可迁移到插件注册表 / 缓存等场景。
+out_of_scope:
+  - 整本 GC 实现深潜（PyPy 等可留 UNKNOWN）
+  - 批量再生同质百科长文
+  - Phase2 源扩展
+sample_jobs:
+  - JOB-PY-RAW-040-E06-GATE2
+related_skills: []  # Skills 是装载/工序，不混进物料 INDEX
+value_card_ids:
+  - VC-python-textbook-weakref
+notes: >
+  首包主题；以 PY-RAW-040 为样板 Job 输入，打在验证能力上，而非再采 Skills。

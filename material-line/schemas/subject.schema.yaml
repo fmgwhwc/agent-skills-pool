@@ -1,0 +1,19 @@
+# Schema: subject — 物料生产线主体定义
+# id: material-line.subject/v0
+version: 0
+kind: subject
+required_fields:
+  - id
+  - name
+  - purpose
+  - audience
+  - surfaces
+  - owner
+optional_fields:
+  - capability_line
+  - acceptance_role
+  - notes
+field_notes:
+  id: "SUBJ-<slug>"
+  surfaces: "执行面列表，如 ubuntu-cli / cursor / dc-bot"
+  acceptance_role: "谁验收（通常 Human / Reviewer）"

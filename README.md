@@ -58,7 +58,9 @@ python validate_r5.py --self-test --mode auto
 | W4 | TDD + authoring baseline (S07/S09) | **done** |
 | W5.1 | Loader portability (S11) | **done** |
 | W5.2 | Candidate→release (S12) | **done** |
-| W5.3 | Pool docs sync (README / ATTRIBUTION / rejected / validator split) | **this wave** |
+| W5.3 | Pool docs sync (README / ATTRIBUTION / rejected / validator split) | **done** |
+| W6 | Material Line init (`material-line/` scaffold + Gate1 self-test) | **this wave** |
+| W6.x | Sample offline Job closed loop (E06 fix → Gate2 evidence → Gate3) | next |
 
 ## Layout
 
@@ -67,13 +69,44 @@ agent-skills-pool/
 ├── README.md
 ├── LICENSE
 ├── ATTRIBUTION.md
-├── catalog.yaml
+├── catalog.yaml            # Skills index (≠ materials INDEX)
 ├── validate_r5.py
 ├── schema/
-├── pool/skills/          # eight released packages
-├── raw/                  # archival upstream snapshots at R3 pins (not loadable; loaders use pool/ only)
-├── rejected/             # scoped rejects (not entries)
-├── attribution/          # upstream MIT notices
-├── research/             # Bot-closed process artifacts
-└── r6-eval/              # scenarios, evidence, ledger, wave reports
+├── pool/skills/            # eight released packages
+├── raw/                    # archival upstream snapshots at R3 pins (not loadable; loaders use pool/ only)
+├── rejected/               # scoped rejects (not entries)
+├── attribution/            # upstream MIT notices
+├── research/               # Bot-closed process artifacts
+├── r6-eval/                # scenarios, evidence, ledger, wave reports (retained)
+└── material-line/          # Material production line (subjects/themes/jobs/materials/gates)
 ```
+
+---
+
+## Current maturity: demo + init
+
+**demo + init**：Skills 半成品货架与过程技能已立（R6 released + raw 对回 + `validate_r5.py`）；**尚未**达到可脱机 Job、可持续产出有主体 / 功能 / 主题 / 价值的物料级规模。
+
+KPI 改口后看 **物料 Job 闭环数**，不是 Skills 条目堆叠或流程文厚度。
+
+## Target: Material production line
+
+在保留现有 Skills 池与 R6 过程资产的前提下，增量建设 **物料产出生产线（Material Line）**：
+
+> 脱机 Job → 主题物料 → Gate1/2/3 → Canonical 候选 → Human 接受
+
+设计对象：
+
+| 维度 | 含义 |
+|------|------|
+| Subject | 为谁存、谁用、谁验收 |
+| Function | 装上后 Agent 多会做哪类事 |
+| Theme | 窄、可证伪的主题包（如 Python 对象模型 / 弱引用） |
+| Value | Human 可一句话否决或接受的价值陈述 |
+| Offline Job | 可调度单元：锁版本 → 出稿 → Gate → 交审 |
+| Gates | Gate1 结构 → Gate2 事实/代码 → Gate3 Human |
+| L0–L4 | Raw → Parsed → Canonical Candidate → Validated → Production |
+
+章程与样板：[`material-line/README.md`](material-line/README.md) · 方案副本 `material-line/OPTIMIZATION-PLAN.md` · 进度 `material-line/STATUS.md`。
+
+**分流：** `catalog.yaml` = Skills 装载面索引；`material-line/materials/INDEX.yaml` = 主题物料索引。二者独立，禁止混称「进 pool 就算物料完成」。
