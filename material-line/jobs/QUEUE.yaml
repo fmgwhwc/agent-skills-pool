@@ -1,7 +1,7 @@
 # Offline Job queue — material-line (incremental append only)
 # KPI: closed material jobs (not skill entry count)
 version: 0
-updated: '2026-11-09'
+updated: '2026-11-10'
 queues:
   - id: JOB-PY-RAW-040-E06-GATE2
     priority: 1
@@ -12,7 +12,7 @@ queues:
     summary: Fix E06 prediction + Gate2 exec evidence for PYTEXT-PY-RAW-040
   - id: JOB-TSF-INTAKE-R1
     priority: 2
-    status: in_progress
+    status: gate3_accepted
     path: jobs/JOB-TSF-INTAKE-R1/
     subject_id: SUBJ-trip-decision-maker
     theme_id: THEME-trip-scenic-food
@@ -22,8 +22,10 @@ queues:
       - pool/skills/fermin-tsf-itinerary-structure
       - pool/skills/fermin-tsf-landscape-shoot
       - pool/skills/fermin-tsf-food-discovery
-    summary: TSF GitHub intake R1 → VERDICT/MATRIX → 3 fermin-tsf candidates (not released)
-    notes: Human authorized build+verify; pin_pending on sources; murage AGPL HOLD
+    summary: TSF intake R1 Gate3 ACCEPT + pin freeze; 3 fermin-tsf still candidate (not released)
+    notes: >
+      Gate3 ACCEPT 2026-11-10 by user fermin gl via DC Bot; pins frozen (PIN-FREEZE.md);
+      murage AGPL HOLD unchanged; no runtime scenario pack → not released.
 notes: >
   PY 样板优先证明验证能力；TSF 为有限主题 Skills intake 并行线。
   Phase2 扩源 Job 不入本队列，直至样板闭环证明验证能力。

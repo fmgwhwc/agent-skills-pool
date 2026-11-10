@@ -24,4 +24,8 @@
 
 ## Gate3
 
-- [ ] Human：相关性 / 可装载性 / 是否值得进 Fermin 限定集（pending）
+- [x] Human：**接受（ACCEPT）** — 2026-11-10 Asia/Shanghai；decider=user fermin gl via DC Bot；scope=三条 `fermin-tsf-*`
+- [x] 记录：`GATE3.md`（Job + L2 pack）；`STATUS.md` / `QUEUE.yaml` / `PROCESS-LOG.md`
+- [x] Pin 冻 SHA：`evidence/.../PIN-FREEZE.md`；meta/catalog 移除 `pin_pending`
+- [x] **未**升 `status=released`；`quality_gate.runtime_scenarios` / `release` 仍 pending
+- [x] murage AGPL HOLD 不变；未复制正文
