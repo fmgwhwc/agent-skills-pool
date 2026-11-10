@@ -3,8 +3,9 @@ theme: THEME-trip-scenic-food
 subject: SUBJ-trip-decision-maker
 value_card: VC-tsf-less-waste
 round: R1
-status: in_progress
+status: gate3_accepted
 created: "2026-11-09T16:10:00+08:00"
+gate3_at: "2026-11-10T00:00:00+08:00"
 authorized_by: human
 mode: build_and_verify
 query_freeze: 5
@@ -15,6 +16,7 @@ inputs:
 outputs:
   verdict: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/VERDICT.md
   matrix: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/MATRIX.md
+  gate3: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/GATE3.md
   evidence_dir: material-line/evidence/JOB-TSF-INTAKE-R1/
   fermin_candidates:
     - fermin-tsf-itinerary-structure
@@ -23,9 +25,15 @@ outputs:
 constraints:
   - no_deletes_under_pool_raw_r6_eval
   - no_released_status_this_round
-  - pin_pending_true_until_sha_frozen
+  - pins_frozen_immutable_sha
   - murage_agpl_hold_no_body_adapt
 gates:
   gate1: theme_job_verdict_fields
   gate2: path_exists_and_license_notes
-  gate3: human_review_pending
+  gate3: human_accept_2026-11-10
+gate3:
+  decision: ACCEPT
+  decision_zh: 接受
+  decider: user fermin gl via DC Bot
+  timestamp: "2026-11-10 Asia/Shanghai"
+  note: ACCEPT is Gate3 verdict only; not release promotion

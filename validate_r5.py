@@ -184,9 +184,9 @@ def main(argv=None):
             check(source["path"] in source.get("url", ""), f"{skill_id}: path URL mismatch")
             if skill_id in TSF_CANDIDATES:
                 check(source["repo"] in TSF_ALLOWED_REPOS, f"{skill_id}: unexpected TSF repo {source['repo']}")
-                check(source.get("pin_pending") is True, f"{skill_id}: TSF source requires pin_pending at {source['path']}")
+                is_full_sha = re.fullmatch(r"[0-9a-f]{40}", source["ref"] or "") is not None
                 check(
-                    source["ref"] == "main" or re.fullmatch(r"[0-9a-f]{40}", source["ref"] or "") is not None,
+                    source["ref"] == "main" or is_full_sha,
                     f"{skill_id}: TSF ref must be main or full SHA",
                 )
                 check(
@@ -194,7 +194,20 @@ def main(argv=None):
                     f"{skill_id}: TSF source license must be MIT or unknown at {source['path']}",
                 )
                 if source["ref"] == "main":
+                    check(
+                        source.get("pin_pending") is True,
+                        f"{skill_id}: TSF source on main requires pin_pending at {source['path']}",
+                    )
                     check("/blob/main/" in source["url"] or "@main" in source["url"], f"{skill_id}: main URL mismatch")
+                else:
+                    check(
+                        not source.get("pin_pending"),
+                        f"{skill_id}: frozen TSF SHA must not set pin_pending at {source['path']}",
+                    )
+                    check(
+                        source["ref"] in source.get("url", ""),
+                        f"{skill_id}: SHA must appear in URL at {source['path']}",
+                    )
             else:
                 pin = PIN_ADDY if source["repo"] == "addyosmani/agent-skills" else PIN_OBRA
                 check(source["repo"] in {"addyosmani/agent-skills", "obra/superpowers"}, f"{skill_id}: unexpected repo {source['repo']}")

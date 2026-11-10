@@ -6,12 +6,13 @@
 |---|---|
 | `VERDICT.md` | 25 候选评分、处置、建议 Fermin ADAPT |
 | `MATRIX.md` | 候选 × 12 能力格 |
+| `GATE3.md` | Human Gate3 **接受（ACCEPT）** — 非 release |
 | `LEVEL.yaml` | 层级与回链 |
 
 上游队列：`../../../../jobs/JOB-TSF-INTAKE-R1/intake-queue.yaml`  
-证据：`../../../../evidence/JOB-TSF-INTAKE-R1/`  
+证据：`../../../../evidence/JOB-TSF-INTAKE-R1/`（含 `PIN-FREEZE.md`）  
 主题叙事：仓库上传 / Job `BRIEF.md` 对齐 `THEME-TSF-SKILLS-PIPELINE-2026-11-09`。
 
 ## 本轮终点
 
-三条 `pool/skills/fermin-tsf-*`（status=`candidate`）。**不**复制 FerroxLabs/murage AGPL 正文。
+三条 `pool/skills/fermin-tsf-*`（status=`candidate`；pins 已冻 SHA）。**不**复制 FerroxLabs/murage AGPL 正文。Gate3 ACCEPT ≠ released。

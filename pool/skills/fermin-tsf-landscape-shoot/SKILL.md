@@ -15,7 +15,7 @@ Produce a **shoot card** for scenic outdoor stills that locks to the TSF day tim
 - Structure inspiration cite: `makaronz/skilslsls` `landscape-photography/SKILL.md` — path EXISTS; **repo SPDX missing** → no verbatim body copy into pool.
 - Safety/access boundary cite: `pjt222/agent-almanac` `skills/plan-hiking-tour/SKILL.md` (MIT) — outdoor reachability only; not a trail prescription engine.
 
-See `meta.yaml` for `pin_pending`.
+See `meta.yaml` for frozen SHA pins (PIN-FREEZE evidence).
 
 ## Load / do not load
 
@@ -83,4 +83,4 @@ List: what is technique opinion, what is UNKNOWN (rights, access, weather), what
 - At least one shoot card exists with kit_min, light_window, and rights_exif=UNKNOWN or sourced.
 - Timeline conflict with food/transit is explicit or resolved.
 - No fabricated scenic venue names.
-- meta stays `candidate` with pin_pending sources.
+- meta stays `candidate` with frozen SHA pins (not released).

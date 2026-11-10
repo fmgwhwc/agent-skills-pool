@@ -9,25 +9,22 @@ grids:
 - F-allergen-hours
 source:
   repo: hwspen7/PoreiaGo
-  ref: main
+  ref: 76d5e2171b302594ad0ae83d9b36d513c4b7ac44
   path: plugins/skills/culinary-specialty-discovery/SKILL.md
-  url: https://github.com/hwspen7/PoreiaGo/blob/main/plugins/skills/culinary-specialty-discovery/SKILL.md
+  url: https://github.com/hwspen7/PoreiaGo/blob/76d5e2171b302594ad0ae83d9b36d513c4b7ac44/plugins/skills/culinary-specialty-discovery/SKILL.md
   license: MIT
-  pin_pending: true
 adapted_from:
 - repo: hwspen7/PoreiaGo
-  ref: main
+  ref: 76d5e2171b302594ad0ae83d9b36d513c4b7ac44
   path: plugins/skills/culinary-specialty-discovery/SKILL.md
-  url: https://github.com/hwspen7/PoreiaGo/blob/main/plugins/skills/culinary-specialty-discovery/SKILL.md
+  url: https://github.com/hwspen7/PoreiaGo/blob/76d5e2171b302594ad0ae83d9b36d513c4b7ac44/plugins/skills/culinary-specialty-discovery/SKILL.md
   notes: Anti-fabrication and UNKNOWN discipline; registry/handler specifics cut for portable Fermin card.
   license: MIT
-  pin_pending: true
 license_spdx: MIT
 license_evidence:
-  ref: main
-  url: https://github.com/hwspen7/PoreiaGo/blob/main/LICENSE
-  holder: hwspen7 (pin_pending)
-  pin_pending: true
+  ref: 76d5e2171b302594ad0ae83d9b36d513c4b7ac44
+  url: https://github.com/hwspen7/PoreiaGo/blob/76d5e2171b302594ad0ae83d9b36d513c4b7ac44/LICENSE
+  holder: hwspen7
 decision: adapt
 rationale: MIT food shortlist discipline for TSF; murage C08 held on AGPL conflict and not copied.
 fermin_tags:
@@ -75,11 +72,13 @@ quality_gate:
   catalog_merge: pass
   runtime_scenarios: pending
   release: pending
-  checks: material-line JOB-TSF-INTAKE-R1 PATH-CHECK + LICENSE-NOTES; validate_r5 admission for candidate
+  checks: material-line JOB-TSF-INTAKE-R1 PATH-CHECK + LICENSE-NOTES + PIN-FREEZE + GATE3 ACCEPT; validate_r5
+    admission for candidate
 open_risks:
-- pin_pending until SHA freeze.
+- Pins frozen to immutable SHAs (PIN-FREEZE.md); Gate3 ACCEPT recorded — not a release.
 - Empty-input sessions may frustrate users expecting invented lists — intentional.
-- Gate3 human still pending on shortlist UX.
+- No runtime scenario pack for food shortlist UX → quality_gate.runtime_scenarios/release stay pending;
+  status remains candidate. murage AGPL HOLD unchanged.
 evidence:
 - kind: path-check
   path: material-line/evidence/JOB-TSF-INTAKE-R1/PATH-CHECK.md
@@ -87,3 +86,7 @@ evidence:
   path: material-line/evidence/JOB-TSF-INTAKE-R1/LICENSE-NOTES.md
 - kind: verdict
   path: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/VERDICT.md
+- kind: pin-freeze
+  path: material-line/evidence/JOB-TSF-INTAKE-R1/PIN-FREEZE.md
+- kind: gate3
+  path: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/GATE3.md

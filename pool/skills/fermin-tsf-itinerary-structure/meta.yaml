@@ -9,41 +9,37 @@ grids:
 - T-source
 source:
   repo: moonlight-lupin/agent-skills
-  ref: main
+  ref: ceacc13d2bbc98d9dea5cbabcb4f44e4c7fd14a9
   path: productivity/travel-itinerary/SKILL.md
-  url: https://github.com/moonlight-lupin/agent-skills/blob/main/productivity/travel-itinerary/SKILL.md
+  url: https://github.com/moonlight-lupin/agent-skills/blob/ceacc13d2bbc98d9dea5cbabcb4f44e4c7fd14a9/productivity/travel-itinerary/SKILL.md
   license: MIT
-  pin_pending: true
 adapted_from:
 - repo: moonlight-lupin/agent-skills
-  ref: main
+  ref: ceacc13d2bbc98d9dea5cbabcb4f44e4c7fd14a9
   path: productivity/travel-itinerary/SKILL.md
-  url: https://github.com/moonlight-lupin/agent-skills/blob/main/productivity/travel-itinerary/SKILL.md
+  url: https://github.com/moonlight-lupin/agent-skills/blob/ceacc13d2bbc98d9dea5cbabcb4f44e4c7fd14a9/productivity/travel-itinerary/SKILL.md
   notes: Trip/day/node structure retained; business export/sanitize stack cut; TSF coaxial roles added.
   license: MIT
-  pin_pending: true
 - repo: jeffreytse/grimoire-core
-  ref: main
+  ref: 7ff5861b00836cb0d675c00a09a26d143722579e
   path: skills/travel/planning/skills/design-trip-itinerary/SKILL.md
-  url: https://github.com/jeffreytse/grimoire-core/blob/main/skills/travel/planning/skills/design-trip-itinerary/SKILL.md
+  url: https://github.com/jeffreytse/grimoire-core/blob/7ff5861b00836cb0d675c00a09a26d143722579e/skills/travel/planning/skills/design-trip-itinerary/SKILL.md
   notes: Secondary cite — geography clustering and buffer practice; not primary body.
   license: MIT
-  pin_pending: true
 - repo: AtlasOmnia/donna-starter
-  ref: main
+  ref: b6eaf1bab0527daab22ad02043fcd7c9869d0323
   path: skills/productivity/destination-trip-planning/SKILL.md
-  url: https://github.com/AtlasOmnia/donna-starter/blob/main/skills/productivity/destination-trip-planning/SKILL.md
+  url: https://github.com/AtlasOmnia/donna-starter/blob/b6eaf1bab0527daab22ad02043fcd7c9869d0323/skills/productivity/destination-trip-planning/SKILL.md
   notes: Secondary cite — theme/destination lock; reject generic city fill.
   license: MIT
-  pin_pending: true
 license_spdx: MIT
 license_evidence:
-  ref: main
-  url: https://github.com/moonlight-lupin/agent-skills/blob/main/LICENSE
-  holder: moonlight-lupin (pin_pending)
-  pin_pending: true
+  ref: ceacc13d2bbc98d9dea5cbabcb4f44e4c7fd14a9
+  url: https://github.com/moonlight-lupin/agent-skills/blob/ceacc13d2bbc98d9dea5cbabcb4f44e4c7fd14a9/LICENSE
+  holder: moonlight-lupin
 decision: adapt
-rationale: Narrow upstream itinerary structure into a TSF half-day/one-day coaxial plan with honest UNKNOWN facts.
+rationale: Narrow upstream itinerary structure into a TSF half-day/one-day coaxial plan with honest UNKNOWN
+  facts.
 fermin_tags:
 - agent-skills
 - tsf
@@ -83,10 +79,13 @@ quality_gate:
   catalog_merge: pass
   runtime_scenarios: pending
   release: pending
-  checks: material-line JOB-TSF-INTAKE-R1 PATH-CHECK + LICENSE-NOTES; validate_r5 admission for candidate
+  checks: material-line JOB-TSF-INTAKE-R1 PATH-CHECK + LICENSE-NOTES + PIN-FREEZE + GATE3 ACCEPT; validate_r5
+    admission for candidate
 open_risks:
-- source.ref is main with pin_pending; freeze SHA before release.
-- No runtime scenario pack for TSF itinerary yet (Gate3/human).
+- Pins frozen to immutable SHAs (see material-line/evidence/JOB-TSF-INTAKE-R1/PIN-FREEZE.md); Gate3 ACCEPT
+  recorded — not a release.
+- No runtime scenario pack for TSF itinerary yet → quality_gate.runtime_scenarios/release stay pending;
+  status remains candidate.
 - Secondary cites not independently re-executed beyond path EXISTS.
 evidence:
 - kind: path-check
@@ -95,3 +94,7 @@ evidence:
   path: material-line/evidence/JOB-TSF-INTAKE-R1/LICENSE-NOTES.md
 - kind: verdict
   path: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/VERDICT.md
+- kind: pin-freeze
+  path: material-line/evidence/JOB-TSF-INTAKE-R1/PIN-FREEZE.md
+- kind: gate3
+  path: material-line/materials/L2-canonical-candidate/TSF-INTAKE-R1/GATE3.md

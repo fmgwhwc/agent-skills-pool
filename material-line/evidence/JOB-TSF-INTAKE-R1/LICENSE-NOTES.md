@@ -35,16 +35,10 @@
 - `landscape-photography/SKILL.md` EXISTS，但缺少可再分发许可证明。
 - Fermin `fermin-tsf-landscape-shoot`：以 clawic MIT 摄影工序为可再分发主 provenance；对 C07 仅保留格点/场景启发与路径 cite，不粘贴上游正文。
 
-## pin_pending
+## pin freeze（2026-11-10）
 
-本轮 meta/`source` 统一：
-
-```yaml
-ref: main
-pin_pending: true
-```
-
-PATH-CHECK 记录了检查时刻的 `main` HEAD 与 blob sha，供后续冻 pin；**未**宣称 immutable release pin。
+Gate3 ACCEPT 同步冻 pin：`ref` 改为 default-branch tip 的不可变 commit SHA；移除 `pin_pending`。  
+明细见同目录 `PIN-FREEZE.md`。makaronz 仅冻 SHA + cite，**不**宣称 SPDX 许可。
 
 ## Skill-level claims（抽样）
 

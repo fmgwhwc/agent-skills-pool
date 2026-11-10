@@ -68,21 +68,23 @@
 |---|---|
 | PATH EXISTS（C01,C02,C03,C04,C06,C07,C08,C09,C10） | **PASS** — 见 `evidence/JOB-TSF-INTAKE-R1/PATH-CHECK.md` |
 | LICENSE murage | **HOLD** — AGPL-3.0 仓 vs Apache-2.0 frontmatter |
-| LICENSE makaronz/skilslsls | **pin_pending / SPDX 缺失** — 见 LICENSE-NOTES |
-| pin | 全部 `ref: main` + `pin_pending: true` |
+| LICENSE makaronz/skilslsls | **SPDX 缺失** — SHA 已冻；正文未复制；见 LICENSE-NOTES / PIN-FREEZE |
+| pin | **已冻 tip SHA**（2026-11-10）；`pin_pending` 已移除 — 见 `evidence/.../PIN-FREEZE.md` |
+| Gate3 | **接受（ACCEPT）** — 2026-11-10 Asia/Shanghai；decider=user fermin gl via DC Bot；**≠ release** |
 
 ## 能证明 / 不能证明
 
 **能证明**
 
-- 所列 adapt/hold 路径在 GitHub `main` 上 EXISTS（API `contents` 200）
+- 所列 adapt/hold 路径在 GitHub default-branch tip 上 EXISTS（API `contents` 200）；tip SHA 已写入 meta/catalog
 - murage 仓级 license SPDX = AGPL-3.0；C08/C09 frontmatter `license: Apache-2.0`
 - C01/C02/C03/C04/C06/C10 仓级 MIT（API）
+- Human Gate3 ACCEPT（见 `GATE3.md`）
 
 **不能证明**
 
-- 未冻 immutable commit 作为长期 pin（本轮显式 `pin_pending`）
-- makaronz 仓可再分发许可条款（无 SPDX）
+- runtime scenario pack（故 `quality_gate.runtime_scenarios` / `release` 仍 pending；status 仍 candidate）
+- makaronz 仓可再分发许可条款（无 SPDX；仅 cite）
 - murage 作者是否意图 Apache（与仓 LICENSE 冲突未澄清）
 - 任何真实目的地营业时间、路况、店名真实性（本 Job 不产出攻略事实库）
 

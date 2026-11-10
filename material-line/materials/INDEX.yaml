@@ -1,6 +1,6 @@
 # Materials INDEX — independent from root catalog.yaml (Skills ≠ materials)
 version: 0
-updated: '2026-11-09'
+updated: '2026-11-10'
 note: >
   Skills 装载面见根目录 catalog.yaml；本文件只索引主题物料。
   禁止把过程技能 released 条目混称为物料完成。
@@ -32,4 +32,4 @@ entries:
       - pool/skills/fermin-tsf-landscape-shoot
       - pool/skills/fermin-tsf-food-discovery
     notes: >
-      VERDICT+MATRIX；Gate2 path/license verified；三条 fermin-tsf-* 为 catalog candidate，未 released。
+      VERDICT+MATRIX+GATE3 ACCEPT；pins frozen；三条 fermin-tsf-* 仍为 catalog candidate，未 released；murage HOLD。

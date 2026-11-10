@@ -14,7 +14,7 @@ Turn an accepted TSF day intent into a **small, coaxial node plan**: movement, s
 - Primary: `moonlight-lupin/agent-skills` `productivity/travel-itinerary/SKILL.md` (MIT) — trip/day/node mental model; export/business machinery cut.
 - Secondary cite only: `jeffreytse/grimoire-core` design-trip-itinerary; `AtlasOmnia/donna-starter` destination-trip-planning (MIT) — clustering / theme lock ideas; no wholesale copy.
 
-Full pins and `pin_pending` live in `meta.yaml`.
+Full frozen pins live in `meta.yaml` (immutable SHAs; see PIN-FREEZE evidence).
 
 ## Load / do not load
 
@@ -99,4 +99,4 @@ Return the day artifact path plus open UNKNOWNs. Do not mark catalog `released`.
 - One half-day or one-day node plan exists with roles and TSF links.
 - Fact/opinion/UNKNOWN discipline holds; no invented venues.
 - Handoff notes name shoot and food sibling skills when relevant.
-- meta remains `status: candidate` with `pin_pending: true` on sources.
+- meta remains `status: candidate`; upstream pins frozen to immutable SHAs (not released).

@@ -84,4 +84,4 @@ In the run note: state that C08 murage planner remains HOLD (AGPL conflict) and 
 - Shortlist artifact exists with fact/opinion/UNKNOWN columns.
 - Zero fabricated venue names presented as fact.
 - No murage AGPL prose in `pool/skills/`.
-- meta `status: candidate`; sources `pin_pending: true`.
+- meta `status: candidate`; sources pinned to immutable SHAs (not released).
